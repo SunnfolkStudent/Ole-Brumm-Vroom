@@ -1,7 +1,8 @@
 using UnityEngine;
 
-public class Parallax : MonoBehaviour 
+public class Parallax : MonoBehaviour
 {
+    private Spawner _spawner;
     private Transform ground; // For reference to the transform 
     private Camera cam; // Reference to Main Camera
     
@@ -16,14 +17,14 @@ public class Parallax : MonoBehaviour
     [SerializeField] private float multiplierPhase3 = 3f;
     [SerializeField] private float multiplierPhase4 = 6f;
 
-    /*[Header("Choose a bool depending on function:")]
-    [SerializeField] private bool isBackground;
+    [Header("Choose a bool depending on function. Leave unchecked if background.")]
     [SerializeField] private bool isPlatform;
-    [SerializeField] private bool isObstacle;*/
+    [SerializeField] private bool isObstacle;
 
     // Use this for initialization
     private void Start() 
     {
+        _spawner = GetComponentInParent<Spawner>();
         ground = transform;
         cam = Camera.main;
 
@@ -70,12 +71,17 @@ public class Parallax : MonoBehaviour
         //If the ground tile is left of camera viewport
         if (viewPos.x < 0) 
         {
-            //gameObject is offscreen, destroy it and re-instantiate it at new xPosition
-            float currentRightX = ground.position.x + groundWidth - 1f;
-            nextXPos = currentRightX + groundWidth;
-                
-            Instantiate(gameObject, new Vector3 (nextXPos, position.y, position.z), ground.rotation);
-
+            // if gameObject is offscreen, destroy it and re-instantiate it at new xPosition
+            float currentRightX = ground.position.x + groundWidth;
+            if (isPlatform || isObstacle)
+            {
+                // TODO: Connect to the Spawner Script, and spawn through that one.
+            }
+            else
+            {
+                nextXPos = currentRightX + groundWidth;
+                Instantiate(gameObject, new Vector3 (nextXPos, position.y, position.z), ground.rotation);
+            }
             Destroy(gameObject);
         }
 

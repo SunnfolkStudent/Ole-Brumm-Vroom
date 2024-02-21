@@ -8,23 +8,24 @@ public class PlayerController : MonoBehaviour
 {
     #region ---Initialization & Variables---
 
-        [SerializeField] private LayerMask _groundLayer;
-        [SerializeField] private LayerMask _platformLayer;
+        // --- Components ---
         private CapsuleCollider2D _playerCollider;
         private Rigidbody2D _rigidbody2D;
-
-        private GameManager _gameManager;
-        private Animator _animator;
-        private PlayerInput _input;
-        
         private AudioSource _audioSource;
         [SerializeField] private AudioClip[] runClips;
         [SerializeField] private AudioClip[] jumpClips;
+        private Animator _animator;
         
-        private Vector2 _moveDirection;
-        [SerializeField] private float raycastDetectionRange = 0.5f; 
+        // --- Scripts ---
+        private GameManager _gameManager;
+        private PlayerInput _input;
+        
+        // --- Variables ---
+        [SerializeField] private LayerMask groundLayer;
+        [SerializeField] private float raycastDetectionRange = 0.5f;
         private bool isPlayerGrounded;
-        private bool isPlayerOnPlatform;
+
+        private Vector2 _moveDirection;
         
         [Header("Player Movement (Vertical Only)")]
         [SerializeField] private float jumpSpeed = 5f;
@@ -60,10 +61,10 @@ public class PlayerController : MonoBehaviour
             
             // TODO: Move most of this code away from Update, and over to just receive inputs from PlayerInput below.
 
-            if (PlayerInput.DropBelow)
+            /*if (PlayerInput.DropBelow)
             {
                 // TODO: Call method for DropBelow.
-            }
+            }*/
             
             if (PlayerInput.SlowDescend)
             {
@@ -75,7 +76,7 @@ public class PlayerController : MonoBehaviour
             
             if (PlayerInput.Jump)
             {
-                if (!isPlayerGrounded || !isPlayerOnPlatform) return;
+                if (!isPlayerGrounded) return;
              
                 Debug.Log("Player is jumping");
                 JumpingAnimation();
@@ -138,9 +139,9 @@ public class PlayerController : MonoBehaviour
                 
             // Draw raycasts downwards from brushRaycasterPosition, they are drawn with an offset on the x-axis on both sides
             bool hitLeft = Physics2D.Raycast(position + new Vector3(offsetLeft, 0, 0), 
-                        Vector2.down, raycastDetectionRange, _groundLayer);
+                        Vector2.down, raycastDetectionRange, groundLayer);
             bool hitRight = Physics2D.Raycast(position - new Vector3(offsetRight, 0, 0), 
-                        Vector2.down, raycastDetectionRange, _groundLayer);
+                        Vector2.down, raycastDetectionRange, groundLayer);
 
             if (hitLeft || hitRight)
             {
@@ -193,9 +194,9 @@ public class PlayerController : MonoBehaviour
 
        private void OnTriggerEnter2D(Collider2D other)
        {
-           if (other.gameObject.CompareTag("Obstacle"))
+           if (other.gameObject.CompareTag("Obstacle") || other.gameObject.CompareTag("DeathZone"))
            {
-               Debug.Log("Player Crashed into Obstacle");
+               Debug.Log("Player Crashed into Obstacle / DeathZone");
                _gameManager.LoadRunEndedScene();
            }
            else if (other.gameObject.CompareTag("Item"))

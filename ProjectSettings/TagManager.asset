@@ -5,11 +5,12 @@ TagManager:
   serializedVersion: 2
   tags:
   - Ground
-  - DespawnWall
   - Background
   - Obstacle
   - Item
   - PlatformSpawnArea
+  - Platform
+  - DeathZone
   layers:
   - Default
   - TransparentFX
@@ -18,7 +19,7 @@ TagManager:
   - Water
   - UI
   - Obstacles
-  - Enemies
+  - Platforms
   - Background
   - Ground
   - 

@@ -36,6 +36,11 @@ MonoBehaviour:
         - globalObjectIdString: GlobalObjectId_V1-2-8c9cfa26abfee488c85f1582747f6a02-1263490375-0
         - globalObjectIdString: GlobalObjectId_V1-2-8c9cfa26abfee488c85f1582747f6a02-693248418-0
         - globalObjectIdString: GlobalObjectId_V1-2-8c9cfa26abfee488c85f1582747f6a02-532852366-0
+        - globalObjectIdString: GlobalObjectId_V1-2-8c9cfa26abfee488c85f1582747f6a02-1468731783-0
+        - globalObjectIdString: GlobalObjectId_V1-2-8c9cfa26abfee488c85f1582747f6a02-2010977696666620170-6898696532677173376
+        - globalObjectIdString: GlobalObjectId_V1-2-8c9cfa26abfee488c85f1582747f6a02-2010977696666620170-1086735381
+        - globalObjectIdString: GlobalObjectId_V1-2-8c9cfa26abfee488c85f1582747f6a02-2010977696666620170-1935033743
+        - globalObjectIdString: GlobalObjectId_V1-2-8c9cfa26abfee488c85f1582747f6a02-2979261699357190641-1039197824806608887
         values:
         - colorIndex: 0
           iconNameOrGuid: PreMatQuad
@@ -67,9 +72,19 @@ MonoBehaviour:
           iconNameOrGuid: MeshCollider Icon
         - colorIndex: 0
           iconNameOrGuid: Canvas Icon
-        - colorIndex: 0
+        - colorIndex: 5
           iconNameOrGuid: BoxCollider Icon
         - colorIndex: 0
           iconNameOrGuid: AudioReverbZone Icon
-        - colorIndex: 0
+        - colorIndex: 4
           iconNameOrGuid: PreMatCylinder
+        - colorIndex: 1
+          iconNameOrGuid: PreMatCylinder
+        - colorIndex: 0
+          iconNameOrGuid: WheelCollider Icon
+        - colorIndex: 0
+          iconNameOrGuid: WheelCollider Icon
+        - colorIndex: 0
+          iconNameOrGuid: WheelCollider Icon
+        - colorIndex: 0
+          iconNameOrGuid: WheelCollider Icon
