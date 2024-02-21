@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     private PlayerController _playerController;
+    private PlayerInput _playerInput;
     [SerializeField] private TextMeshProUGUI distanceNumberText;
 
     [Header("Adjust how quickly the distance increases in each phase:")]
@@ -37,6 +38,7 @@ public class GameManager : MonoBehaviour
     
     private void Start()
     {
+        _playerInput = GameObject.FindWithTag("Player").GetComponent<PlayerInput>();
         _playerController = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
         distanceNumberText = GetComponentInChildren<TextMeshProUGUI>();
         phase1Active = true;
@@ -46,8 +48,13 @@ public class GameManager : MonoBehaviour
     {
         if (IsPlaying)
         {
+            Time.timeScale = 1;
             CurrentScore += (ScoreMultiplier() * Time.deltaTime);
             distanceNumberText.text = PrettyScore();
+        }
+        else
+        {
+            Time.timeScale = 0;
         }
     }
 
@@ -57,42 +64,31 @@ public class GameManager : MonoBehaviour
         {
             if (CurrentScore is >= 0 and < 100)
             {
-                _playerController.UpdateRunningAnimation();
-                
                 Debug.Log("Multiplier:" + phase1Multiplier);
+                PhaseChange();
                 return phase1Multiplier;
             }
             if (CurrentScore is >= 100 and < 1000)
             {
-                phase2Active = true;
-                phase1Active = false;
-                _playerController.UpdateRunningAnimation();
-                
+                PhaseChange();
                 Debug.Log("Multiplier:" + phase2Multiplier);
                 return phase2Multiplier;
             }
             if (CurrentScore is >= 1000 and < 10000)
             {
-                phase3Active = true;
-                phase2Active = false;
-                _playerController.UpdateRunningAnimation();
-                
+                PhaseChange();
                 Debug.Log("Multiplier:" + phase3Multiplier);
                 return phase3Multiplier;
             }
             if (CurrentScore is >= 10000 and < 100000)
             {
-                phase4Active = true;
-                phase3Active = false;
-                _playerController.UpdateRunningAnimation();
-                
+                PhaseChange();
                 Debug.Log("Multiplier:" + phase4Multiplier);
                 return phase4Multiplier;
             }
             if (CurrentScore >= 100000)
             {
-                IsPlaying = false;
-                LoadVictoryScene();
+                CurrentScore = 100000;
             }
             Debug.Log("Multiplier: 1");
             return 1;
@@ -100,8 +96,33 @@ public class GameManager : MonoBehaviour
     
         private string PrettyScore()
         {
-            //return Mathf.RoundToInt(CurrentScore).ToString();
             return (Mathf.RoundToInt(CurrentScore) + " m");
+        }
+
+        private void PhaseChange()
+        {
+            switch (CurrentScore)
+            {
+                case >= 0 and < 100:
+                    phase1Active = true;
+                    break;
+                case >= 100 and < 1000:
+                    phase2Active = true;
+                    phase1Active = false;
+                    break;
+                case >= 1000 and < 10000:
+                    phase3Active = true;
+                    phase2Active = false;
+                    break;
+                case >= 10000 and < 100000:
+                    phase4Active = true;
+                    phase3Active = false;
+                    break;
+                case >= 100000:
+                    CurrentScore = 100000;
+                    LoadVictoryScene();
+                    break;
+            }
         }
 
     #endregion
@@ -111,33 +132,35 @@ public class GameManager : MonoBehaviour
     public void LoadRunEndedScene()
         {
             SceneManager.LoadScene("RunEnded", LoadSceneMode.Additive);
-            GameManager.IsPlaying = false;
+            IsPlaying = false;
+            _playerInput.ChangeInputToResetRun();
         }
         
         public void LoadNewRun()
         {
             SceneManager.UnloadSceneAsync("RunEnded");
             SceneManager.LoadScene("GameScene");
-            GameManager.CurrentScore = 0;
-            GameManager.IsPlaying = true;
+            CurrentScore = 0;
+            IsPlaying = true;
+            _playerInput.ChangeToPlayer();
         }
     
         public void LoadPauseScreen()
         {
-            Time.timeScale = 0;
-            GameManager.IsPlaying = false;
+            IsPlaying = false;
             SceneManager.LoadScene("PauseScreen", LoadSceneMode.Additive);
+            _playerInput.ChangeToPauseScreen();
         }
     
         public void UnloadPauseScreen()
         {
             SceneManager.UnloadSceneAsync("PauseScreen");
-            Time.timeScale = 1;
-            GameManager.IsPlaying = true;
+            IsPlaying = true;
         }
-    
-        public void LoadVictoryScene()
+
+        private void LoadVictoryScene()
         {
+            IsPlaying = false;
             SceneManager.LoadScene("Victory", LoadSceneMode.Single);
         }
     

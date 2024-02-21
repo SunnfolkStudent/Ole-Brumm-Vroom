@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
@@ -22,8 +23,12 @@ public class PlayerController : MonoBehaviour
         
         // --- Variables ---
         [SerializeField] private LayerMask groundLayer;
-        [SerializeField] private float raycastDetectionRange = 0.5f;
+        [SerializeField] private float raycastDetectionRange = 0.1f;
+        [SerializeField] private float raycastStartingOffsetX = 1f;
+        
         private bool isPlayerGrounded;
+        private bool isPlayerOnPlatform;
+        private List<Collider2D> platform = new ();
 
         private Vector2 _moveDirection;
         
@@ -38,6 +43,10 @@ public class PlayerController : MonoBehaviour
         [Header("JumpBuffer")] 
         [SerializeField] private float jumpBufferTime = 0.2f;
         private float _jumpBufferCounter;
+
+        [Header("Collision Boxes")]
+        [SerializeField] private Collider2D headCollider;
+        [SerializeField] private Collider2D bodyCollider;
     
         // Update is called once per frame
         private void Start()
@@ -61,28 +70,32 @@ public class PlayerController : MonoBehaviour
             
             // TODO: Move most of this code away from Update, and over to just receive inputs from PlayerInput below.
 
-            /*if (PlayerInput.DropBelow)
-            {
-                // TODO: Call method for DropBelow.
-            }*/
-            
-            if (PlayerInput.SlowDescend)
-            {
-                if (isPlayerGrounded) return;
-                _rigidbody2D.velocity = new Vector2(_rigidbody2D.velocity.x, jumpSpeed / 3);
-
-                // TODO: Call method for SlowDescend.
-            }
-            
             if (PlayerInput.Jump)
             {
                 if (!isPlayerGrounded) return;
-             
-                Debug.Log("Player is jumping");
-                JumpingAnimation();
-                
-                // Applies upwards force on the physics of the object, according to jumpSpeed.
-                _rigidbody2D.velocity = new Vector2(_rigidbody2D.velocity.x, jumpSpeed);
+                PlayerJumps();
+            }
+
+            if (PlayerInput.DropBelow)
+            {
+                print("Dropping through " + platform.Count + " platforms!");
+                foreach (var p in platform)
+                {
+                    if (p == null) continue;
+                    Physics2D.IgnoreCollision(headCollider, p);
+                    Physics2D.IgnoreCollision(bodyCollider, p);
+                }
+
+                /*var amount = platform.Count;*/
+                while(platform.Contains(null))
+                {
+                    platform.Remove(null);
+
+                    /*
+                    amount--;
+
+                    if (amount < 0) break;*/
+                }
             }
             
             // ---------------------- Inputs Pause Screen & RunEndedScreen -------------------------------
@@ -106,8 +119,13 @@ public class PlayerController : MonoBehaviour
                 Time.timeScale = 1;
                 _gameManager.UnloadPauseScreen();
             }
+
+            if (PlayerInput.QuitGame)
+            {
+                _gameManager.QuitGame();
+            }
             
-            if (isPlayerGrounded)
+            /*if (isPlayerGrounded)
             { _coyoteTimeCounter = coyoteTime; }
             else
             { _coyoteTimeCounter -= 1 * Time.deltaTime; }
@@ -115,7 +133,7 @@ public class PlayerController : MonoBehaviour
             if (PlayerInput.Jump)
             { _jumpBufferCounter = jumpBufferTime; }
             else 
-            { _jumpBufferCounter -= 1 * Time.deltaTime; }
+            { _jumpBufferCounter -= 1 * Time.deltaTime; }*/
             
             // If we are eligible to Jump
             /*if (_jumpBufferCounter > 0 && _coyoteTimeCounter > 0)
@@ -125,39 +143,54 @@ public class PlayerController : MonoBehaviour
             }*/
             
             isPlayerGrounded = GroundedPlayer();
+            if (!isPlayerGrounded)
+            {
+                Debug.Log("Player is not grounded");
+            }
         }
-        
+
+        private void FixedUpdate()
+        {
+            if (_rigidbody2D.velocity.y == 0 && (isPlayerGrounded || isPlayerOnPlatform)) 
+            {
+                RunningAnimations();
+            }
+        }
+
         private bool GroundedPlayer()
         {
-            float offsetLeft = 0.2f;
-            float offsetRight = 1.7f;
-        
             // Just visuals, no function
             var position = transform.position;
-            Debug.DrawRay(position + new Vector3(offsetRight, -1.6f, 0), Vector2.down, Color.red);
-            Debug.DrawRay(position - new Vector3(offsetLeft, 1.6f, 0), Vector2.down, Color.green);
+            Debug.DrawRay(position + new Vector3(raycastStartingOffsetX, 0, 0), Vector2.down * raycastDetectionRange, Color.magenta);
                 
             // Draw raycasts downwards from brushRaycasterPosition, they are drawn with an offset on the x-axis on both sides
-            bool hitLeft = Physics2D.Raycast(position + new Vector3(offsetLeft, 0, 0), 
-                        Vector2.down, raycastDetectionRange, groundLayer);
-            bool hitRight = Physics2D.Raycast(position - new Vector3(offsetRight, 0, 0), 
-                        Vector2.down, raycastDetectionRange, groundLayer);
+            bool hitGround = Physics2D.Raycast(position + new Vector3(raycastStartingOffsetX, 0, 0), 
+                        Vector2.down, distance: raycastDetectionRange, groundLayer);
 
-            if (hitLeft || hitRight)
+            if (hitGround)
             {
-                Debug.Log("PlayerIsGrounded");
+                Debug.Log("Player Is Grounded");
                 return true;
             }
-            else
-                return false;
+            return false;
         }
     
         #endregion
 
+    private void PlayerJumps()
+    {
+        Debug.Log("Player attempts jumping");
+        if (!isPlayerGrounded) return;
+        Debug.Log("Player is jumping");
+        JumpingAnimation();
+        _rigidbody2D.velocity = new Vector2(_rigidbody2D.velocity.x, jumpSpeed);
+    }
+        
     #region ---Animation---
 
-    public void UpdateRunningAnimation()
+    public void RunningAnimations()
     {
+        if (_rigidbody2D.velocity.y != 0 && isPlayerGrounded) return;
         if (GameManager.phase1Active)
         {
             _animator.Play("PlayerRunPhase1");
@@ -178,13 +211,9 @@ public class PlayerController : MonoBehaviour
 
     private void JumpingAnimation()
     {
-        if (_rigidbody2D.velocity.y > 0) 
+        if (_rigidbody2D.velocity.y is > 0 or < 0) 
         {
             _animator.Play("PlayerJump");
-        }
-        else
-        {
-            _animator.Play("PlayerDescend");
         }
     }
 
@@ -205,8 +234,29 @@ public class PlayerController : MonoBehaviour
                // TODO: Run Unity Event (Item), which applies the item buff to the game.
            }
        }
+       
+       private void OnTriggerExit2D(Collider2D other)
+       {
+           if (!other.gameObject.CompareTag("Platform")) return;
 
-   #endregion
+           var collision = other.GetComponent<PlatformCollisionBoxes>().collision;
+
+           if (platform.Contains(collision))
+           {
+               Physics2D.IgnoreCollision(headCollider, collision, false);
+               Physics2D.IgnoreCollision(bodyCollider, collision, false);
+               platform.Remove(collision);
+           }
+       }
+
+       private void OnCollisionEnter2D(Collision2D other)
+       {
+           if (!other.gameObject.CompareTag("Platform")) return;
+
+           if (!platform.Contains(other.collider)) platform.Add(other.collider);
+       }
+
+       #endregion
 
     #region ---Audio---
 

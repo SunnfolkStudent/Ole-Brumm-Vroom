@@ -27,9 +27,16 @@ public class Parallax : MonoBehaviour
         _spawner = GetComponentInParent<Spawner>();
         ground = transform;
         cam = Camera.main;
-
-        //Store Ground width (Width of the ground tile)
-        groundWidth = ground.GetComponent<Renderer>().bounds.size.x; 
+        
+        if (isPlatform)
+        {
+            groundWidth = ground.GetComponentInChildren<Renderer>().bounds.size.x; 
+        }
+        else
+        {
+            // Store Ground Width (Width of the Ground tile)
+            groundWidth = ground.GetComponent<Renderer>().bounds.size.x; 
+        }
     }
 
     private float CurrentSpeed()

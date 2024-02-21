@@ -125,12 +125,12 @@ TextureImporter:
       name: Ole Brumm Spritesheet Phase 1_0
       rect:
         serializedVersion: 2
-        x: 69
+        x: 72
         y: 0
         width: 888
         height: 904
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.7246127, y: 0.0034526342}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -150,8 +150,8 @@ TextureImporter:
         y: 0
         width: 887
         height: 891
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.7246127, y: 0.003452634}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -171,8 +171,8 @@ TextureImporter:
         y: 0
         width: 906
         height: 885
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.7246127, y: 0.003452634}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -192,8 +192,8 @@ TextureImporter:
         y: 0
         width: 880
         height: 905
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.7246127, y: 0.003452634}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

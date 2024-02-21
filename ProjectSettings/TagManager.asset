@@ -8,9 +8,9 @@ TagManager:
   - Background
   - Obstacle
   - Item
-  - PlatformSpawnArea
   - Platform
   - DeathZone
+  - SpawnArea
   layers:
   - Default
   - TransparentFX

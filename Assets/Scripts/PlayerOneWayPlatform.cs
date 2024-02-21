@@ -3,21 +3,25 @@ using UnityEngine;
 
 public class PlayerOneWayPlatform : MonoBehaviour
 {
-    private GameObject currentOneWayPlatform;
+    /*private GameObject currentOneWayPlatform;
 
-    [SerializeField] private CapsuleCollider2D playerCollider;
+    [SerializeField] private BoxCollider2D playerBoxCollider;
+    [SerializeField] private CapsuleCollider2D playerHeadCollider;
 
     private void Start()
     {
-        playerCollider = GameObject.FindWithTag("Player").GetComponent<CapsuleCollider2D>();
+        playerHeadCollider = GameObject.FindWithTag("Player").GetComponent<CapsuleCollider2D>();
+        playerBoxCollider = GameObject.FindWithTag("Player").GetComponent<BoxCollider2D>();
     }
 
     private void Update()
     {
         if (PlayerInput.DropBelow)
         {
+            Debug.Log("Player attempts to drop down.");
             if (currentOneWayPlatform != null)
             {
+                Debug.Log("Player is dropping down.");
                 StartCoroutine(DisableCollision());
             }
         }
@@ -43,8 +47,10 @@ public class PlayerOneWayPlatform : MonoBehaviour
     {
         BoxCollider2D platformCollider = currentOneWayPlatform.GetComponent<BoxCollider2D>();
 
-        Physics2D.IgnoreCollision(playerCollider, platformCollider);
-        yield return new WaitForSeconds(0.25f);
-        Physics2D.IgnoreCollision(playerCollider, platformCollider, false);
-    }
+        Physics2D.IgnoreCollision(playerBoxCollider, platformCollider);
+        Physics2D.IgnoreCollision(playerHeadCollider, platformCollider);
+        yield return new WaitForSeconds(4f);
+        Physics2D.IgnoreCollision(playerBoxCollider, platformCollider, false);
+        Physics2D.IgnoreCollision(playerHeadCollider, platformCollider, false);
+    }*/
 }
