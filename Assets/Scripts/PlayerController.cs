@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
 [RequireComponent(typeof(PlayerInput))]
@@ -7,8 +8,8 @@ public class PlayerController : MonoBehaviour
 {
     #region ---Initialization & Variables---
 
-        private LayerMask _groundLayer;
-        private LayerMask _platformLayer;
+        [SerializeField] private LayerMask _groundLayer;
+        [SerializeField] private LayerMask _platformLayer;
         private CapsuleCollider2D _playerCollider;
         private Rigidbody2D _rigidbody2D;
     
@@ -20,6 +21,12 @@ public class PlayerController : MonoBehaviour
         [SerializeField] private AudioClip[] jumpClips;
         
         private Vector2 _moveDirection;
+        [SerializeField] private float raycastDetectionRange = 0.5f; 
+        private bool isPlayerGrounded;
+
+        public static bool Past100M;
+        public static bool Past1000M;
+        public static bool Past10000M;
         
         [Header("Player Movement (Vertical Only)")]
         [SerializeField] private float jumpSpeed = 5f;
@@ -36,9 +43,12 @@ public class PlayerController : MonoBehaviour
         // Update is called once per frame
         private void Start()
         {
+            _input = GetComponent<PlayerInput>();
             _animator = GetComponent<Animator>();
             _rigidbody2D = GetComponent<Rigidbody2D>();
             _audioSource = GetComponent<AudioSource>();
+            
+            _input.ChangeToPlayer();
         }
 
     #endregion
@@ -58,12 +68,20 @@ public class PlayerController : MonoBehaviour
             
             if (PlayerInput.SlowDescend)
             {
+                if (isPlayerGrounded) return;
+                _rigidbody2D.velocity = new Vector2(_rigidbody2D.velocity.x, jumpSpeed / 3);
+
                 // TODO: Call method for SlowDescend.
             }
             
             if (PlayerInput.Jump)
             {
-                // TODO: Call method for Jump.
+                if (!isPlayerGrounded) return;
+             
+                Debug.Log("Player is jumping");
+                // Apply upwards force on the physics of the object.
+                _rigidbody2D.velocity = new Vector2(_rigidbody2D.velocity.x, jumpSpeed);
+                UpdateRunningAnimation();
             }
             
             // ---------------------- Inputs Pause Screen & RunEndedScreen -------------------------------
@@ -88,11 +106,7 @@ public class PlayerController : MonoBehaviour
                 SceneController.UnloadPauseScreen();
             }
             
-            
-            
-            _moveDirection = _rigidbody2D.velocity;
-            
-            if (IsPlayerGrounded())
+            if (isPlayerGrounded)
             { _coyoteTimeCounter = coyoteTime; }
             else
             { _coyoteTimeCounter -= 1 * Time.deltaTime; }
@@ -103,42 +117,63 @@ public class PlayerController : MonoBehaviour
             { _jumpBufferCounter -= 1 * Time.deltaTime; }
             
             // If we are eligible to Jump
-            if (_jumpBufferCounter > 0 && _coyoteTimeCounter > 0)
+            /*if (_jumpBufferCounter > 0 && _coyoteTimeCounter > 0)
             {
                 _audioSource.PlayOneShot(jumpClips[Random.Range(0, jumpClips.Length)]);
                 _moveDirection.y = jumpSpeed;
-                _jumpBufferCounter = 0f;
-            }
+            }*/
             
-            if (PlayerInput.Jump && _rigidbody2D.velocity.y > 0f)
-            {
-                _moveDirection.y *= 0.5f;
-                _coyoteTimeCounter = 0f;
-            }
-            _rigidbody2D.velocity = _moveDirection;
+            isPlayerGrounded = GroundedPlayer();
         }
-        private void FixedUpdate()
+        
+        private bool GroundedPlayer()
         {
-            // TODO: Move physics code over into here...
-            throw new NotImplementedException();
+            float offsetLeft = 0.2f;
+            float offsetRight = 1.7f;
+        
+            // Just visuals, no function
+            var position = transform.position;
+            Debug.DrawRay(position + new Vector3(offsetRight, -1.6f, 0), Vector2.down, Color.red);
+            Debug.DrawRay(position - new Vector3(offsetLeft, 1.6f, 0), Vector2.down, Color.green);
+                
+            // Draw raycasts downwards from brushRaycasterPosition, they are drawn with an offset on the x-axis on both sides
+            bool hitLeft = Physics2D.Raycast(position + new Vector3(offsetLeft, 0, 0), Vector2.down, raycastDetectionRange, _groundLayer);
+            bool hitRight = Physics2D.Raycast(position - new Vector3(offsetRight, 0, 0), Vector2.down, raycastDetectionRange, _groundLayer);
+
+            if (hitLeft || hitRight)
+            {
+                Debug.Log("PlayerIsGrounded");
+                return true;
+            }
+            else
+                return false;
         }
     
         #endregion
 
     #region ---Animation---
 
-    private void UpdateAnimation()
+    private void UpdateRunningAnimation()
     {
-        Debug.Log("Updating Animation");
-        
         // TODO: Set this up receive distance travelled / checkpoint reached from the DistanceTravelled.
         // Maybe change the override we're using after a certain phase? Or just switch over a new anim.
 
-        _animator.Play("PlayerRunPhase1"); 
-        
-        _animator.Play("PlayerRunPhase2");
-        
-        _animator.Play("PlayerRunPhase3");
+        if (!Past100M && !Past1000M && !Past10000M)
+        {
+            _animator.Play("PlayerRunPhase1");
+        }
+        else if (Past100M)
+        {
+             _animator.Play("PlayerRunPhase2"); 
+        }
+        else if (Past1000M)
+        {
+            _animator.Play("PlayerRunPhase3"); 
+        }
+        else if (Past10000M)
+        {
+            _animator.Play("PlayerRunPhase4"); 
+        }
     }
 
     #endregion
@@ -162,11 +197,6 @@ public class PlayerController : MonoBehaviour
                Debug.Log("Player has picked up an Item");
                // TODO: Run Unity Event (Item), which applies the item buff to the game.
            }
-       }
-            
-            private bool IsPlayerGrounded()
-       {
-           return Physics2D.Raycast(transform.position, Vector2.down, 0.2f, _groundLayer);
        }
 
    #endregion

@@ -6,60 +6,59 @@ namespace From_Other_Projects.Koi_PunchVR
 {
     public static class PlatformSpawnType
     {
-        // TODO: make not static
-        private static PlatformObjectPool.PlatformPool[] _fishPoolTypes;
+        private static PlatformObjectPool.PlatformPool[] _platformPoolTypes;
         private const float WeightLostFromPicked = 0.5f;
         private const int MaxPickAmount = 5;
 
         #region ---Initialization---
         public static void InitializePlatformSpawnTypes(List<PlatformObjectPool.PlatformPool> fishPools)
         {
-            _fishPoolTypes = fishPools.ToArray();
+            _platformPoolTypes = fishPools.ToArray();
         }
         #endregion
 
-        #region ---GetFish---
-        public static PlatformObjectPool.Platform GetNextFish()
+        #region ---GetPlatform---
+        public static PlatformObjectPool.Platform GetNextPlatform()
         {
-            return PlatformObjectPool.GetPooledObject(PickFishType(_fishPoolTypes));
+            return PlatformObjectPool.GetPooledObject(PickPlatformType(_platformPoolTypes));
         }
         #endregion
 
         #region ---RandomWeightedChoice---
-        private static PlatformObjectPool.PlatformPool PickFishType(IEnumerable<PlatformObjectPool.PlatformPool> fishTypes)
+        private static PlatformObjectPool.PlatformPool PickPlatformType(IEnumerable<PlatformObjectPool.PlatformPool> platformTypes)
         {
-            var fishPools = fishTypes.ToArray();
-            var totalWeight = fishPools.Sum(fishPool => fishPool.Weight);
+            var platformPools = platformTypes.ToArray();
+            var totalWeight = platformPools.Sum(platformPool => platformPool.Weight);
 
             if (totalWeight == 0)
             {
-                ResetFishTypeWeights(fishPools);   
+                ResetPlatformTypeWeights(platformPools);   
             }
             
             var rnd = Random.Range(0, totalWeight);
             
             float sum = 0;
-            foreach (var fishPool in fishPools)
+            foreach (var platformPool in platformPools)
             {
-                sum += fishPool.Weight;
+                sum += platformPool.Weight;
                 if (sum < rnd) continue;
-                NewProbabilities(fishPools, fishPool);
-                return fishPool;
+                NewProbabilities(platformPools, platformPool);
+                return platformPool;
             }
             
             return null;
         }
         
-        private static void ResetFishTypeWeights(PlatformObjectPool.PlatformPool[] fishTypes)
+        private static void ResetPlatformTypeWeights(PlatformObjectPool.PlatformPool[] platformTypes)
         {
-            foreach (var differentFish in fishTypes)
+            foreach (var differentPlatforms in platformTypes)
             {
-                differentFish.Weight = 100;
-                differentFish.TimesSpawned = 0;
+                differentPlatforms.Weight = 100;
+                differentPlatforms.TimesSpawned = 0;
             }
         }
         
-        private static void NewProbabilities(IReadOnlyCollection<PlatformObjectPool.PlatformPool> fishPools, PlatformObjectPool.PlatformPool platformPool)
+        private static void NewProbabilities(IReadOnlyCollection<PlatformObjectPool.PlatformPool> platformPools, PlatformObjectPool.PlatformPool platformPool)
         {
             platformPool.TimesSpawned++;
             platformPool.Weight *= WeightLostFromPicked;
@@ -71,9 +70,9 @@ namespace From_Other_Projects.Koi_PunchVR
             }
             
             var weightToDistribute = platformPool.Weight * (1 - WeightLostFromPicked);
-            var weightForOthers = weightToDistribute / fishPools.Count;
+            var weightForOthers = weightToDistribute / platformPools.Count;
             
-            foreach (var pool in fishPools)
+            foreach (var pool in platformPools)
             {
                 pool.Weight += weightForOthers;
             }

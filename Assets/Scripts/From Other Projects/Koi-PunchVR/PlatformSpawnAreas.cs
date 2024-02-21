@@ -13,10 +13,10 @@ namespace From_Other_Projects.Koi_PunchVR
         #region ---InspectorSettings---
         [Header("Spawn Area Settings")]
         [Tooltip("How often a spawnArea can be picked, before it's disabled")]
-        [SerializeField] private int maxPickRate = 5;
+        [SerializeField] private int maxPickRate = 5000;
         [Header("Neighbour Detection Range (Connected to Neighbour Circle):")]
         [Tooltip("Search distance for a neighbouring spawnArea, 1f being 1 tile")]
-        public float neighborDistanceSearchRadius = 7f;
+        public float neighborDistanceSearchRadius = 1f;
         
         [Header("Percentage of weight lost and distributed to close neighbours")]
         [Range(0f, 1f)] [SerializeField] private float weightLossOfPickedArea = 0.5f;
@@ -65,7 +65,7 @@ namespace From_Other_Projects.Koi_PunchVR
         
         private static void AddSpawnAreasToSpawnAreaList()
         {
-            var spawnArea = GameObject.FindGameObjectsWithTag("SpawnArea");
+            var spawnArea = GameObject.FindGameObjectsWithTag("PlatformSpawnArea");
             
             foreach (var obj in spawnArea)
             {
@@ -77,7 +77,7 @@ namespace From_Other_Projects.Koi_PunchVR
         #endregion
         
         #region ---GetSpawnPosition---
-        public Vector3 GetNextFishSpawnPosition()
+        public Vector2 GetNextPlatformSpawnPosition()
         {
             var spawnArea = PickSpawnArea(_availableSpawnAreas);
             return spawnArea.GameObject.transform.position + RandomOffset(spawnArea.SpawnAreaSquare.spawnAreaRadius);
@@ -85,7 +85,7 @@ namespace From_Other_Projects.Koi_PunchVR
 
         private static Vector3 RandomOffset(float offsetMax)
         {
-            return new Vector3(Random.Range(-offsetMax, offsetMax), 0, Random.Range(-offsetMax, offsetMax));
+            return new Vector3(Random.Range(-offsetMax, offsetMax), Random.Range(-offsetMax, offsetMax), 0);
         }
         #endregion
         
@@ -151,8 +151,6 @@ namespace From_Other_Projects.Koi_PunchVR
             var currentNeighbors = availableSpawnAreas.Where(spawnArea =>
                 Vector3.Distance(spawnArea.GameObject.transform.position, area.GameObject.transform.position)
                   <= neighborDistanceSearchRadius && spawnArea.TimesSpawned < maxPickRate).ToArray();
-            
-            // Debug.Log("Neighbours connected to recent spawn:" + (currentNeighbors.Length-1));
             
             if (currentNeighbors.Length !> 0) return;
             

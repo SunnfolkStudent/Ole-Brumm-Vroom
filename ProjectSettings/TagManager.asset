@@ -10,6 +10,7 @@ TagManager:
   - Obstacle
   - Enemy
   - Item
+  - PlatformSpawnArea
   layers:
   - Default
   - TransparentFX
