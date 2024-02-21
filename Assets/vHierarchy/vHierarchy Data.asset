@@ -34,13 +34,15 @@ MonoBehaviour:
         - globalObjectIdString: GlobalObjectId_V1-2-8c9cfa26abfee488c85f1582747f6a02-481753771-0
         - globalObjectIdString: GlobalObjectId_V1-2-8c9cfa26abfee488c85f1582747f6a02-332356300-0
         - globalObjectIdString: GlobalObjectId_V1-2-8c9cfa26abfee488c85f1582747f6a02-1263490375-0
+        - globalObjectIdString: GlobalObjectId_V1-2-8c9cfa26abfee488c85f1582747f6a02-693248418-0
+        - globalObjectIdString: GlobalObjectId_V1-2-8c9cfa26abfee488c85f1582747f6a02-532852366-0
         values:
         - colorIndex: 0
           iconNameOrGuid: PreMatQuad
         - colorIndex: 0
           iconNameOrGuid: AvatarMask On Icon
         - colorIndex: 6
-          iconNameOrGuid: AudioReverbZone Icon
+          iconNameOrGuid: SphereCollider Icon
         - colorIndex: 0
           iconNameOrGuid: LightmapParameters Icon
         - colorIndex: 8
@@ -65,5 +67,9 @@ MonoBehaviour:
           iconNameOrGuid: MeshCollider Icon
         - colorIndex: 0
           iconNameOrGuid: Canvas Icon
-        - colorIndex: 5
+        - colorIndex: 0
           iconNameOrGuid: BoxCollider Icon
+        - colorIndex: 0
+          iconNameOrGuid: AudioReverbZone Icon
+        - colorIndex: 0
+          iconNameOrGuid: PreMatCylinder

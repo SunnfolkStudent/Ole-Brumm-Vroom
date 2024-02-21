@@ -24,6 +24,7 @@ public class PlayerController : MonoBehaviour
         private Vector2 _moveDirection;
         [SerializeField] private float raycastDetectionRange = 0.5f; 
         private bool isPlayerGrounded;
+        private bool isPlayerOnPlatform;
         
         [Header("Player Movement (Vertical Only)")]
         [SerializeField] private float jumpSpeed = 5f;
@@ -74,9 +75,11 @@ public class PlayerController : MonoBehaviour
             
             if (PlayerInput.Jump)
             {
-                if (!isPlayerGrounded) return;
+                if (!isPlayerGrounded || !isPlayerOnPlatform) return;
              
                 Debug.Log("Player is jumping");
+                JumpingAnimation();
+                
                 // Applies upwards force on the physics of the object, according to jumpSpeed.
                 _rigidbody2D.velocity = new Vector2(_rigidbody2D.velocity.x, jumpSpeed);
             }
@@ -134,8 +137,10 @@ public class PlayerController : MonoBehaviour
             Debug.DrawRay(position - new Vector3(offsetLeft, 1.6f, 0), Vector2.down, Color.green);
                 
             // Draw raycasts downwards from brushRaycasterPosition, they are drawn with an offset on the x-axis on both sides
-            bool hitLeft = Physics2D.Raycast(position + new Vector3(offsetLeft, 0, 0), Vector2.down, raycastDetectionRange, _groundLayer);
-            bool hitRight = Physics2D.Raycast(position - new Vector3(offsetRight, 0, 0), Vector2.down, raycastDetectionRange, _groundLayer);
+            bool hitLeft = Physics2D.Raycast(position + new Vector3(offsetLeft, 0, 0), 
+                        Vector2.down, raycastDetectionRange, _groundLayer);
+            bool hitRight = Physics2D.Raycast(position - new Vector3(offsetRight, 0, 0), 
+                        Vector2.down, raycastDetectionRange, _groundLayer);
 
             if (hitLeft || hitRight)
             {
@@ -152,19 +157,19 @@ public class PlayerController : MonoBehaviour
 
     public void UpdateRunningAnimation()
     {
-        if (GameManager.Phase1Active)
+        if (GameManager.phase1Active)
         {
             _animator.Play("PlayerRunPhase1");
         }
-        else if (GameManager.Phase2Active)
+        else if (GameManager.phase2Active)
         {
              _animator.Play("PlayerRunPhase2"); 
         }
-        else if (GameManager.Phase3Active)
+        else if (GameManager.phase3Active)
         {
             _animator.Play("PlayerRunPhase3"); 
         }
-        else if (GameManager.Phase4Active)
+        else if (GameManager.phase4Active)
         {
             _animator.Play("PlayerRunPhase4"); 
         }
@@ -172,7 +177,14 @@ public class PlayerController : MonoBehaviour
 
     private void JumpingAnimation()
     {
-        // bla.
+        if (_rigidbody2D.velocity.y > 0) 
+        {
+            _animator.Play("PlayerJump");
+        }
+        else
+        {
+            _animator.Play("PlayerDescend");
+        }
     }
 
     #endregion
@@ -181,9 +193,9 @@ public class PlayerController : MonoBehaviour
 
        private void OnTriggerEnter2D(Collider2D other)
        {
-           if (other.gameObject.CompareTag("Obstacle") || other.gameObject.CompareTag("Enemy"))
+           if (other.gameObject.CompareTag("Obstacle"))
            {
-               Debug.Log("Player Crashed into Obstacle/Enemy");
+               Debug.Log("Player Crashed into Obstacle");
                _gameManager.LoadRunEndedScene();
            }
            else if (other.gameObject.CompareTag("Item"))

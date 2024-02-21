@@ -1,17 +1,25 @@
 using UnityEngine;
 
-public class Parallax : MonoBehaviour {
-
+public class Parallax : MonoBehaviour 
+{
     private Transform ground; // For reference to the transform 
     private Camera cam; // Reference to Main Camera
-    [SerializeField] [Range(0f, 50f)] private float speed = 1f;
+    
+    private float groundWidth; // The width of the transform, used for calculating current max x position of transform and next placement x position
+    private float nextXPos; // Store next x position in variable for easier reading
+    
+    [Header("This is the phase1 speed and initial speed that's being multiplied with:")]
+    [SerializeField] [Range(0f, 50f)] private float initialObjectSpeed = 1f;
 
-    private float groundWidth; //The width of the transform, used for calculating current max x position of transform and next placement x position
-    private float nextXPos = 0.0f; //Store next x position in variable for easier reading
+    [Header("Multipliers for parallax speed in each phase:")]
+    [SerializeField] private float multiplierPhase2 = 1.5f;
+    [SerializeField] private float multiplierPhase3 = 3f;
+    [SerializeField] private float multiplierPhase4 = 6f;
 
+    /*[Header("Choose a bool depending on function:")]
     [SerializeField] private bool isBackground;
     [SerializeField] private bool isPlatform;
-    [SerializeField] private bool isObstacle;
+    [SerializeField] private bool isObstacle;*/
 
     // Use this for initialization
     private void Start() 
@@ -23,10 +31,34 @@ public class Parallax : MonoBehaviour {
         groundWidth = ground.GetComponent<Renderer>().bounds.size.x; 
     }
 
+    private float CurrentSpeed()
+    {
+        if (GameManager.phase1Active)
+        {
+            return initialObjectSpeed;
+        }
+        if (GameManager.phase2Active)
+        {
+            return initialObjectSpeed * multiplierPhase2;
+        }
+        if (GameManager.phase3Active)
+        {
+            return initialObjectSpeed * multiplierPhase3;
+        }
+        if (GameManager.phase4Active)
+        {
+            return initialObjectSpeed * multiplierPhase4;
+        }
+        if (!GameManager.IsPlaying)
+        {
+            return initialObjectSpeed * 0;
+        }
+        return initialObjectSpeed * 1;
+    }
         
     private void Update() 
     {
-        transform.Translate(Vector3.left * (Time.deltaTime * speed));
+        transform.Translate(Vector3.left * (Time.deltaTime * CurrentSpeed()));
             
         //Create new Vector3 to be used in WorldToViewportPoint so it doesn't use the middle of the ground as reference
         var position = ground.position;

@@ -16,10 +16,10 @@ public class GameManager : MonoBehaviour
     public static float CurrentScore;
     public static bool IsPlaying = true;
 
-    public static bool Phase1Active = false;
-    public static bool Phase2Active = false;
-    public static bool Phase3Active = false;
-    public static bool Phase4Active = false;
+    public static bool phase1Active { get; private set; }
+    public static bool phase2Active { get; private set; }
+    public static bool phase3Active { get; private set; }
+    public static bool phase4Active { get; private set; }
         
     #region Singleton
 
@@ -39,7 +39,7 @@ public class GameManager : MonoBehaviour
     {
         _playerController = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
         distanceNumberText = GetComponentInChildren<TextMeshProUGUI>();
-        Phase1Active = true;
+        phase1Active = true;
     }
 
     private void Update()
@@ -64,8 +64,8 @@ public class GameManager : MonoBehaviour
             }
             if (CurrentScore is >= 100 and < 1000)
             {
-                Phase2Active = true;
-                Phase1Active = false;
+                phase2Active = true;
+                phase1Active = false;
                 _playerController.UpdateRunningAnimation();
                 
                 Debug.Log("Multiplier:" + phase2Multiplier);
@@ -73,8 +73,8 @@ public class GameManager : MonoBehaviour
             }
             if (CurrentScore is >= 1000 and < 10000)
             {
-                Phase3Active = true;
-                Phase2Active = false;
+                phase3Active = true;
+                phase2Active = false;
                 _playerController.UpdateRunningAnimation();
                 
                 Debug.Log("Multiplier:" + phase3Multiplier);
@@ -82,8 +82,8 @@ public class GameManager : MonoBehaviour
             }
             if (CurrentScore is >= 10000 and < 100000)
             {
-                Phase4Active = true;
-                Phase3Active = false;
+                phase4Active = true;
+                phase3Active = false;
                 _playerController.UpdateRunningAnimation();
                 
                 Debug.Log("Multiplier:" + phase4Multiplier);
