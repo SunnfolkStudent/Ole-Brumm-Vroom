@@ -21,7 +21,7 @@ public class ParallaxController : MonoBehaviour
     
     void Start()
     {
-        cam = Camera.main.transform;
+        if (Camera.main != null) cam = Camera.main.transform;
         camStartPos = cam.position;
 
         int backCount = transform.childCount;
@@ -55,8 +55,10 @@ public class ParallaxController : MonoBehaviour
 
     private void LateUpdate()
     {
-        distance = cam.position.x - camStartPos.x;
-        transform.position = new Vector3(cam.position.x, transform.position.y, 0);
+        var position = cam.position;
+        distance = position.x - camStartPos.x;
+        var transform1 = transform;
+        transform1.position = new Vector3(position.x, transform1.position.y, 0);
         
         for (int i = 0; i < backgrounds.Length; i++)
         {

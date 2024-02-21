@@ -76,7 +76,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -85,12 +85,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 128
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -152,7 +152,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Platforms finished_0
+      name: LargestThickPlatform
       rect:
         serializedVersion: 2
         x: 11
@@ -160,7 +160,7 @@ TextureImporter:
         width: 1073
         height: 267
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -173,7 +173,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Platforms finished_1
+      name: LargestThinPlatform
       rect:
         serializedVersion: 2
         x: 1312
@@ -181,7 +181,7 @@ TextureImporter:
         width: 1086
         height: 144
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -194,7 +194,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Platforms finished_2
+      name: LargeThickPlatform
       rect:
         serializedVersion: 2
         x: 11
@@ -202,7 +202,7 @@ TextureImporter:
         width: 855
         height: 249
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -215,7 +215,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Platforms finished_3
+      name: LargeThinPlatform
       rect:
         serializedVersion: 2
         x: 1314
@@ -223,7 +223,7 @@ TextureImporter:
         width: 873
         height: 126
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -236,28 +236,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Platforms finished_4
-      rect:
-        serializedVersion: 2
-        x: 492
-        y: 836
-        width: 19
-        height: 13
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: ec7b3702abc1ae400800000000000000
-      internalID: 354127106435954638
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Platforms finished_5
+      name: SmallThickPlatform
       rect:
         serializedVersion: 2
         x: 9
@@ -265,7 +244,7 @@ TextureImporter:
         width: 638
         height: 248
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -278,7 +257,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Platforms finished_6
+      name: SmallThinPlatform
       rect:
         serializedVersion: 2
         x: 1312
@@ -286,7 +265,7 @@ TextureImporter:
         width: 650
         height: 145
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -299,28 +278,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Platforms finished_7
-      rect:
-        serializedVersion: 2
-        x: 2399
-        y: 459
-        width: 6
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 47ba56d43390a7c70800000000000000
-      internalID: 8969491723808254836
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Platforms finished_8
+      name: SmallestThickPlatform
       rect:
         serializedVersion: 2
         x: 9
@@ -328,7 +286,7 @@ TextureImporter:
         width: 422
         height: 248
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -341,7 +299,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Platforms finished_9
+      name: SmallestThinPlatform
       rect:
         serializedVersion: 2
         x: 1312
@@ -349,7 +307,7 @@ TextureImporter:
         width: 431
         height: 125
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -357,90 +315,6 @@ TextureImporter:
       bones: []
       spriteID: a9c1b55ca30f84f10800000000000000
       internalID: 2254315748708785306
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Platforms finished_10
-      rect:
-        serializedVersion: 2
-        x: 870
-        y: 22
-        width: 7
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 503aa6a89bc5cbd90800000000000000
-      internalID: -7080682562172312827
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Platforms finished_11
-      rect:
-        serializedVersion: 2
-        x: 1962
-        y: 22
-        width: 7
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 0cc99d8fe7b92b590800000000000000
-      internalID: -7659889046560596800
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Platforms finished_12
-      rect:
-        serializedVersion: 2
-        x: 2180
-        y: 22
-        width: 7
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 57d7c293880840790800000000000000
-      internalID: -7564780151512466059
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Platforms finished_13
-      rect:
-        serializedVersion: 2
-        x: 2399
-        y: 22
-        width: 7
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 66e890e3f74e04490800000000000000
-      internalID: -7763954522433941914
       vertices: []
       indices: 
       edges: []
@@ -456,7 +330,16 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      LargeThickPlatform: -1784540003416553390
+      LargeThinPlatform: 5130220117112040434
+      LargestThickPlatform: 6634511515258745231
+      LargestThinPlatform: 8303485644117432162
+      Platforms finished_0: -69666160
       PlayerSizeTest_0: 6652565939410771171
+      SmallThickPlatform: -7637989456259556724
+      SmallThinPlatform: 2424089500803548308
+      SmallestThickPlatform: -3182296959676086568
+      SmallestThinPlatform: 2254315748708785306
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

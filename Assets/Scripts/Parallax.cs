@@ -1,13 +1,17 @@
 using UnityEngine;
 
-public class BackGroundParallax : MonoBehaviour {
+public class Parallax : MonoBehaviour {
 
     private Transform ground; // For reference to the transform 
     private Camera cam; // Reference to Main Camera
     [SerializeField] [Range(0f, 50f)] private float speed = 1f;
 
     private float groundWidth; //The width of the transform, used for calculating current max x position of transform and next placement x position
-    private float nextXPos = 0.0f; // Store next x position in variable for easier reading
+    private float nextXPos = 0.0f; //Store next x position in variable for easier reading
+
+    [SerializeField] private bool isBackground;
+    [SerializeField] private bool isPlatform;
+    [SerializeField] private bool isObstacle;
 
     // Use this for initialization
     private void Start() 

@@ -12,7 +12,8 @@ public class PlayerController : MonoBehaviour
         [SerializeField] private LayerMask _platformLayer;
         private CapsuleCollider2D _playerCollider;
         private Rigidbody2D _rigidbody2D;
-    
+
+        private GameManager _gameManager;
         private Animator _animator;
         private PlayerInput _input;
         
@@ -23,10 +24,6 @@ public class PlayerController : MonoBehaviour
         private Vector2 _moveDirection;
         [SerializeField] private float raycastDetectionRange = 0.5f; 
         private bool isPlayerGrounded;
-
-        public static bool Past100M;
-        public static bool Past1000M;
-        public static bool Past10000M;
         
         [Header("Player Movement (Vertical Only)")]
         [SerializeField] private float jumpSpeed = 5f;
@@ -43,6 +40,7 @@ public class PlayerController : MonoBehaviour
         // Update is called once per frame
         private void Start()
         {
+            _gameManager = GameObject.FindWithTag("GameController").GetComponent<GameManager>();
             _input = GetComponent<PlayerInput>();
             _animator = GetComponent<Animator>();
             _rigidbody2D = GetComponent<Rigidbody2D>();
@@ -79,9 +77,8 @@ public class PlayerController : MonoBehaviour
                 if (!isPlayerGrounded) return;
              
                 Debug.Log("Player is jumping");
-                // Apply upwards force on the physics of the object.
+                // Applies upwards force on the physics of the object, according to jumpSpeed.
                 _rigidbody2D.velocity = new Vector2(_rigidbody2D.velocity.x, jumpSpeed);
-                UpdateRunningAnimation();
             }
             
             // ---------------------- Inputs Pause Screen & RunEndedScreen -------------------------------
@@ -89,21 +86,21 @@ public class PlayerController : MonoBehaviour
             if (PlayerInput.ResetRun)
             {
                 _input.ChangeToPlayer();
-                SceneController.LoadNewRun();
+                _gameManager.LoadNewRun();
             }
             
             if (PlayerInput.OpenPauseScreen)
             {
                 _input.ChangeToPauseScreen();
                 Time.timeScale = 0;
-                SceneController.LoadPauseScreen();
+                _gameManager.LoadPauseScreen();
             }
 
             if (PlayerInput.ClosePauseScreen)
             {
                 _input.ChangeToPlayer();
                 Time.timeScale = 1;
-                SceneController.UnloadPauseScreen();
+                _gameManager.UnloadPauseScreen();
             }
             
             if (isPlayerGrounded)
@@ -153,27 +150,29 @@ public class PlayerController : MonoBehaviour
 
     #region ---Animation---
 
-    private void UpdateRunningAnimation()
+    public void UpdateRunningAnimation()
     {
-        // TODO: Set this up receive distance travelled / checkpoint reached from the DistanceTravelled.
-        // Maybe change the override we're using after a certain phase? Or just switch over a new anim.
-
-        if (!Past100M && !Past1000M && !Past10000M)
+        if (GameManager.Phase1Active)
         {
             _animator.Play("PlayerRunPhase1");
         }
-        else if (Past100M)
+        else if (GameManager.Phase2Active)
         {
              _animator.Play("PlayerRunPhase2"); 
         }
-        else if (Past1000M)
+        else if (GameManager.Phase3Active)
         {
             _animator.Play("PlayerRunPhase3"); 
         }
-        else if (Past10000M)
+        else if (GameManager.Phase4Active)
         {
             _animator.Play("PlayerRunPhase4"); 
         }
+    }
+
+    private void JumpingAnimation()
+    {
+        // bla.
     }
 
     #endregion
@@ -182,15 +181,10 @@ public class PlayerController : MonoBehaviour
 
        private void OnTriggerEnter2D(Collider2D other)
        {
-           if (other.gameObject.CompareTag("Obstacle"))
+           if (other.gameObject.CompareTag("Obstacle") || other.gameObject.CompareTag("Enemy"))
            {
-               Debug.Log("Player Crashed into Obstacle");
-               // TODO: Run Unity Event (PlayerStopped), which leads to a mini-score & progress scene with option to reset
-           }
-           else if (other.gameObject.CompareTag("Enemy"))
-           {
-               Debug.Log("Player Crashed into Enemy");
-               // TODO: Run Unity Event (PlayerStopped), which leads to a mini-score & progress scene with option to reset
+               Debug.Log("Player Crashed into Obstacle/Enemy");
+               _gameManager.LoadRunEndedScene();
            }
            else if (other.gameObject.CompareTag("Item"))
            {

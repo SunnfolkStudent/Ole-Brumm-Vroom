@@ -32,6 +32,8 @@ MonoBehaviour:
         - globalObjectIdString: GlobalObjectId_V1-2-8c9cfa26abfee488c85f1582747f6a02-1052925240-0
         - globalObjectIdString: GlobalObjectId_V1-2-8c9cfa26abfee488c85f1582747f6a02-1253178115-0
         - globalObjectIdString: GlobalObjectId_V1-2-8c9cfa26abfee488c85f1582747f6a02-481753771-0
+        - globalObjectIdString: GlobalObjectId_V1-2-8c9cfa26abfee488c85f1582747f6a02-332356300-0
+        - globalObjectIdString: GlobalObjectId_V1-2-8c9cfa26abfee488c85f1582747f6a02-1263490375-0
         values:
         - colorIndex: 0
           iconNameOrGuid: PreMatQuad
@@ -51,7 +53,7 @@ MonoBehaviour:
           iconNameOrGuid: ParticleSystem Icon
         - colorIndex: 0
           iconNameOrGuid: Camera Icon
-        - colorIndex: 0
+        - colorIndex: 3
           iconNameOrGuid: Favorite
         - colorIndex: 0
           iconNameOrGuid: Canvas Icon
@@ -61,3 +63,7 @@ MonoBehaviour:
           iconNameOrGuid: Terrain Icon
         - colorIndex: 0
           iconNameOrGuid: MeshCollider Icon
+        - colorIndex: 0
+          iconNameOrGuid: Canvas Icon
+        - colorIndex: 5
+          iconNameOrGuid: BoxCollider Icon
