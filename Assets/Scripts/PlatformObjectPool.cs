@@ -7,7 +7,7 @@ namespace From_Other_Projects.Koi_PunchVR
 {
     public class PlatformObjectPool : MonoBehaviour
     {
-        [SerializeField] private PlatformScrub[] platformTypes;
+        [SerializeField] private ObjectScrub[] platformTypes;
         private static List<PlatformPool> _platformPools;
         private static Transform _platformContainer;
         
@@ -32,12 +32,12 @@ namespace From_Other_Projects.Koi_PunchVR
             public float Weight;
             public int TimesSpawned;
             
-            public PlatformPool(PlatformScrub platformScrub)
+            public PlatformPool(ObjectScrub objectScrub)
             {
-                PlatformRecord = new PlatformRecord(platformScrub);
+                PlatformRecord = new PlatformRecord(objectScrub);
                 Platforms = new List<Platform>();
-                AddMultiplePlatformsToPool(platformScrub.initialAmountInPool, this);
-                Weight = platformScrub.weightInRandomTable;
+                AddMultiplePlatformsToPool(objectScrub.initialAmountInPool, this);
+                Weight = objectScrub.weightInRandomTable;
                 TimesSpawned = 0;
             }
         }
@@ -45,12 +45,12 @@ namespace From_Other_Projects.Koi_PunchVR
         #region >>>---FishRecord---
         public record PlatformRecord
         {
-            public readonly PlatformScrub PlatformScrub;
+            public readonly ObjectScrub ObjectScrub;
             public readonly PlatformRecordChild[] Children;
             
-            public PlatformRecord(PlatformScrub platformScrub)
+            public PlatformRecord(ObjectScrub objectScrub)
             {
-                PlatformScrub = platformScrub;
+                ObjectScrub = objectScrub;
             }
         }
         
@@ -77,7 +77,7 @@ namespace From_Other_Projects.Koi_PunchVR
             public Platform(PlatformPool platformPool)
             {
                 PlatformPool = platformPool;
-                ParentGameObject = Instantiate(platformPool.PlatformRecord.PlatformScrub.platformPrefab, _platformContainer);
+                ParentGameObject = Instantiate(platformPool.PlatformRecord.ObjectScrub.objectPrefab, _platformContainer);
                 ParentGameObject.SetActive(false);
                 Children = ParentGameObject.GetComponentsInChildren<Transform>().Select(transform1 => new Child(transform1)).ToArray();
             }

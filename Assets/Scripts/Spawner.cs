@@ -1,14 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using Unity.Mathematics;
 using UnityEngine;
+using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
-/*public class PlatformObjectPool : MonoBehaviour
+public class UniversalObjectPoolScript : MonoBehaviour
 {
-    public static PlatformObjectPool SharedInstance;
-    public List<GameObject> pooledObjects;
+    public static UniversalObjectPoolScript SharedInstance;
+    
+    public List<GameObject> pooledPlatforms;
+    public List<GameObject> pooledObstacles;
+    public List<GameObject> pooledPickups;
+    public List<ObjectScrub> pooledPlatformScrubs;
+    
     public GameObject prefab;
     public GameObject pickedSpawnArea;
     public int amountToPool;
@@ -20,7 +25,7 @@ using Random = UnityEngine.Random;
 
     void Start()
     {
-        pooledObjects = new List<GameObject>();
+        pooledPlatforms = new List<GameObject>();
         GameObject platformOrObstacle = SharedInstance.GetPooledObject();
         for(int i = 0; i < amountToPool; i++)
         {
@@ -31,21 +36,21 @@ using Random = UnityEngine.Random;
                 platformOrObstacle.SetActive(true);
             }
             platformOrObstacle.SetActive(false);
-            pooledObjects.Add(platformOrObstacle);
+            pooledPlatforms.Add(platformOrObstacle);
         }
     }
     public GameObject GetPooledObject()
     {
         for(int i = 0; i < amountToPool; i++)
         {
-            if(!pooledObjects[i].activeInHierarchy)
+            if(!pooledPlatforms[i].activeInHierarchy)
             {
-                return pooledObjects[i];
+                return pooledPlatforms[i];
             }
         }
         return null;
     }
-}*/
+}
 
 public class Spawner : MonoBehaviour
 {

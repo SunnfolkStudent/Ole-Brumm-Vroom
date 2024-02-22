@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
         [SerializeField] private AudioClip[] runClips;
         [SerializeField] private AudioClip[] jumpClips;
         private Animator _animator;
+        private Transform _transformChild;
         
         // --- Scripts ---
         private GameManager _gameManager;
@@ -51,6 +52,7 @@ public class PlayerController : MonoBehaviour
         // Update is called once per frame
         private void Start()
         {
+            _transformChild = GetComponentInChildren<Transform>();
             _gameManager = GameObject.FindWithTag("GameController").GetComponent<GameManager>();
             _input = GetComponent<PlayerInput>();
             _animator = GetComponent<Animator>();
@@ -160,12 +162,12 @@ public class PlayerController : MonoBehaviour
         private bool GroundedPlayer()
         {
             // Just visuals, no function
-            var position = transform.position;
+            var position = _transformChild.position;
             Debug.DrawRay(position + new Vector3(raycastStartingOffsetX, 0, 0), Vector2.down * raycastDetectionRange, Color.magenta);
                 
             // Draw raycasts downwards from brushRaycasterPosition, they are drawn with an offset on the x-axis on both sides
             bool hitGround = Physics2D.Raycast(position + new Vector3(raycastStartingOffsetX, 0, 0), 
-                        Vector2.down, distance: raycastDetectionRange, groundLayer);
+                        Vector2.down, raycastDetectionRange, groundLayer);
 
             if (hitGround)
             {

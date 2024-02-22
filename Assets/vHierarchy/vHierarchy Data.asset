@@ -50,6 +50,8 @@ MonoBehaviour:
         - globalObjectIdString: GlobalObjectId_V1-2-8c9cfa26abfee488c85f1582747f6a02-1888000158-0
         - globalObjectIdString: GlobalObjectId_V1-2-8c9cfa26abfee488c85f1582747f6a02-2038479580-0
         - globalObjectIdString: GlobalObjectId_V1-2-8c9cfa26abfee488c85f1582747f6a02-53664413-0
+        - globalObjectIdString: GlobalObjectId_V1-2-8c9cfa26abfee488c85f1582747f6a02-6664923845004906441-8586607307046865533
+        - globalObjectIdString: GlobalObjectId_V1-2-8c9cfa26abfee488c85f1582747f6a02-4855715357623089845-889991296954929780
         values:
         - colorIndex: 0
           iconNameOrGuid: PreMatQuad
@@ -115,3 +117,7 @@ MonoBehaviour:
           iconNameOrGuid: ReflectionProbe Icon
         - colorIndex: 0
           iconNameOrGuid: Terrain Icon
+        - colorIndex: 0
+          iconNameOrGuid: WheelCollider Icon
+        - colorIndex: 0
+          iconNameOrGuid: WheelCollider Icon
