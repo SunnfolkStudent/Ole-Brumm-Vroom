@@ -5,7 +5,6 @@ using UnityEngine;
 public class ShaderManager : MonoBehaviour
 {
     private SpriteRenderer spriteRenderer;
-    private static readonly int HoneyAmount = Shader.PropertyToID("_HoneyAmount");
 
     // Start is called before the first frame update
     void Start()
@@ -19,6 +18,6 @@ public class ShaderManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        spriteRenderer.material.SetFloat(HoneyAmount, 1);
+        spriteRenderer.material.SetFloat("_HoneyAmount", 1);
     }
 }

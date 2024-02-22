@@ -20,7 +20,7 @@ namespace From_Other_Projects.Koi_PunchVR
             {
                 _platformPools.Add(new PlatformPool(platformScrub));
             }
-            PlatformSpawnType.InitializePlatformSpawnTypes(_platformPools);
+            // PlatformSpawnType.InitializePlatformSpawnTypes(_platformPools);
         }
         #endregion
         

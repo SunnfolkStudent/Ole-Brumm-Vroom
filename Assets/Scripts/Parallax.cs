@@ -8,7 +8,9 @@ public class Parallax : MonoBehaviour
     private Camera cam; // Reference to Main Camera
     
     private float groundWidth; // The width of the transform, used for calculating current max x position of transform and next placement x position
-    private float nextXPos; // Store next x position in variable for easier reading
+    private float nextXPos = 0f; // Store next x position in variable for easier reading
+
+    private Vector3 initialSpawnPosition;
     
     [Header("This is the phase1 speed and initial speed that's being multiplied with:")]
     [SerializeField] [Range(0f, 50f)] private float initialObjectSpeed = 1f;
@@ -27,6 +29,7 @@ public class Parallax : MonoBehaviour
     private void Start() 
     {
         _spawner = GameObject.FindWithTag("Spawner").GetComponent<Spawner>();
+        initialSpawnPosition = transform.position;
         ground = transform;
         cam = Camera.main;
         
@@ -37,7 +40,7 @@ public class Parallax : MonoBehaviour
         else
         {
             // Store Ground Width (Width of the Ground tile)
-            groundWidth = ground.GetComponent<Renderer>().bounds.size.x; 
+            groundWidth = ground.GetComponent<Renderer>().bounds.size.x;
         }
     }
 
@@ -84,16 +87,18 @@ public class Parallax : MonoBehaviour
             float currentRightX = ground.position.x + groundWidth;
             if (isAirPlatform || isObstacle)
             {
-                _spawner.SpawnTimer();
+                // _spawner.SpawnTimer();
+                Instantiate(gameObject, initialSpawnPosition, ground.rotation);
             }
             else if (isGroundPlatform)
             {
-                _spawner.SpawnTimerGroundSpawnArea();
+                //_spawner.SpawnTimerGroundSpawnArea();
+                Instantiate(gameObject, initialSpawnPosition, ground.rotation); 
             }
             else
             {
                 nextXPos = currentRightX + groundWidth;
-                Instantiate(gameObject, new Vector3 (nextXPos, position.y, position.z), ground.rotation);
+                Instantiate(gameObject, new Vector3(nextXPos, position.y, position.z), ground.rotation); 
             }
             Destroy(gameObject);
         }

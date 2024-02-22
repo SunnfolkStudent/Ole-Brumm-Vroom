@@ -86,8 +86,8 @@ public class Spawner : MonoBehaviour
             var spawnAreaTransform = spawnArea.GetComponent<Transform>();
             pickableSpawnAreas.Add(spawnAreaTransform);
         }
-        SpawnTimer();
-        SpawnTimerGroundSpawnArea();
+        //SpawnTimer();
+        //SpawnTimerGroundSpawnArea();
     }
 
     public void PhaseUpdate()
@@ -123,33 +123,26 @@ public class Spawner : MonoBehaviour
         /*var minSpawnTime = 1 / maxSpawnRate;
         var maxSpawnTime = 1 / minSpawnRate;*/
 
-        while (GameManager.IsPlaying)
-        {
-            // var nextSpawnTime = Mathf.Lerp(maxSpawnTime, minSpawnTime, animationCurve.Evaluate(Time.time / timeToReachMaxSpawnRate));
-            // var timeUntilNextSpawn = Random.Range(nextSpawnTime, nextSpawnTime);
-            var timeUntilNextSpawn = Random.Range(minSpawnRate, maxSpawnRate);
-            StartCoroutine(SpawnObjectInSpawnArea(timeUntilNextSpawn));
-        }
+        // var nextSpawnTime = Mathf.Lerp(maxSpawnTime, minSpawnTime, animationCurve.Evaluate(Time.time / timeToReachMaxSpawnRate));
+        // var timeUntilNextSpawn = Random.Range(nextSpawnTime, nextSpawnTime);
+        var timeUntilNextSpawn = Random.Range(minSpawnRate, maxSpawnRate);
+        StartCoroutine(SpawnObjectInSpawnArea(timeUntilNextSpawn));
     }
 
     public void SpawnTimerGroundSpawnArea()
     {
         /*var minSpawnTime = 1 / maxSpawnRate;
         var maxSpawnTime = 1 / minSpawnRate;*/
-
-        while (GameManager.IsPlaying)
-        {
-            // var nextSpawnTime = Mathf.Lerp(maxSpawnTime, minSpawnTime, animationCurve.Evaluate(Time.time / timeToReachMaxSpawnRate));
-            // var timeUntilNextSpawn = Random.Range(nextSpawnTime, nextSpawnTime);
-            var timeUntilNextSpawn = Random.Range(minSpawnRate / 4, maxSpawnRate / 4);
-            StartCoroutine(SpawnInGroundSpawnArea(timeUntilNextSpawn));
-        }
+        
+        // var nextSpawnTime = Mathf.Lerp(maxSpawnTime, minSpawnTime, animationCurve.Evaluate(Time.time / timeToReachMaxSpawnRate));
+        // var timeUntilNextSpawn = Random.Range(nextSpawnTime, nextSpawnTime);
+        var timeUntilNextSpawn = Random.Range(minSpawnRate / 4, maxSpawnRate / 4);
+        StartCoroutine(SpawnInGroundSpawnArea(timeUntilNextSpawn));
     }
 
     private IEnumerator SpawnObjectInSpawnArea(float delay)
     {
         yield return new WaitForSeconds(delay);
-        Debug.Log("Spawning Object...");
         var pickedGameObject = pickableObjectsToSpawn[Random.Range(0, pickableObjectsToSpawn.Count)];
         var pickedSpawnArea = pickableSpawnAreas[Random.Range(0, pickableSpawnAreas.Count)];
         
@@ -165,7 +158,6 @@ public class Spawner : MonoBehaviour
             // If the extraObstacleChance is 80, you have 80% chance of hitting a number below that out of 100.
             if (numberPicked < extraObstacleChance)
             {
-                Debug.Log("AirSpawn with offset Obstacle");
                 //var pickedObstacle = _pickableObstaclesToSpawn[Random.Range(0, _pickableObjectsToSpawn.Count)];
                 Instantiate(pickedGameObject, pickedSpawnArea);
                 Instantiate(flyingHoneyObstacle, position, quaternion.identity);
@@ -173,14 +165,12 @@ public class Spawner : MonoBehaviour
             }
             else
             {
-                Debug.Log("AirSpawn, just platform without offset");
                 // Platforms should spawn without offsets, using the below.
                 Instantiate(pickedGameObject, pickedSpawnArea);
                 yield return null;
             }
         }
         // This code is only accessible to Obstacles without platforms.
-        Debug.Log("AirSpawn, just obstacle");
         Instantiate(flyingHoneyObstacle, position,quaternion.identity);
         yield return null;
     }
@@ -188,7 +178,6 @@ public class Spawner : MonoBehaviour
     private IEnumerator SpawnInGroundSpawnArea(float delay)
     {
         yield return new WaitForSeconds(delay);
-        Debug.Log("Spawning on Ground...");
         var pickedGameObject = pickableObjectsToSpawn[Random.Range(0, pickableObjectsToSpawn.Count)];
         
         var spawnOffsetX = Random.Range(-1, 1);
@@ -201,7 +190,6 @@ public class Spawner : MonoBehaviour
         // If the extraObstacleChance is 80, you have 80%/4 (20%) chance of hitting a number below that out of 100.
         if (numberPicked < extraObstacleChance/4)
         {
-            Debug.Log("GroundSpawn with offset Obstacle");
             //var pickedObstacle = _pickableObstaclesToSpawn[Random.Range(0, _pickableObjectsToSpawn.Count)];
             Instantiate(pickedGameObject, _spawnAreaGround.transform);
             Instantiate(flyingHoneyObstacle, offsetPosition, quaternion.identity);
@@ -209,16 +197,13 @@ public class Spawner : MonoBehaviour
         }
         else
         {
-            Debug.Log("GroundSpawn without Offset");
             // Platforms should spawn without offsets, using the below.
             Instantiate(pickedGameObject, _spawnAreaGround.transform);
             yield return null;
         }
     }
     
-    #region --- Koi-Punch WeightedTable ---
-    
-    /*public class SpawnAreaWeightedTable : MonoBehaviour
+    /* public class SpawnAreaWeightedTable : MonoBehaviour
     {
         private static List<SpawnArea> _availableSpawnAreas;
         private SpawnArea[] _previousNeighbouringAreas;
@@ -231,15 +216,15 @@ public class Spawner : MonoBehaviour
         [Header("Neighbour Detection Range (Connected to Neighbour Circle):")]
         [Tooltip("Search distance for a neighbouring spawnArea, 1f being 1 tile")]
         public float neighborDistanceSearchRadius = 7f;
-        
+
         [Header("Percentage of weight lost and distributed to close neighbours")]
         [Range(0f, 1f)] [SerializeField] private float weightLossOfPickedArea = 0.5f;
         // [Range(0f, 1f)] [SerializeField]  private float weightDistributedToNeighbors = 0.75f;
-        
+
         [Header("How long the NeighbourChain can count neighbours in a row:")]
         [SerializeField] private int chainMaxNumber = 2;
         private int _chainCurrentNumber;
-        
+
         [Header("Percentage after picking a neighbour for the n-th time in a row.")]
         [Range(0f, 1f)] [SerializeField] private float firstPercentage;
         [Range(0f, 1f)] [SerializeField] private float secondPercentage;
@@ -248,14 +233,14 @@ public class Spawner : MonoBehaviour
         [Range(0f, 1f)] [SerializeField] private float fifthPercentage;
         [Range(0f, 1f)] [SerializeField] private float sixthPercentage;
         #endregion
-        
+
         private class SpawnArea
         {
             public GameObject GameObject;
             public float Weight = 100;
             public int TimesSpawned;
         }
-        
+
         #region ---Initialization---
         public void Awake()
         {
@@ -276,11 +261,11 @@ public class Spawner : MonoBehaviour
                 sixthPercentage
             };
         }
-        
+
         private static void AddSpawnAreasToSpawnAreaList()
         {
             var spawnArea = GameObject.FindGameObjectsWithTag("SpawnArea");
-            
+
             foreach (var obj in spawnArea)
             {
                 var f = new SpawnArea { GameObject = obj };
@@ -289,7 +274,7 @@ public class Spawner : MonoBehaviour
             }
         }
         #endregion
-        
+
         #region ---GetSpawnPosition---
         public Vector3 GetNextFishSpawnPosition()
         {
@@ -302,7 +287,7 @@ public class Spawner : MonoBehaviour
             return new Vector3(Random.Range(-offsetMax, offsetMax), 0, Random.Range(-offsetMax, offsetMax));
         }
         #endregion
-        
+
         #region ---RandomWeightedChoice---
         private SpawnArea PickSpawnArea(List<SpawnArea> availableSpawnAreas)
         {
@@ -312,7 +297,7 @@ public class Spawner : MonoBehaviour
                 ResetSpawnAreaWeights(availableSpawnAreas);
             }
             var rnd = Random.Range(0, totalWeight);
-            
+
             float sum = 0;
             foreach (var area in availableSpawnAreas)
             {
@@ -320,7 +305,7 @@ public class Spawner : MonoBehaviour
                 if (sum >= rnd)
                 {
                     NewProbabilities(availableSpawnAreas, area);
-                    return area;  
+                    return area;
                 }
             }
             return null;
@@ -346,7 +331,7 @@ public class Spawner : MonoBehaviour
             NeighborsNewProbability(availableSpawnAreas, area, _chainCurrentNumber);
             NewProbabilitiesForPickedArea(area);
         }
-        
+
         private void NewProbabilitiesForPickedArea(SpawnArea spawnArea)
         {
             spawnArea.TimesSpawned++;
@@ -357,24 +342,24 @@ public class Spawner : MonoBehaviour
                 spawnArea.Weight = 0;
             }
         }
-        
+
         private void NeighborsNewProbability(IReadOnlyCollection<SpawnArea> availableSpawnAreas, SpawnArea area, int neighbourChainNumber)
         {
             _previousNeighbouringAreas = null;
-            
+
             var currentNeighbors = availableSpawnAreas.Where(spawnArea =>
                 Vector3.Distance(spawnArea.GameObject.transform.position, area.GameObject.transform.position)
                   <= neighborDistanceSearchRadius && spawnArea.TimesSpawned < maxPickRate).ToArray();
-            
+
             // Debug.Log("Neighbours connected to recent spawn:" + (currentNeighbors.Length-1));
-            
+
             if (currentNeighbors.Length !> 0) return;
-            
+
             var weightToDistribute = area.Weight * (1 - weightLossOfPickedArea);
             var weightToNeighbours = weightToDistribute * _weightDistributedToNeighbours[neighbourChainNumber-1] / currentNeighbors.Length;
-            var weightForTheRest = weightToDistribute * (1 - _weightDistributedToNeighbours[neighbourChainNumber-1]) 
+            var weightForTheRest = weightToDistribute * (1 - _weightDistributedToNeighbours[neighbourChainNumber-1])
                                    / (availableSpawnAreas.Count - currentNeighbors.Length);
-            
+
             _previousNeighbouringAreas = currentNeighbors;
             foreach (var spawnArea in _availableSpawnAreas)
             {
@@ -383,9 +368,8 @@ public class Spawner : MonoBehaviour
         }
         #endregion
     }*/
-    #endregion
 
-    #region --- PlatformSpawnAreas ---
+    /*#region --- PlatformSpawnAreas ---
 
     public class PlatformSpawnAreas : MonoBehaviour
     {
@@ -549,7 +533,7 @@ public class Spawner : MonoBehaviour
         }
         #endregion
         #endregion
-    }
+    }*/
 }
 
 
