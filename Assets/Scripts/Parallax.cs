@@ -4,10 +4,10 @@ using UnityEngine.Serialization;
 public class Parallax : MonoBehaviour
 {
     private Spawner _spawner;
-    private Transform ground; // For reference to the transform 
+    private Transform objectTransform; // For reference to the transform 
     private Camera cam; // Reference to Main Camera
     
-    private float groundWidth; // The width of the transform, used for calculating current max x position of transform and next placement x position
+    private float objectWidth; // The width of the transform, used for calculating current max x position of transform and next placement x position
     private float nextXPos = 0f; // Store next x position in variable for easier reading
 
     private Vector3 initialSpawnPosition;
@@ -18,7 +18,7 @@ public class Parallax : MonoBehaviour
     [Header("Multipliers for parallax speed in each phase:")]
     [SerializeField] private float multiplierPhase2 = 1.5f;
     [SerializeField] private float multiplierPhase3 = 3f;
-    [SerializeField] private float multiplierPhase4 = 6f;
+    [SerializeField] private float multiplierPhase4 = 5f;
 
     [Header("Choose a bool depending on function. Leave unchecked if background.")]
     [SerializeField] private bool isAirPlatform;
@@ -29,23 +29,25 @@ public class Parallax : MonoBehaviour
     private void Start() 
     {
         _spawner = GameObject.FindWithTag("Spawner").GetComponent<Spawner>();
-        initialSpawnPosition = transform.position;
-        ground = transform;
+        objectTransform = transform;
+        initialSpawnPosition = objectTransform.position;
         cam = Camera.main;
         
         if (isAirPlatform)
         {
-            groundWidth = ground.GetComponentInChildren<Renderer>().bounds.size.x; 
+            objectWidth = objectTransform.GetComponentInChildren<Renderer>().bounds.size.x; 
         }
         else
         {
             // Store Ground Width (Width of the Ground tile)
-            groundWidth = ground.GetComponent<Renderer>().bounds.size.x;
+            objectWidth = objectTransform.GetComponent<Renderer>().bounds.size.x;
         }
     }
 
     private float CurrentSpeed()
     {
+        // TODO: Swap out the static bools with Events & Listeners...
+        
         if (GameManager.phase1Active)
         {
             return initialObjectSpeed;
@@ -73,32 +75,34 @@ public class Parallax : MonoBehaviour
     {
         transform.Translate(Vector3.left * (Time.deltaTime * CurrentSpeed()));
             
-        //Create new Vector3 to be used in WorldToViewportPoint so it doesn't use the middle of the ground as reference
-        var position = ground.position;
-        Vector3 boxRightPos = new Vector3 (position.x + groundWidth/2, position.y, position.z);
+        //Create new Vector3 to be used in WorldToViewportPoint so it doesn't use the middle of the object as reference
+        var position = objectTransform.position;
+        Vector3 boxRightPos = new Vector3 (position.x + objectWidth/2, position.y, position.z);
 
-        //Store view Position of ground
+        //Store view Position of the object
         Vector3 viewPos = cam.WorldToViewportPoint (boxRightPos);
 
-        //If the ground tile is left of camera viewport
+        //If the object tile is left of camera viewport
         if (viewPos.x < 0) 
         {
             // if gameObject is offscreen, destroy it and re-instantiate it at new xPosition
-            float currentRightX = ground.position.x + groundWidth;
+            float currentRightX = objectTransform.position.x + objectWidth;
             if (isAirPlatform || isObstacle)
             {
-                // _spawner.SpawnTimer();
-                Instantiate(gameObject, initialSpawnPosition, ground.rotation);
+                // TODO: Swap out with reference to objectPool and deactivate object instead.
+                
+                Instantiate(gameObject, initialSpawnPosition, objectTransform.rotation);
             }
             else if (isGroundPlatform)
             {
-                //_spawner.SpawnTimerGroundSpawnArea();
-                Instantiate(gameObject, initialSpawnPosition, ground.rotation); 
+                // TODO: Swap out with reference to objectPool and deactivate object instead.
+                
+                Instantiate(gameObject, initialSpawnPosition, objectTransform.rotation); 
             }
             else
             {
-                nextXPos = currentRightX + groundWidth;
-                Instantiate(gameObject, new Vector3(nextXPos, position.y, position.z), ground.rotation); 
+                nextXPos = currentRightX + objectWidth;
+                Instantiate(gameObject, new Vector3(nextXPos, position.y, position.z), objectTransform.rotation); 
             }
             Destroy(gameObject);
         }
