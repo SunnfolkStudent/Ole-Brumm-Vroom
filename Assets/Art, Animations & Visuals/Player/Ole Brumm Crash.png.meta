@@ -1,0 +1,558 @@
+fileFormatVersion: 2
+guid: 75d0a9a4279cd964590f47bcbb8227d1
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 2026815745064205885
+    second: Ole Brumm Crash_0
+  - first:
+      213: -5470267942664690299
+    second: Ole Brumm Crash_1
+  - first:
+      213: 8873538077839832010
+    second: Ole Brumm Crash_2
+  - first:
+      213: 9020104630678507038
+    second: Ole Brumm Crash_3
+  - first:
+      213: -1749809125049804814
+    second: Ole Brumm Crash_4
+  - first:
+      213: 8495594123299503848
+    second: Ole Brumm Crash_5
+  - first:
+      213: 5036122315867760180
+    second: Ole Brumm Crash_6
+  - first:
+      213: 2891139528990660861
+    second: Ole Brumm Crash_7
+  - first:
+      213: -2076498213193452503
+    second: Ole Brumm Crash_8
+  - first:
+      213: 917272158708213357
+    second: Ole Brumm Crash_9
+  - first:
+      213: 6730483560421993132
+    second: Ole Brumm Crash_10
+  - first:
+      213: 8653223200214587677
+    second: Ole Brumm Crash_11
+  - first:
+      213: -5542254322437596909
+    second: Ole Brumm Crash_12
+  - first:
+      213: -4120843759700228859
+    second: Ole Brumm Crash_13
+  - first:
+      213: 7759011928575542720
+    second: Ole Brumm Crash_14
+  - first:
+      213: 6599874503566202912
+    second: Ole Brumm Crash_15
+  - first:
+      213: -4818722745653240630
+    second: Ole Brumm Crash_16
+  - first:
+      213: -6244906766215721679
+    second: Ole Brumm Crash_17
+  - first:
+      213: 1799773211046150600
+    second: Ole Brumm Crash_18
+  - first:
+      213: 5558514454182205119
+    second: Ole Brumm Crash_19
+  - first:
+      213: -1832075624033996369
+    second: Ole Brumm Crash_20
+  - first:
+      213: -8689854600322241706
+    second: Ole Brumm Crash_21
+  - first:
+      213: 8145872725579261729
+    second: Ole Brumm Crash_22
+  - first:
+      213: -4214211234084513654
+    second: Ole Brumm Crash_23
+  - first:
+      213: 5296158857924922687
+    second: Ole Brumm Crash_24
+  - first:
+      213: 2752314146376583480
+    second: Ole Brumm Crash_25
+  - first:
+      213: -770437414923247195
+    second: Ole Brumm Crash_26
+  - first:
+      213: 6314145999010155809
+    second: Ole Brumm Crash_27
+  - first:
+      213: -5027063032616391287
+    second: Ole Brumm Crash_28
+  - first:
+      213: -8288585940403289783
+    second: Ole Brumm Crash_29
+  - first:
+      213: 295539335186486693
+    second: Ole Brumm Crash_30
+  - first:
+      213: -4319778259432208609
+    second: Ole Brumm Crash_31
+  - first:
+      213: -1726395890405817610
+    second: Ole Brumm Crash_32
+  - first:
+      213: 5442273578685143344
+    second: Ole Brumm Crash_33
+  - first:
+      213: 8313956992180512260
+    second: Ole Brumm Crash_34
+  - first:
+      213: -3711844057093974239
+    second: Ole Brumm Crash_35
+  - first:
+      213: -5329747428164797264
+    second: Ole Brumm Crash_36
+  - first:
+      213: 6940879827697488023
+    second: Ole Brumm Crash_37
+  - first:
+      213: -625210817452137142
+    second: Ole Brumm Crash_38
+  - first:
+      213: -6138070418457187028
+    second: Ole Brumm Crash_39
+  - first:
+      213: 5729804526574003761
+    second: Ole Brumm Crash_40
+  - first:
+      213: 5706407481219783611
+    second: Ole Brumm Crash_41
+  - first:
+      213: -3117874008656547501
+    second: Ole Brumm Crash_42
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 256
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Ole Brumm Crash_0
+      rect:
+        serializedVersion: 2
+        x: 2865
+        y: 12
+        width: 731
+        height: 983
+      alignment: 9
+      pivot: {x: 0.8037694, y: -0.0026974771}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d3e78bd7e22b02c10800000000000000
+      internalID: 2026815745064205885
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ole Brumm Crash_5
+      rect:
+        serializedVersion: 2
+        x: 5454
+        y: 141
+        width: 516
+        height: 857
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e1ec27cfe59dd2d70800000000000000
+      internalID: 9020104630678507038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ole Brumm Crash_6
+      rect:
+        serializedVersion: 2
+        x: 6512
+        y: 153
+        width: 510
+        height: 911
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 43627b25096e3e540800000000000000
+      internalID: 5036122315867760180
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ole Brumm Crash_7
+      rect:
+        serializedVersion: 2
+        x: 7637
+        y: 158
+        width: 507
+        height: 909
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: df8149d65146f1820800000000000000
+      internalID: 2891139528990660861
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ole Brumm Crash_8
+      rect:
+        serializedVersion: 2
+        x: 8755
+        y: 253
+        width: 598
+        height: 791
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 924fed970ebce23e0800000000000000
+      internalID: -2076498213193452503
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ole Brumm Crash_9
+      rect:
+        serializedVersion: 2
+        x: 9779
+        y: 195
+        width: 790
+        height: 737
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d66a82e1b2ecabc00800000000000000
+      internalID: 917272158708213357
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ole Brumm Crash_10
+      rect:
+        serializedVersion: 2
+        x: 459
+        y: 5
+        width: 742
+        height: 880
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: caa2f89732b776d50800000000000000
+      internalID: 6730483560421993132
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ole Brumm Crash_1
+      rect:
+        serializedVersion: 2
+        x: 1715
+        y: 25
+        width: 675
+        height: 843
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 319db30de05f513b0800000000000000
+      internalID: -5542254322437596909
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ole Brumm Crash_4
+      rect:
+        serializedVersion: 2
+        x: 4357
+        y: 41
+        width: 434
+        height: 954
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 505ce280f62dfc6c0800000000000000
+      internalID: -4120843759700228859
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ole Brumm Crash_14
+      rect:
+        serializedVersion: 2
+        x: 10861
+        y: 53
+        width: 844
+        height: 754
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0c583c27d3c8dab60800000000000000
+      internalID: 7759011928575542720
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ole Brumm Crash_11
+      rect:
+        serializedVersion: 2
+        x: 12011
+        y: 0
+        width: 1168
+        height: 464
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0289833b4e6779b50800000000000000
+      internalID: 6599874503566202912
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ole Brumm Crash_12
+      rect:
+        serializedVersion: 2
+        x: 13212
+        y: 0
+        width: 1157
+        height: 326
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 65baff5284f676780800000000000000
+      internalID: -8689854600322241706
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ole Brumm Crash_13
+      rect:
+        serializedVersion: 2
+        x: 14456
+        y: 0
+        width: 1061
+        height: 254
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f3d47a8cb6cbf7940800000000000000
+      internalID: 5296158857924922687
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ole Brumm Crash_25
+      rect:
+        serializedVersion: 2
+        x: 15685
+        y: 0
+        width: 1016
+        height: 254
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8390f0d322f223620800000000000000
+      internalID: 2752314146376583480
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Ole Brumm Crash_1: -5542254322437596909
+      Ole Brumm Crash_11: 6599874503566202912
+      Ole Brumm Crash_12: -8689854600322241706
+      Ole Brumm Crash_13: 5296158857924922687
+      Ole Brumm Crash_4: -4120843759700228859
+      Ole Brumm Crash_43: -2141908001
+      Ole Brumm Crash_5: 9020104630678507038
+      PlayerSizeTest_0: 6652565939410771171
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

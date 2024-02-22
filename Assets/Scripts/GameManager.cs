@@ -6,6 +6,7 @@ public class GameManager : MonoBehaviour
 {
     private PlayerController _playerController;
     private PlayerInput _playerInput;
+    private Spawner _spawner;
     [SerializeField] private TextMeshProUGUI distanceNumberText;
 
     [Header("Adjust how quickly the distance increases in each phase:")]
@@ -40,6 +41,7 @@ public class GameManager : MonoBehaviour
     {
         _playerInput = GameObject.FindWithTag("Player").GetComponent<PlayerInput>();
         _playerController = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
+        _spawner = GameObject.FindWithTag("Spawner").GetComponent<Spawner>();
         distanceNumberText = GetComponentInChildren<TextMeshProUGUI>();
         phase1Active = true;
     }
@@ -105,18 +107,22 @@ public class GameManager : MonoBehaviour
             {
                 case >= 0 and < 100:
                     phase1Active = true;
+                    _spawner.PhaseUpdate();
                     break;
                 case >= 100 and < 1000:
                     phase2Active = true;
                     phase1Active = false;
+                    _spawner.PhaseUpdate();
                     break;
                 case >= 1000 and < 10000:
                     phase3Active = true;
                     phase2Active = false;
+                    _spawner.PhaseUpdate();
                     break;
                 case >= 10000 and < 100000:
                     phase4Active = true;
                     phase3Active = false;
+                    _spawner.PhaseUpdate();
                     break;
                 case >= 100000:
                     CurrentScore = 100000;

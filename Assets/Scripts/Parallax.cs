@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class Parallax : MonoBehaviour
 {
@@ -18,17 +19,18 @@ public class Parallax : MonoBehaviour
     [SerializeField] private float multiplierPhase4 = 6f;
 
     [Header("Choose a bool depending on function. Leave unchecked if background.")]
-    [SerializeField] private bool isPlatform;
+    [SerializeField] private bool isAirPlatform;
+    [SerializeField] private bool isGroundPlatform;
     [SerializeField] private bool isObstacle;
 
     // Use this for initialization
     private void Start() 
     {
-        _spawner = GetComponentInParent<Spawner>();
+        _spawner = GameObject.FindWithTag("Spawner").GetComponent<Spawner>();
         ground = transform;
         cam = Camera.main;
         
-        if (isPlatform)
+        if (isAirPlatform)
         {
             groundWidth = ground.GetComponentInChildren<Renderer>().bounds.size.x; 
         }
@@ -80,9 +82,13 @@ public class Parallax : MonoBehaviour
         {
             // if gameObject is offscreen, destroy it and re-instantiate it at new xPosition
             float currentRightX = ground.position.x + groundWidth;
-            if (isPlatform || isObstacle)
+            if (isAirPlatform || isObstacle)
             {
-                // TODO: Connect to the Spawner Script, and spawn through that one.
+                _spawner.SpawnTimer();
+            }
+            else if (isGroundPlatform)
+            {
+                _spawner.SpawnTimerGroundSpawnArea();
             }
             else
             {

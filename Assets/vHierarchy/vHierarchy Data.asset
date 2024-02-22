@@ -48,6 +48,8 @@ MonoBehaviour:
         - globalObjectIdString: GlobalObjectId_V1-2-8c9cfa26abfee488c85f1582747f6a02-5812069137532011827-4781770061849705263
         - globalObjectIdString: GlobalObjectId_V1-2-8c9cfa26abfee488c85f1582747f6a02-207766785-0
         - globalObjectIdString: GlobalObjectId_V1-2-8c9cfa26abfee488c85f1582747f6a02-1888000158-0
+        - globalObjectIdString: GlobalObjectId_V1-2-8c9cfa26abfee488c85f1582747f6a02-2038479580-0
+        - globalObjectIdString: GlobalObjectId_V1-2-8c9cfa26abfee488c85f1582747f6a02-53664413-0
         values:
         - colorIndex: 0
           iconNameOrGuid: PreMatQuad
@@ -83,7 +85,7 @@ MonoBehaviour:
           iconNameOrGuid: BoxCollider Icon
         - colorIndex: 0
           iconNameOrGuid: AudioReverbZone Icon
-        - colorIndex: 4
+        - colorIndex: 0
           iconNameOrGuid: PreMatCylinder
         - colorIndex: 1
           iconNameOrGuid: PreMatCylinder
@@ -109,3 +111,7 @@ MonoBehaviour:
           iconNameOrGuid: AudioClip Icon
         - colorIndex: 0
           iconNameOrGuid: AudioSource Icon
+        - colorIndex: 0
+          iconNameOrGuid: ReflectionProbe Icon
+        - colorIndex: 0
+          iconNameOrGuid: Terrain Icon

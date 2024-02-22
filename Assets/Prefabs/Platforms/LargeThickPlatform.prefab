@@ -172,7 +172,8 @@ MonoBehaviour:
   multiplierPhase2: 1
   multiplierPhase3: 2.5
   multiplierPhase4: 6
-  isPlatform: 1
+  isAirPlatform: 0
+  isGroundPlatform: 1
   isObstacle: 0
 --- !u!114 &7561586582707444715
 MonoBehaviour:

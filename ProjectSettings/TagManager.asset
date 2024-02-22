@@ -11,6 +11,8 @@ TagManager:
   - Platform
   - DeathZone
   - SpawnArea
+  - Spawner
+  - SpawnAreaGround
   layers:
   - Default
   - TransparentFX

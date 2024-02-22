@@ -24,7 +24,7 @@ namespace From_Other_Projects.Koi_PunchVR
         }
         #endregion
         
-        #region ---FishPoolInfo---
+        #region ---PlatformPoolInfo---
         public class PlatformPool
         {
             public readonly PlatformRecord PlatformRecord;
@@ -77,7 +77,7 @@ namespace From_Other_Projects.Koi_PunchVR
             public Platform(PlatformPool platformPool)
             {
                 PlatformPool = platformPool;
-                ParentGameObject = Instantiate(platformPool.PlatformRecord.PlatformScrub.prefab, _platformContainer);
+                ParentGameObject = Instantiate(platformPool.PlatformRecord.PlatformScrub.platformPrefab, _platformContainer);
                 ParentGameObject.SetActive(false);
                 Children = ParentGameObject.GetComponentsInChildren<Transform>().Select(transform1 => new Child(transform1)).ToArray();
             }

@@ -65,7 +65,7 @@ namespace From_Other_Projects.Koi_PunchVR
         
         private static void AddSpawnAreasToSpawnAreaList()
         {
-            var spawnArea = GameObject.FindGameObjectsWithTag("PlatformSpawnArea");
+            var spawnArea = (GameObject.FindGameObjectsWithTag("SpawnArea"));
             
             foreach (var obj in spawnArea)
             {

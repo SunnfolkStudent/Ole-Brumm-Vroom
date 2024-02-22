@@ -239,7 +239,7 @@ public class PlayerController : MonoBehaviour
        {
            if (!other.gameObject.CompareTag("Platform")) return;
 
-           var collision = other.GetComponent<PlatformCollisionBoxes>().collision;
+           var collision = other.GetComponent<Platforms>().collision;
 
            if (platform.Contains(collision))
            {
