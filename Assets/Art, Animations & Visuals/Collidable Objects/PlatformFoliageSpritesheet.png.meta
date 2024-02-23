@@ -1,0 +1,632 @@
+fileFormatVersion: 2
+guid: 80e6d54344a5b664d98057ffdb10fcda
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 1846459816576432296
+    second: PlatformFoliageSpritesheet_0
+  - first:
+      213: -7707380275298465710
+    second: PlatformFoliageSpritesheet_1
+  - first:
+      213: -3181533523234392476
+    second: PlatformFoliageSpritesheet_2
+  - first:
+      213: -23193710908055269
+    second: PlatformFoliageSpritesheet_3
+  - first:
+      213: -159650810293103925
+    second: PlatformFoliageSpritesheet_4
+  - first:
+      213: -4087090140615236505
+    second: PlatformFoliageSpritesheet_5
+  - first:
+      213: 3198972305112429057
+    second: PlatformFoliageSpritesheet_6
+  - first:
+      213: 2875658842916836537
+    second: PlatformFoliageSpritesheet_7
+  - first:
+      213: 1467913872877675760
+    second: PlatformFoliageSpritesheet_8
+  - first:
+      213: -7807969649023631185
+    second: PlatformFoliageSpritesheet_9
+  - first:
+      213: -363380571141872166
+    second: PlatformFoliageSpritesheet_10
+  - first:
+      213: -4534186594826877472
+    second: PlatformFoliageSpritesheet_11
+  - first:
+      213: -1736804097634832050
+    second: PlatformFoliageSpritesheet_12
+  - first:
+      213: -6290102288640081657
+    second: PlatformFoliageSpritesheet_13
+  - first:
+      213: -4611307566937498397
+    second: PlatformFoliageSpritesheet_14
+  - first:
+      213: 1396745571953745222
+    second: PlatformFoliageSpritesheet_15
+  - first:
+      213: -300427900135127694
+    second: PlatformFoliageSpritesheet_16
+  - first:
+      213: 3740408373643752748
+    second: PlatformFoliageSpritesheet_17
+  - first:
+      213: 1700684616517949741
+    second: PlatformFoliageSpritesheet_18
+  - first:
+      213: 991489209214807642
+    second: PlatformFoliageSpritesheet_19
+  - first:
+      213: -4469731768046564643
+    second: PlatformFoliageSpritesheet_20
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: PlatformFoliageSpritesheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 95
+        width: 55
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8a832139b61ff9910800000000000000
+      internalID: 1846459816576432296
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlatformFoliageSpritesheet_1
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 95
+        width: 35
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2588bfd9972e90590800000000000000
+      internalID: -7707380275298465710
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlatformFoliageSpritesheet_2
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 95
+        width: 38
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 466fd9afd1ce8d3d0800000000000000
+      internalID: -3181533523234392476
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlatformFoliageSpritesheet_3
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 95
+        width: 122
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b116d4c51799daff0800000000000000
+      internalID: -23193710908055269
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlatformFoliageSpritesheet_4
+      rect:
+        serializedVersion: 2
+        x: 248
+        y: 95
+        width: 54
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bc250641f6ec8cdf0800000000000000
+      internalID: -159650810293103925
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlatformFoliageSpritesheet_5
+      rect:
+        serializedVersion: 2
+        x: 301
+        y: 95
+        width: 36
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 764a0a3eb2db747c0800000000000000
+      internalID: -4087090140615236505
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlatformFoliageSpritesheet_6
+      rect:
+        serializedVersion: 2
+        x: 337
+        y: 95
+        width: 34
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 102f984dc58056c20800000000000000
+      internalID: 3198972305112429057
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlatformFoliageSpritesheet_7
+      rect:
+        serializedVersion: 2
+        x: 374
+        y: 95
+        width: 69
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9b4d4435b7468e720800000000000000
+      internalID: 2875658842916836537
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlatformFoliageSpritesheet_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 28
+        width: 63
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0f4edb9d3e31f5410800000000000000
+      internalID: 1467913872877675760
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlatformFoliageSpritesheet_9
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 28
+        width: 36
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fa04aecf8f484a390800000000000000
+      internalID: -7807969649023631185
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlatformFoliageSpritesheet_10
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 28
+        width: 54
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ad56fcabb4305faf0800000000000000
+      internalID: -363380571141872166
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlatformFoliageSpritesheet_11
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 28
+        width: 52
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0e5810ea0555311c0800000000000000
+      internalID: -4534186594826877472
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlatformFoliageSpritesheet_12
+      rect:
+        serializedVersion: 2
+        x: 303
+        y: 28
+        width: 35
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e41780c00e1a5e7e0800000000000000
+      internalID: -1736804097634832050
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlatformFoliageSpritesheet_13
+      rect:
+        serializedVersion: 2
+        x: 358
+        y: 28
+        width: 38
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7018cbc7b4115b8a0800000000000000
+      internalID: -6290102288640081657
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlatformFoliageSpritesheet_14
+      rect:
+        serializedVersion: 2
+        x: 418
+        y: 28
+        width: 66
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3ec9e9a13385100c0800000000000000
+      internalID: -4611307566937498397
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlatformFoliageSpritesheet_15
+      rect:
+        serializedVersion: 2
+        x: 496
+        y: 28
+        width: 71
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 64d17e982bc326310800000000000000
+      internalID: 1396745571953745222
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlatformFoliageSpritesheet_16
+      rect:
+        serializedVersion: 2
+        x: 590
+        y: 28
+        width: 57
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 27544d3aa6aa4dbf0800000000000000
+      internalID: -300427900135127694
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlatformFoliageSpritesheet_17
+      rect:
+        serializedVersion: 2
+        x: 672
+        y: 27
+        width: 29
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c25bee9299998e330800000000000000
+      internalID: 3740408373643752748
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlatformFoliageSpritesheet_18
+      rect:
+        serializedVersion: 2
+        x: 726
+        y: 28
+        width: 45
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d29168ae5ab0a9710800000000000000
+      internalID: 1700684616517949741
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlatformFoliageSpritesheet_19
+      rect:
+        serializedVersion: 2
+        x: 792
+        y: 28
+        width: 39
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a5ea1e1ce2a72cd00800000000000000
+      internalID: 991489209214807642
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlatformFoliageSpritesheet_20
+      rect:
+        serializedVersion: 2
+        x: 844
+        y: 28
+        width: 61
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dda4e4c73a258f1c0800000000000000
+      internalID: -4469731768046564643
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      PlayerSizeTest_0: 6652565939410771171
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
