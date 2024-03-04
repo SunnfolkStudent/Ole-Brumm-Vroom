@@ -78,6 +78,8 @@ public class PlayerController : MonoBehaviour
                 PlayerJumps();
             }
 
+            // TODO: Fix weird platform bugs! Sometimes you can just walk in-air, and there's an increased count of platforms over time...
+            
             if (PlayerInput.DropBelow)
             {
                 print("Dropping through " + platform.Count + " platforms!");

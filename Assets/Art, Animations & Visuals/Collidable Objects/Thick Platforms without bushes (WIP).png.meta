@@ -1,49 +1,31 @@
 fileFormatVersion: 2
-guid: 362db698f02f1ef488fc4566c1439ffc
+guid: ef63ba495f23832439ca74bac2abee0e
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6634511515258745231
-    second: Platforms finished_0
+      213: -4411614511165498749
+    second: Thick Platforms without bushes (WIP)_0
   - first:
-      213: 8303485644117432162
-    second: Platforms finished_1
+      213: -7612107456005259810
+    second: Thick Platforms without bushes (WIP)_1
   - first:
-      213: -1784540003416553390
-    second: Platforms finished_2
+      213: -2211918178390400677
+    second: Thick Platforms without bushes (WIP)_2
   - first:
-      213: 5130220117112040434
-    second: Platforms finished_3
+      213: 3985814575954730521
+    second: Thick Platforms without bushes (WIP)_3
   - first:
-      213: 354127106435954638
-    second: Platforms finished_4
+      213: -3317039444024276423
+    second: Thick Platforms without bushes (WIP)_4
   - first:
-      213: -7637989456259556724
-    second: Platforms finished_5
+      213: 312462631329015914
+    second: Thick Platforms without bushes (WIP)_5
   - first:
-      213: 2424089500803548308
-    second: Platforms finished_6
+      213: -6587422243055453356
+    second: Thick Platforms without bushes (WIP)_6
   - first:
-      213: 8969491723808254836
-    second: Platforms finished_7
-  - first:
-      213: -3182296959676086568
-    second: Platforms finished_8
-  - first:
-      213: 2254315748708785306
-    second: Platforms finished_9
-  - first:
-      213: -7080682562172312827
-    second: Platforms finished_10
-  - first:
-      213: -7659889046560596800
-    second: Platforms finished_11
-  - first:
-      213: -7564780151512466059
-    second: Platforms finished_12
-  - first:
-      213: -7763954522433941914
-    second: Platforms finished_13
+      213: -5191189330547338427
+    second: Thick Platforms without bushes (WIP)_7
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -76,7 +58,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -85,12 +67,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 128
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -152,169 +134,169 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: PlatformThickLargest
+      name: Thick Platforms without bushes (WIP)_0
       rect:
         serializedVersion: 2
-        x: 42
-        y: 1324
+        x: 13
+        y: 795
         width: 1072
-        height: 268
-      alignment: 5
-      pivot: {x: 1, y: 0.5}
+        height: 229
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: e2d50ad5ac17f0a4e848a4cc0fb7e3d8
-      internalID: -1183399414
+      spriteID: 38a9500d9fbc6c2c0800000000000000
+      internalID: -4411614511165498749
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlatformThinLargest
+      name: Thick Platforms without bushes (WIP)_1
       rect:
         serializedVersion: 2
-        x: 1342
-        y: 1447
-        width: 1085
-        height: 106
-      alignment: 5
-      pivot: {x: 1, y: 0.5}
+        x: 19
+        y: 530
+        width: 855
+        height: 232
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: f24d48a3b6937194bad933c267b33693
-      internalID: -1306503535
+      spriteID: edd34b4799c5c5690800000000000000
+      internalID: -7612107456005259810
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlatformThinLarge
+      name: Thick Platforms without bushes (WIP)_2
       rect:
         serializedVersion: 2
-        x: 1342
-        y: 1323
-        width: 872
-        height: 104
-      alignment: 5
-      pivot: {x: 1, y: 0.5}
+        x: 1031
+        y: 500
+        width: 1086
+        height: 108
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 2e22f6e9b4a30db4db613bf298ab6d9a
-      internalID: -1389076279
+      spriteID: b51afc0d220bd41e0800000000000000
+      internalID: -2211918178390400677
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlatformThinSmall
+      name: Thick Platforms without bushes (WIP)_3
       rect:
         serializedVersion: 2
-        x: 1347
-        y: 1184
-        width: 647
-        height: 104
-      alignment: 5
-      pivot: {x: 1, y: 0.5}
+        x: 20
+        y: 275
+        width: 638
+        height: 229
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 71b5a509134059a48bf9f1a70b327448
-      internalID: -514357038
+      spriteID: 91e1b543d35705730800000000000000
+      internalID: 3985814575954730521
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlatformThickLarge
+      name: Thick Platforms without bushes (WIP)_4
       rect:
         serializedVersion: 2
-        x: 41
-        y: 886
-        width: 854
-        height: 248
-      alignment: 5
-      pivot: {x: 1, y: 0.5}
+        x: 1032
+        y: 376
+        width: 873
+        height: 103
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: db41755c0d74c32439f8ec8363350af5
-      internalID: 1704904664
+      spriteID: 93a49f8333287f1d0800000000000000
+      internalID: -3317039444024276423
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlatformThinSmallest
+      name: Thick Platforms without bushes (WIP)_5
       rect:
         serializedVersion: 2
-        x: 1347
-        y: 1041
-        width: 426
-        height: 100
-      alignment: 5
-      pivot: {x: 1, y: 0.5}
+        x: 24
+        y: 18
+        width: 422
+        height: 232
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 222142618b3a64342b94b10ecb502a37
-      internalID: 1279184948
+      spriteID: a6823f19b17165400800000000000000
+      internalID: 312462631329015914
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlatformThickSmall
+      name: Thick Platforms without bushes (WIP)_6
       rect:
         serializedVersion: 2
-        x: 41
-        y: 452
-        width: 636
-        height: 246
-      alignment: 5
-      pivot: {x: 1, y: 0.5}
+        x: 1034
+        y: 237
+        width: 650
+        height: 105
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: c498e78857b7dc44a923dd8a1c306d32
-      internalID: -745015038
+      spriteID: 45b3c212f56c494a0800000000000000
+      internalID: -6587422243055453356
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlatformThickSmallest
+      name: Thick Platforms without bushes (WIP)_7
       rect:
         serializedVersion: 2
-        x: 38
-        y: 16
-        width: 421
-        height: 247
-      alignment: 5
-      pivot: {x: 1, y: 0.5}
+        x: 1034
+        y: 93
+        width: 431
+        height: 103
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 513f0e17d69786e419fcd29a2efd9933
-      internalID: -1635043109
+      spriteID: 5439de6dec035f7b0800000000000000
+      internalID: -5191189330547338427
       vertices: []
       indices: 
       edges: []
@@ -330,24 +312,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      PlatformThickLarge: 1704904664
-      PlatformThickLargest: -69666160
-      PlatformThickSmall: -745015038
-      PlatformThickSmallest: -1635043109
-      PlatformThinLarge: -1389076279
-      PlatformThinLargest: -1306503535
-      PlatformThinSmall: -514357038
-      PlatformThinSmallest: 1279184948
-      Platforms finished_0: -1028465176
-      Platforms finished_11: 1153370377
-      Platforms finished_13: 1043700483
-      Platforms finished_14: 747966450
-      Platforms finished_15: -874555604
-      Platforms finished_16: -2123627192
-      Platforms finished_6: -1947792858
-      Platforms finished_7: -747093000
-      Platforms finished_8: -1896294136
-      Platforms finished_9: 755809713
+      PlayerSizeTest_0: 6652565939410771171
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
