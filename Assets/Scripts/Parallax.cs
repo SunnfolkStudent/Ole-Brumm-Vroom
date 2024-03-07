@@ -103,8 +103,7 @@ public class Parallax : MonoBehaviour
             
             if (isAirPlatform || isObstacle)
             {
-                _nextXPos = currentRightX + _objectWidth;
-                _objectTransform.position = new Vector3(_nextXPos, position.y, position.z);
+                _objectTransform.position = new Vector3(_initialSpawnPosition.x, position.y, position.z);
                 // TODO: Insert method that stops platform, until it receives new instructions.
                 StopPlatform();
                 // Function(_objectTransform.position);
