@@ -10,6 +10,7 @@ public class Parallax : MonoBehaviour
     private float _objectWidth; // The width of the transform, used for calculating current max x position of transform and next placement x position
     private float _nextXPos; // Store next x position in variable for easier reading
 
+    private Vector3 _rightmostExtentsPosition;
     private Vector3 _initialSpawnPosition;
     
     [Header("This is the initial speed and acceleration that's being multiplied with:")]
@@ -85,6 +86,7 @@ public class Parallax : MonoBehaviour
             
         // Create new Vector3 to be used in WorldToViewportPoint so it doesn't use the middle of the object as reference
         var position = _objectTransform.position;
+        var positionWithOffset = position + new Vector3(0, 2f, 0);
         
         // TODO: Set up EstimatedCrashTime to use objectLeftPos & objectRightPos. : )
         Vector3 objectLeftPos = new Vector3 (position.x - _objectWidth/2, position.y, position.z);
@@ -96,8 +98,9 @@ public class Parallax : MonoBehaviour
         if (debugViewPos)
         {
             Debug.Log("ViewPos of " + gameObject + ":" + viewPos);
-            Debug.DrawRay(viewPos, objectRightPos, Color.red);
-            Debug.DrawRay(_objectTransform.position, Vector3.up, Color.cyan);
+            Debug.DrawLine(position, objectRightPos, Color.red);
+            Debug.DrawLine(positionWithOffset, objectLeftPos, Color.magenta);
+            Debug.DrawLine(position, Vector3.up*10f, Color.green);
         }
         
         //If the object tile is left of camera viewport
@@ -109,14 +112,14 @@ public class Parallax : MonoBehaviour
             if (isAirPlatform || isObstacle)
             {
                 _nextXPos = currentRightX + _objectWidth;
-                _objectTransform.position = new Vector3(_objectTransform.position.x, position.y, position.z);
+                _objectTransform.position = new Vector3(_nextXPos, position.y, position.z);
                 //_objectTransform.position = new Vector3(_initialSpawnPosition.x, position.y, position.z);
                 // TODO: Insert method that stops platform, until it receives new instructions.
                 // StopPlatform();
             }
             else if (isGroundPlatform)
             {
-                _objectTransform.position = new Vector3(_initialSpawnPosition.x, position.y);
+                _objectTransform.position = new Vector3(_initialSpawnPosition.x, position.y, position.z);
                 // TODO: Insert method that stops platform, until it receives new instructions.
                 // StopPlatform();
             }
