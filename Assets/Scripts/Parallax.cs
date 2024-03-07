@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 
 [RequireComponent(typeof(GameEventListener))]
 public class Parallax : MonoBehaviour
@@ -28,14 +29,14 @@ public class Parallax : MonoBehaviour
     [SerializeField] private bool isObstacle;
 
     [SerializeField] private bool debugViewPos;
-    // private bool _objectStopped;
+    [SerializeField] private bool objectStopped;
     
     // Use this for initialization
     private void Start() 
     {
         // _spawner = GameObject.FindWithTag("Spawner").GetComponent<Spawner>();
         _objectTransform = transform;
-        _initialSpawnPosition = _objectTransform.position;
+        // _initialSpawnPosition = _objectTransform.position;
         _cam = Camera.main;
 
         if (_objectTransform.TryGetComponent(out Renderer _))
@@ -75,6 +76,8 @@ public class Parallax : MonoBehaviour
         
     private void FixedUpdate()
     {
+        if (objectStopped) return;
+        
         // TODO: Set up the right system for speed with objects : )
         
         _currentVelocity += _currentAcceleration * Time.fixedDeltaTime;
@@ -83,7 +86,7 @@ public class Parallax : MonoBehaviour
         // Create new Vector3 to be used in WorldToViewportPoint so it doesn't use the middle of the object as reference
         var position = _objectTransform.position;
         
-        // TODO: Set up collider and EstimatedCrashTime to use objectLeftPos & objectRightPos. : )
+        // TODO: Set up EstimatedCrashTime to use objectLeftPos & objectRightPos. : )
         Vector3 objectLeftPos = new Vector3 (position.x - _objectWidth/2, position.y, position.z);
         Vector3 objectRightPos = new Vector3 (position.x + _objectWidth/2, position.y, position.z);
 
@@ -93,6 +96,8 @@ public class Parallax : MonoBehaviour
         if (debugViewPos)
         {
             Debug.Log("ViewPos of " + gameObject + ":" + viewPos);
+            Debug.DrawRay(viewPos, objectRightPos, Color.red);
+            Debug.DrawRay(_objectTransform.position, Vector3.up, Color.cyan);
         }
         
         //If the object tile is left of camera viewport
@@ -103,17 +108,17 @@ public class Parallax : MonoBehaviour
             
             if (isAirPlatform || isObstacle)
             {
-                _objectTransform.position = new Vector3(_initialSpawnPosition.x, position.y, position.z);
+                _nextXPos = currentRightX + _objectWidth;
+                _objectTransform.position = new Vector3(_objectTransform.position.x, position.y, position.z);
+                //_objectTransform.position = new Vector3(_initialSpawnPosition.x, position.y, position.z);
                 // TODO: Insert method that stops platform, until it receives new instructions.
-                StopPlatform();
-                // Function(_objectTransform.position);
+                // StopPlatform();
             }
             else if (isGroundPlatform)
             {
                 _objectTransform.position = new Vector3(_initialSpawnPosition.x, position.y);
                 // TODO: Insert method that stops platform, until it receives new instructions.
-                StopPlatform();
-                // Function(_objectTransform.position);
+                // StopPlatform();
             }
             else
             {
@@ -123,14 +128,10 @@ public class Parallax : MonoBehaviour
             }
         }
     }
-
     private void StopPlatform()
     {
         _currentVelocity = 0;
         _currentAcceleration = 0;
-        // _objectStopped = true;
+        objectStopped = true;
     }
-    
-    
-    
 }
