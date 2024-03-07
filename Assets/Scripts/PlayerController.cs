@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -68,17 +69,11 @@ public class PlayerController : MonoBehaviour
 
         private void Update()
         {
-            // ---------------------- Gameplay Inputs -------------------------------
-            
-            // TODO: Move most of this code away from Update, and over to just receive inputs from PlayerInput below.
-
             if (PlayerInput.Jump)
             {
                 if (!isPlayerGrounded) return;
                 PlayerJumps();
             }
-
-            // TODO: Fix weird platform bugs! Sometimes you can just walk in-air, and there's an increased count of platforms over time...
             
             if (PlayerInput.DropBelow)
             {
@@ -103,11 +98,11 @@ public class PlayerController : MonoBehaviour
             }
             
             // ---------------------- Inputs Pause Screen & RunEndedScreen -------------------------------
-
+            
             if (PlayerInput.ResetRun)
             {
                 _input.ChangeToPlayer();
-                _gameManager.LoadNewRun();
+                StartCoroutine(_gameManager.LoadNewRun());
             }
             
             if (PlayerInput.OpenPauseScreen)
@@ -121,7 +116,7 @@ public class PlayerController : MonoBehaviour
             {
                 _input.ChangeToPlayer();
                 Time.timeScale = 1;
-                _gameManager.UnloadPauseScreen();
+                StartCoroutine(_gameManager.UnloadPauseScreen());
             }
 
             if (PlayerInput.QuitGame)
@@ -145,16 +140,16 @@ public class PlayerController : MonoBehaviour
                 _audioSource.PlayOneShot(jumpClips[Random.Range(0, jumpClips.Length)]);
                 _moveDirection.y = jumpSpeed;
             }*/
-            
+        }
+
+        private void FixedUpdate()
+        {
             isPlayerGrounded = GroundedPlayer();
             if (!isPlayerGrounded)
             {
                 Debug.Log("Player is not grounded");
             }
-        }
-
-        private void FixedUpdate()
-        {
+            
             if (_rigidbody2D.velocity.y == 0 && (isPlayerGrounded || isPlayerOnPlatform)) 
             {
                 RunningAnimations();

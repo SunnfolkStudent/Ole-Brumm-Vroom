@@ -94,7 +94,7 @@ public class Spawner : MonoBehaviour
         //SpawnTimerGroundSpawnArea();
     }
 
-    public void PhaseUpdate()
+    /*public void PhaseUpdate()
     {
         if (GameManager.phase1Active)
         {
@@ -104,23 +104,23 @@ public class Spawner : MonoBehaviour
         }
         if (GameManager.phase2Active)
         {
-            extraObstacleChance = 30;
+            extraObstacleChance = 25;
             maxSpawnRate = 6.5f;
             minSpawnRate = 1.5f;
         }
         if (GameManager.phase3Active)
         {
-            extraObstacleChance = 50;
+            extraObstacleChance = 35;
             maxSpawnRate = 5;
             minSpawnRate = 1.25f;
         }
         if (GameManager.phase4Active)
         {
-            extraObstacleChance = 80;
+            extraObstacleChance = 50;
             maxSpawnRate = 3;
             minSpawnRate = 0.75f;
         }
-    }
+    }*/
     
     public void SpawnTimer()
     {

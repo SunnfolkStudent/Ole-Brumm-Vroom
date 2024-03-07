@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d6199185025c7544b00f025b5e423a4, type: 3}
   m_Name: SmallThickPlatformScrub
   m_EditorClassIdentifier: 
-  platformPrefab: {fileID: 106909212351806282, guid: 153dade1cf3cafe458c066d7eff3f25e, type: 3}
+  objectPrefab: {fileID: 106909212351806282, guid: 153dade1cf3cafe458c066d7eff3f25e, type: 3}
   initialAmountInPool: 5
   weightInRandomTable: 100

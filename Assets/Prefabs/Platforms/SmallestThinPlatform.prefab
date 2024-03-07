@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 1855067016739846325}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.03, z: 0}
+  m_LocalPosition: {x: 0, y: -0.1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -75,12 +75,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 5
-  m_Sprite: {fileID: 2254315748708785306, guid: 362db698f02f1ef488fc4566c1439ffc, type: 3}
+  m_Sprite: {fileID: 1279184948, guid: 362db698f02f1ef488fc4566c1439ffc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 8.3828125, y: 2.0859375}
+  m_Size: {x: 3.3281248, y: 0.78125}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -98,7 +98,6 @@ GameObject:
   - component: {fileID: 1976285425281716073}
   - component: {fileID: 1113753766917728220}
   - component: {fileID: 3974671140804675423}
-  - component: {fileID: 3704855617988854929}
   - component: {fileID: 856216714056437277}
   m_Layer: 7
   m_Name: SmallestThinPlatform
@@ -234,25 +233,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 3.2053308, y: 0.13343143}
   m_EdgeRadius: 0
---- !u!114 &3704855617988854929
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4855715357623089845}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 75cec1dfda58eb9449f05638461877c3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  initialObjectSpeed: 1
-  multiplierPhase2: 1
-  multiplierPhase3: 2.5
-  multiplierPhase4: 6
-  isAirPlatform: 1
-  isGroundPlatform: 0
-  isObstacle: 0
 --- !u!114 &856216714056437277
 MonoBehaviour:
   m_ObjectHideFlags: 0

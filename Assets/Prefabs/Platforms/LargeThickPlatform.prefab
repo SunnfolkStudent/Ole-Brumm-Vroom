@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 2218416975970568053}
   - component: {fileID: 5836798423538620742}
   - component: {fileID: 6251360805189981244}
-  - component: {fileID: 124762881649854403}
   - component: {fileID: 7561586582707444715}
   m_Layer: 7
   m_Name: LargeThickPlatform
@@ -102,8 +101,8 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 1, y: 0.5}
-    oldSize: {x: 8.3828125, y: 2.0859375}
-    newSize: {x: 4.1914062, y: 1.0429688}
+    oldSize: {x: 6.679688, y: 1.9453125}
+    newSize: {x: 8.484375, y: 1.125}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -147,34 +146,15 @@ BoxCollider2D:
   m_Offset: {x: -3.7963276, y: -0.1873964}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
+    pivot: {x: 1, y: 0.5}
+    oldSize: {x: 6.679688, y: 1.9453125}
+    newSize: {x: 8.484375, y: 1.125}
+    adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   m_Size: {x: 6.4560766, y: 1.7009838}
   m_EdgeRadius: 0
---- !u!114 &124762881649854403
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2979261699357190641}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 75cec1dfda58eb9449f05638461877c3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  initialObjectSpeed: 1
-  multiplierPhase2: 1
-  multiplierPhase3: 2.5
-  multiplierPhase4: 6
-  isAirPlatform: 0
-  isGroundPlatform: 1
-  isObstacle: 0
 --- !u!114 &7561586582707444715
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -182,7 +162,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2979261699357190641}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9101a657728fbe6419213c4b15d418fd, type: 3}
   m_Name: 
@@ -263,12 +243,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 5
-  m_Sprite: {fileID: -1784540003416553390, guid: 362db698f02f1ef488fc4566c1439ffc, type: 3}
+  m_Sprite: {fileID: 1704904664, guid: 362db698f02f1ef488fc4566c1439ffc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 8.3828125, y: 2.0859375}
+  m_Size: {x: 6.671875, y: 1.9375}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
