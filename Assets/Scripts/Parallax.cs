@@ -5,8 +5,11 @@ using UnityEngine.Serialization;
 [RequireComponent(typeof(GameEventListener))]
 public class Parallax : MonoBehaviour
 {
-    public static event Action<int> OnRightEdgeView;
+    public static event Action<GameObject> OnRightEdgeView;
+    public static event Action<int> ReachEnd;
     private bool _rightEdgeReachedEnd = false;
+    
+    [SerializeField] private int _layoutNumber;
     
     private Transform _objectTransform; // For reference to the transform 
     private Camera _cam; // Reference to Main Camera
@@ -112,12 +115,13 @@ public class Parallax : MonoBehaviour
             // Debug.DrawLine(position, Vector3.up*10f, Color.green);
         }
 
-        if (isAirPlatform)
+        //Checks if it's a layout
+        if (_layoutNumber>=1)
         {
             if (viewPos.x <= 1 && !_rightEdgeReachedEnd)
             {
                 _rightEdgeReachedEnd = true;
-                OnRightEdgeView?.Invoke(1);
+                OnRightEdgeView?.Invoke(gameObject);
             }
         }
         
@@ -135,6 +139,12 @@ public class Parallax : MonoBehaviour
                 //_objectTransform.position = new Vector3(_initialSpawnPosition.x, position.y, position.z);
                 // TODO: Insert method that stops platform, sends back to initial spawnPosition, until it receives new instructions.
                 // StopPlatform();
+                
+                if (_layoutNumber >= 1)
+                {
+                    _rightEdgeReachedEnd = false;
+                    ReachEnd?.Invoke(_layoutNumber);
+                }
             }
             else if (isGroundPlatform)
             {
