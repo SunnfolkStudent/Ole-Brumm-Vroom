@@ -198,36 +198,8 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 3377214377353927808, guid: 153dade1cf3cafe458c066d7eff3f25e, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 7758795262713352327}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 153dade1cf3cafe458c066d7eff3f25e, type: 3}
---- !u!1 &3270082292179200070 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3377214377353927808, guid: 153dade1cf3cafe458c066d7eff3f25e, type: 3}
-  m_PrefabInstance: {fileID: 270194064168006854}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &7758795262713352327
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3270082292179200070}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 75549f68bd01ce84cb703f1d4b44abbb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  amountPhase1: 0
-  amountPhase2: 1
-  amountPhase3: 2
-  amountPhase4: 3
-  colourStrengthPhase1: 0.25
-  colourStrengthPhase2: 0.5
-  colourStrengthPhase3: 0.75
-  colourStrengthPhase4: 1
 --- !u!4 &6933486939583315467 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7171803955923208909, guid: 153dade1cf3cafe458c066d7eff3f25e, type: 3}
@@ -362,36 +334,8 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 8452599921855996269, guid: bde2049fdb5f7aa47bf1f4e3b89262ff, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 8717282950264455897}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bde2049fdb5f7aa47bf1f4e3b89262ff, type: 3}
---- !u!1 &4526781042667726021 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8452599921855996269, guid: bde2049fdb5f7aa47bf1f4e3b89262ff, type: 3}
-  m_PrefabInstance: {fileID: 5449339638455338408}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &8717282950264455897
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4526781042667726021}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 75549f68bd01ce84cb703f1d4b44abbb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  amountPhase1: 0
-  amountPhase2: 1
-  amountPhase3: 2
-  amountPhase4: 3
-  colourStrengthPhase1: 0.25
-  colourStrengthPhase2: 0.5
-  colourStrengthPhase3: 0.75
-  colourStrengthPhase4: 1
 --- !u!4 &7475218251553189464 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3180314171003513840, guid: bde2049fdb5f7aa47bf1f4e3b89262ff, type: 3}
@@ -460,36 +404,8 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 7963641721589864815, guid: aa8b0302de2088e43b42b789cbe1fe75, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 6324428873133338982}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aa8b0302de2088e43b42b789cbe1fe75, type: 3}
---- !u!1 &361550894666424222 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7963641721589864815, guid: aa8b0302de2088e43b42b789cbe1fe75, type: 3}
-  m_PrefabInstance: {fileID: 7746461204776290033}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &6324428873133338982
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 361550894666424222}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 75549f68bd01ce84cb703f1d4b44abbb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  amountPhase1: 0
-  amountPhase2: 1
-  amountPhase3: 2
-  amountPhase4: 3
-  colourStrengthPhase1: 0
-  colourStrengthPhase2: 0.33
-  colourStrengthPhase3: 0.7
-  colourStrengthPhase4: 1
 --- !u!4 &1204606395255175782 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8878682073663028375, guid: aa8b0302de2088e43b42b789cbe1fe75, type: 3}

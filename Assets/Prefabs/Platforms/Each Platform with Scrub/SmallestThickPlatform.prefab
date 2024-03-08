@@ -179,6 +179,7 @@ GameObject:
   - component: {fileID: 1457878743755355193}
   - component: {fileID: 945938713679938965}
   - component: {fileID: 6504067128853672639}
+  - component: {fileID: 396046471517592658}
   m_Layer: 7
   m_Name: PlatformVisual - SmallestThick
   m_TagString: Untagged
@@ -267,11 +268,45 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75549f68bd01ce84cb703f1d4b44abbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  amountPhase1: 0
-  amountPhase2: 1
-  amountPhase3: 2
-  amountPhase4: 3
-  colourStrengthPhase1: 0.25
-  colourStrengthPhase2: 0.5
-  colourStrengthPhase3: 0.75
+  animationCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  honeyAmountPhase1: 0
+  honeyAmountPhase2: 0.5
+  honeyAmountPhase3: 1.5
+  honeyAmountPhase4: 3
+  colourStrengthPhase1: 0
+  colourStrengthPhase2: 0.2
+  colourStrengthPhase3: 0.6
   colourStrengthPhase4: 1
+--- !u!114 &396046471517592658
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7963641721589864815}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52a70bae592085e4bb88d717cce2d937, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: 4f292fbba19cc844284a01478ff74345, type: 2}
+  onEventTriggered:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6504067128853672639}
+        m_TargetAssemblyTypeName: ShaderManager, Assembly-CSharp
+        m_MethodName: PhaseChange
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2

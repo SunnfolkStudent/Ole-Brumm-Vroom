@@ -124,13 +124,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75549f68bd01ce84cb703f1d4b44abbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  amountPhase1: 0
-  amountPhase2: 1
-  amountPhase3: 2
-  amountPhase4: 3
-  colourStrengthPhase1: 0.25
-  colourStrengthPhase2: 0.5
-  colourStrengthPhase3: 0.75
+  animationCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  honeyAmountPhase1: 0
+  honeyAmountPhase2: 0.5
+  honeyAmountPhase3: 1.5
+  honeyAmountPhase4: 3
+  colourStrengthPhase1: 0
+  colourStrengthPhase2: 0.2
+  colourStrengthPhase3: 0.6
   colourStrengthPhase4: 1
 --- !u!114 &2992245897285500426
 MonoBehaviour:

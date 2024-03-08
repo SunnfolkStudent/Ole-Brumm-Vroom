@@ -72,6 +72,7 @@ MonoBehaviour:
         - globalObjectIdString: GlobalObjectId_V1-2-8c9cfa26abfee488c85f1582747f6a02-6999501087774231083-496110312
         - globalObjectIdString: GlobalObjectId_V1-2-8c9cfa26abfee488c85f1582747f6a02-5658128489737977322-4862540031522005896
         - globalObjectIdString: GlobalObjectId_V1-2-8c9cfa26abfee488c85f1582747f6a02-5658128489737977322-1294577548
+        - globalObjectIdString: GlobalObjectId_V1-2-8c9cfa26abfee488c85f1582747f6a02-2034639676-0
         values:
         - colorIndex: 0
           iconNameOrGuid: PreMatQuad
@@ -181,3 +182,5 @@ MonoBehaviour:
           iconNameOrGuid: DirectionalLight Icon
         - colorIndex: 0
           iconNameOrGuid: DirectionalLight Icon
+        - colorIndex: 0
+          iconNameOrGuid: Terrain Icon

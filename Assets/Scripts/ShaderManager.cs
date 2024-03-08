@@ -10,10 +10,10 @@ public class ShaderManager : MonoBehaviour
     private static readonly int HoneyAmount = Shader.PropertyToID("_HoneyAmount");
     private static readonly int ColorStrength = Shader.PropertyToID("ColorStrength");
     
-    [SerializeField] private float amountPhase1 = 0f;
-    [SerializeField] private float amountPhase2 = 1f;
-    [SerializeField] private float amountPhase3 = 2f;
-    [SerializeField] private float amountPhase4 = 3f;
+    [SerializeField] private float honeyAmountPhase1 = 0f;
+    [SerializeField] private float honeyAmountPhase2 = 1f;
+    [SerializeField] private float honeyAmountPhase3 = 2f;
+    [SerializeField] private float honeyAmountPhase4 = 3f;
     private int _currentPhase;
 
     [SerializeField] private float colourStrengthPhase1 = 0.25f;
@@ -35,55 +35,91 @@ public class ShaderManager : MonoBehaviour
 
     private void Update()
     {
-        _spriteRenderer.material.SetFloat(HoneyAmount, AnimateShader(_currentPhase));
-        _spriteRenderer.material.SetFloat(ColorStrength, AnimateShader(_currentPhase));
+        var currentHoneyAmount = Mathf.Lerp(CurrentHoneyPhase(_currentPhase), CurrentHoneyPhase(_currentPhase+1), TimeUntilNextPhase(_currentPhase));
+        var currentColorStrength = Mathf.Lerp(CurrentColorStrength(_currentPhase), CurrentColorStrength(_currentPhase+1), TimeUntilNextPhase(_currentPhase));
+        _spriteRenderer.material.SetFloat(HoneyAmount, currentHoneyAmount);
+        _spriteRenderer.material.SetFloat(ColorStrength, currentColorStrength);
     }
 
+    private float CurrentHoneyPhase(int phase)
+    {
+        switch (phase)
+        {
+            case 1:
+                return honeyAmountPhase1;
+            case 2:
+                return honeyAmountPhase2;
+            case 3:
+                return honeyAmountPhase3;
+            case 4:
+                return honeyAmountPhase4;
+            case 5:
+                return honeyAmountPhase4;
+        }
+        return 0;
+    }
+    
+    private float CurrentColorStrength(int phase)
+    {
+        switch (phase)
+        {
+            case 1:
+                return colourStrengthPhase1;
+            case 2:
+                return colourStrengthPhase2;
+            case 3:
+                return colourStrengthPhase3;
+            case 4:
+                return colourStrengthPhase4;
+            case 5:
+                return colourStrengthPhase4;
+        }
+        return 0;
+    }
+
+    private float TimeUntilNextPhase(int phase)
+    {
+        switch (phase)
+        {
+            case 1:
+                return 20f;
+            case 2:
+                return 36f;
+            case 3:
+                return 36f;
+            case 4:
+                return 40f;
+            case 5:
+                return 0;
+        }
+        return 0;
+    }
+    
 
     public void PhaseChange()
     {
         switch (GameManager.currentPhase)
         {
             case 1:
-                _spriteRenderer.material.SetFloat(HoneyAmount, amountPhase1);
+                _spriteRenderer.material.SetFloat(HoneyAmount, honeyAmountPhase1);
                 _spriteRenderer.material.SetFloat(ColorStrength, colourStrengthPhase1);
                 _currentPhase = 1;
                 break;
             case 2:
-                _spriteRenderer.material.SetFloat(HoneyAmount, amountPhase2);
+                _spriteRenderer.material.SetFloat(HoneyAmount, honeyAmountPhase2);
                 _spriteRenderer.material.SetFloat(ColorStrength, colourStrengthPhase2);
-                _currentPhase = 1;
+                _currentPhase = 2;
                 break;
             case 3:
-                _spriteRenderer.material.SetFloat(HoneyAmount, amountPhase3);
+                _spriteRenderer.material.SetFloat(HoneyAmount, honeyAmountPhase3);
                 _spriteRenderer.material.SetFloat(ColorStrength, colourStrengthPhase3);
-                _currentPhase = 1;
+                _currentPhase = 3;
                 break;
             case 4:
-                _spriteRenderer.material.SetFloat(HoneyAmount, amountPhase4);
+                _spriteRenderer.material.SetFloat(HoneyAmount, honeyAmountPhase4);
                 _spriteRenderer.material.SetFloat(ColorStrength, colourStrengthPhase4);
-                _currentPhase = 1;
+                _currentPhase = 4;
                 break;
         }
     }
-
-    private int AnimateShader(int currentPhase)
-    {
-        switch (currentPhase)
-        {
-            case 1:
-                
-                break;
-            case 2:
-                
-                break;
-            case 3:
-                
-                break;
-            case 4:
-                
-                break;
-        }
-    }
-    
 }

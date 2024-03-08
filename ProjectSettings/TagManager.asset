@@ -14,6 +14,7 @@ TagManager:
   - Spawner
   - SpawnAreaGround
   - PlatformLayout
+  - PlatformLayoutSpawner
   layers:
   - Default
   - TransparentFX

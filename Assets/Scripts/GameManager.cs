@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI distanceNumberText;
 
     [Header("Adjust how quickly the scoreDistance increases in each phase:")]
-    [SerializeField] private float phase1Multiplier = 2;
+    [SerializeField] private float phase1Multiplier = 4;
     [SerializeField] private float phase2Multiplier = 20;
     [SerializeField] private float phase3Multiplier = 175;
     [SerializeField] private float phase4Multiplier = 1500;
@@ -21,7 +21,7 @@ public class GameManager : MonoBehaviour
     public static float CurrentScore;
     public static bool IsPlaying = true;
 
-    public static int currentPhase { get; private set; } = 1;
+    public static int currentPhase { get; private set; }
     public static bool phase1Active { get; private set; }
     public static bool phase2Active { get; private set; }
     public static bool phase3Active { get; private set; }
@@ -37,6 +37,8 @@ public class GameManager : MonoBehaviour
         {
             Instance = this;
         }
+
+        currentPhase = 1;
     }
 
     #endregion
@@ -47,6 +49,11 @@ public class GameManager : MonoBehaviour
         _playerController = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
         distanceNumberText = GetComponentInChildren<TextMeshProUGUI>();
         phase1Active = true;
+        
+        Debug.Log("Phase 1 lasts for: " + 100/phase1Multiplier + " seconds.");
+        Debug.Log("Phase 2 lasts for: " + 900/phase2Multiplier + " seconds.");
+        Debug.Log("Phase 3 lasts for: " + 9000/phase3Multiplier + " seconds.");
+        Debug.Log("Phase 4 lasts for: " + 90000/phase4Multiplier + " seconds.");
     }
 
     private void Update()
@@ -71,28 +78,32 @@ public class GameManager : MonoBehaviour
             {
                 currentPhase = 1;
                 gameEvent.TriggerNewPhaseEvent();
-                Debug.Log("Multiplier:" + phase1Multiplier);
+                // Debug.Log("Multiplier:" + phase1Multiplier);
+                Debug.Log("Phase 1 lasts for: " + 100/phase1Multiplier + " seconds.");
                 return phase1Multiplier;
             }
             if (CurrentScore is >= 100 and < 1000)
             {
                 currentPhase = 2;
                 gameEvent.TriggerNewPhaseEvent();
-                Debug.Log("Multiplier:" + phase2Multiplier);
+                // Debug.Log("Multiplier:" + phase2Multiplier);
+                Debug.Log("Phase 2 lasts for: " + 900/phase2Multiplier + " seconds.");
                 return phase2Multiplier;
             }
             if (CurrentScore is >= 1000 and < 10000)
             {
                 currentPhase = 3;
                 gameEvent.TriggerNewPhaseEvent();
-                Debug.Log("Multiplier:" + phase3Multiplier);
+                // Debug.Log("Multiplier:" + phase3Multiplier);
+                Debug.Log("Phase 3 lasts for: " + 9000/phase3Multiplier + " seconds.");
                 return phase3Multiplier;
             }
             if (CurrentScore is >= 10000 and < 100000)
             {
                 currentPhase = 4;
                 gameEvent.TriggerNewPhaseEvent();
-                Debug.Log("Multiplier:" + phase4Multiplier);
+                // Debug.Log("Multiplier:" + phase4Multiplier);
+                Debug.Log("Phase 4 lasts for: " + 90000/phase4Multiplier + " seconds.");
                 return phase4Multiplier;
             }
             if (CurrentScore >= 100000)
