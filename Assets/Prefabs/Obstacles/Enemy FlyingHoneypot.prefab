@@ -20,7 +20,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6985944640263536593
 Transform:
   m_ObjectHideFlags: 0
@@ -124,14 +124,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75cec1dfda58eb9449f05638461877c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialVelocity: 1
-  initialAcceleration: 0.05
+  _layoutNumber: 0
+  initialVelocity: 2
+  initialAcceleration: 0.3
   multiplierPhase2: 1.5
   multiplierPhase3: 3
   multiplierPhase4: 5
   isAirPlatform: 0
   isGroundPlatform: 0
   isObstacle: 1
+  debugViewPos: 0
+  objectStopped: 0
 --- !u!70 &5949973038604072700
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

@@ -7,7 +7,7 @@ public class DumSpawner : MonoBehaviour
 {
     private Transform _transform;
     [SerializeField] private GameObject[] layoutPrefabs;
-    private List<GameObject> _layoutInstances;
+    private List<GameObject> _layoutInstancesNoObstacles;
 
     [SerializeField] private Camera cam;
     private float _camRightEdge;
@@ -24,14 +24,14 @@ public class DumSpawner : MonoBehaviour
         Parallax.ReachEnd += EndReached;
         
         _transform = this.transform;
-        _layoutInstances = new List<GameObject>();
+        _layoutInstancesNoObstacles = new List<GameObject>();
 
         for (int x = 0; x < layoutPrefabs.Length; x++)
         {
-            _layoutInstances.Add(Instantiate(layoutPrefabs[x], _transform.position, Quaternion.identity));
-            _layoutInstances[x].SetActive(false);
+            _layoutInstancesNoObstacles.Add(Instantiate(layoutPrefabs[x], _transform.position, Quaternion.identity));
+            _layoutInstancesNoObstacles[x].SetActive(false);
         }
-        _layoutInstances[0].SetActive(true);
+        _layoutInstancesNoObstacles[0].SetActive(true);
     }
 
     // Update is called once per frame
@@ -42,7 +42,7 @@ public class DumSpawner : MonoBehaviour
 
     void InstantiateLayout(int indexOfLayout)
     {
-        _layoutInstances.Add(Instantiate(layoutPrefabs[indexOfLayout], _transform.position, Quaternion.identity));
+        _layoutInstancesNoObstacles.Add(Instantiate(layoutPrefabs[indexOfLayout], _transform.position, Quaternion.identity));
     }
 
     void EdgeReachView(int indexOfLayout)
@@ -57,20 +57,20 @@ public class DumSpawner : MonoBehaviour
         } while (x==indexOfLayout);
        
         
-        _layoutInstances[x].SetActive(true);
+        _layoutInstancesNoObstacles[x].SetActive(true);
 
-        float layoutWidth = _layoutInstances[x].GetComponent<BoxCollider2D>().bounds.size.x;
+        float layoutWidth = _layoutInstancesNoObstacles[x].GetComponent<BoxCollider2D>().bounds.size.x;
         float positionX = _camRightEdge + (layoutWidth / 2);
         float positionY = this.transform.position.y;
-        _layoutInstances[x].transform.position = new Vector3(positionX, positionY);
+        _layoutInstancesNoObstacles[x].transform.position = new Vector3(positionX, positionY);
         
         
-        Debug.DrawLine(_layoutInstances[x].transform.position, _transform.position, Color.yellow,2f);
+        Debug.DrawLine(_layoutInstancesNoObstacles[x].transform.position, _transform.position, Color.yellow,2f);
     }
 
     void EndReached(int indexOfLayout)
     {
         Debug.Log("Layout"+indexOfLayout+" has reached the end.");
-        _layoutInstances[indexOfLayout-1].SetActive(false);
+        _layoutInstancesNoObstacles[indexOfLayout-1].SetActive(false);
     }
 }

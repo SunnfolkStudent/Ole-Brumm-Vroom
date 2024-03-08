@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8243130897003752804}
   - component: {fileID: 6656863814738947052}
   m_Layer: 0
-  m_Name: PlatformLayout3
+  m_Name: PlatformLayout3 - No Obstacle
   m_TagString: PlatformLayout
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
