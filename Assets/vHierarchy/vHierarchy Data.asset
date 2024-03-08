@@ -58,6 +58,15 @@ MonoBehaviour:
         - globalObjectIdString: GlobalObjectId_V1-2-8c9cfa26abfee488c85f1582747f6a02-8108245071593434583-1765571525
         - globalObjectIdString: GlobalObjectId_V1-2-8c9cfa26abfee488c85f1582747f6a02-6341339291783781798-5318595910097568939
         - globalObjectIdString: GlobalObjectId_V1-2-8c9cfa26abfee488c85f1582747f6a02-3679096693593843026-1862897949249489082
+        - globalObjectIdString: GlobalObjectId_V1-2-8c9cfa26abfee488c85f1582747f6a02-3055786544391935803-3375624375856353157
+        - globalObjectIdString: GlobalObjectId_V1-2-8c9cfa26abfee488c85f1582747f6a02-3055786544391935803-765732460
+        - globalObjectIdString: GlobalObjectId_V1-2-8c9cfa26abfee488c85f1582747f6a02-8108245071593434583-869302348
+        - globalObjectIdString: GlobalObjectId_V1-2-8c9cfa26abfee488c85f1582747f6a02-5085622060844049922-617162969
+        - globalObjectIdString: GlobalObjectId_V1-2-8c9cfa26abfee488c85f1582747f6a02-3055786544391935803-2074492066
+        - globalObjectIdString: GlobalObjectId_V1-2-8c9cfa26abfee488c85f1582747f6a02-3668337840814884781-5484590394308912944
+        - globalObjectIdString: GlobalObjectId_V1-2-8c9cfa26abfee488c85f1582747f6a02-3668337840814884781-1876420502
+        - globalObjectIdString: GlobalObjectId_V1-2-8c9cfa26abfee488c85f1582747f6a02-8229646939614655964-7621924385334042755
+        - globalObjectIdString: GlobalObjectId_V1-2-8c9cfa26abfee488c85f1582747f6a02-8229646939614655964-2065441971
         values:
         - colorIndex: 0
           iconNameOrGuid: PreMatQuad
@@ -139,3 +148,21 @@ MonoBehaviour:
           iconNameOrGuid: WheelCollider Icon
         - colorIndex: 0
           iconNameOrGuid: WheelCollider Icon
+        - colorIndex: 0
+          iconNameOrGuid: DirectionalLight Icon
+        - colorIndex: 0
+          iconNameOrGuid: DirectionalLight Icon
+        - colorIndex: 0
+          iconNameOrGuid: SphereCollider Icon
+        - colorIndex: 0
+          iconNameOrGuid: SphereCollider Icon
+        - colorIndex: 0
+          iconNameOrGuid: DirectionalLight Icon
+        - colorIndex: 0
+          iconNameOrGuid: DirectionalLight Icon
+        - colorIndex: 0
+          iconNameOrGuid: DirectionalLight Icon
+        - colorIndex: 0
+          iconNameOrGuid: DirectionalLight Icon
+        - colorIndex: 0
+          iconNameOrGuid: DirectionalLight Icon

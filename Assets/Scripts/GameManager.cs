@@ -97,8 +97,9 @@ public class GameManager : MonoBehaviour
             }
             if (CurrentScore >= 100000)
             {
-                CurrentScore = Mathf.Clamp(100000, 99990, 100010);
+                CurrentScore = Mathf.Clamp(CurrentScore, 100000, 100000);
                 LoadVictoryScene();
+                return 0;
             }
             Debug.Log("Multiplier: 1");
             return 1;

@@ -14,7 +14,7 @@ public class Parallax : MonoBehaviour
     private Vector3 _initialSpawnPosition;
     
     [Header("This is the initial speed and acceleration that's being multiplied with:")]
-    [SerializeField] [Range(0f, 50f)] private float initialVelocity = 2f;
+    [SerializeField] [Range(0f, 50f)] private float initialVelocity = 1.5f;
     [SerializeField] [Range(0f, 50f)] private float initialAcceleration = 0.05f;
     private float _currentVelocity;
     private float _currentAcceleration;
@@ -31,6 +31,7 @@ public class Parallax : MonoBehaviour
 
     [SerializeField] private bool debugViewPos;
     [SerializeField] private bool objectStopped;
+    [SerializeField] private bool widthFromSpriteRenderer;
     
     // Use this for initialization
     private void Start() 
@@ -43,10 +44,12 @@ public class Parallax : MonoBehaviour
         if (_objectTransform.TryGetComponent(out Renderer _))
         {
             _objectWidth = _objectTransform.GetComponent<Renderer>().bounds.size.x;
+            widthFromSpriteRenderer = true;
         }
         else
         {
             _objectWidth = _objectTransform.GetComponent<BoxCollider2D>().bounds.size.x;
+            widthFromSpriteRenderer = false;
         }
         ChangeCurrentSpeed();
     }
@@ -89,8 +92,8 @@ public class Parallax : MonoBehaviour
         var positionWithOffset = position + new Vector3(0, 2f, 0);
         
         // TODO: Set up EstimatedCrashTime to use objectLeftPos & objectRightPos. : )
-        Vector3 objectLeftPos = new Vector3 (position.x - _objectWidth/2, position.y, position.z);
-        Vector3 objectRightPos = new Vector3 (position.x + _objectWidth/2, position.y, position.z);
+        Vector3 objectLeftPos = new Vector3(position.x - _objectWidth / 2, position.y, position.z);
+        Vector3 objectRightPos = new Vector3(position.x + _objectWidth / 2, position.y, position.z);
 
         // Store view Position of the object
         Vector3 viewPos = _cam.WorldToViewportPoint (objectRightPos);
@@ -98,9 +101,11 @@ public class Parallax : MonoBehaviour
         if (debugViewPos)
         {
             Debug.Log("ViewPos of " + gameObject + ":" + viewPos);
-            Debug.DrawLine(position, objectRightPos, Color.red);
-            Debug.DrawLine(positionWithOffset, objectLeftPos, Color.magenta);
-            Debug.DrawLine(position, Vector3.up*10f, Color.green);
+            Debug.DrawRay(viewPos, Vector3.up*10f, Color.black);
+            /*Debug.DrawLine(position, objectRightPos, Color.red);
+            Debug.DrawLine(positionWithOffset, objectLeftPos, Color.magenta);*/
+            Debug.DrawLine(objectRightPos, Vector3.up*10f, Color.blue);
+            // Debug.DrawLine(position, Vector3.up*10f, Color.green);
         }
         
         //If the object tile is left of camera viewport
@@ -111,21 +116,22 @@ public class Parallax : MonoBehaviour
             
             if (isAirPlatform || isObstacle)
             {
-                _nextXPos = currentRightX + _objectWidth;
+                _nextXPos = _objectWidth;
                 _objectTransform.position = new Vector3(_nextXPos, position.y, position.z);
                 //_objectTransform.position = new Vector3(_initialSpawnPosition.x, position.y, position.z);
-                // TODO: Insert method that stops platform, until it receives new instructions.
+                // TODO: Insert method that stops platform, sends back to initial spawnPosition, until it receives new instructions.
                 // StopPlatform();
             }
             else if (isGroundPlatform)
             {
-                _objectTransform.position = new Vector3(_initialSpawnPosition.x, position.y, position.z);
+                _nextXPos = _objectWidth + currentRightX;
+                _objectTransform.position = new Vector3(_nextXPos, position.y, position.z);
                 // TODO: Insert method that stops platform, until it receives new instructions.
                 // StopPlatform();
             }
-            else
+            else // Backgrounds
             {
-                _nextXPos = currentRightX + _objectWidth;
+                _nextXPos = currentRightX + _objectWidth*0.9f;
                 _objectTransform.position = new Vector3(_nextXPos, position.y, position.z);
                 // Instantiate(gameObject, new Vector3(_nextXPos, position.y, position.z), _objectTransform.rotation); 
             }
