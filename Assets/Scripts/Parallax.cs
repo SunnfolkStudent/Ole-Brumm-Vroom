@@ -138,10 +138,10 @@ public class Parallax : MonoBehaviour
             // if gameObject is offscreen, destroy it and re-instantiate it at new xPosition
             float currentRightX = _objectTransform.position.x + _objectWidth;
             
-            if (isAirPlatform)
+            if (isAirPlatform || isObstacle)
             {
                 _nextXPos = _objectWidth;
-                //_objectTransform.position = new Vector3(_nextXPos, position.y, position.z);
+                _objectTransform.position = new Vector3(_nextXPos, position.y, position.z);
                 //_objectTransform.position = new Vector3(_initialSpawnPosition.x, position.y, position.z);
                 // TODO: Insert method that stops platform, sends back to initial spawnPosition, until it receives new instructions.
                 // StopPlatform();
@@ -152,10 +152,10 @@ public class Parallax : MonoBehaviour
                     ReachEnd?.Invoke(_layoutNumber);
                 }
             }
-            else if (isObstacle)
+            /*else if (isObstacle)
             {
                 _objectTransform.position = new Vector3(_initialSpawnPosition.x, position.y, position.z);
-            }
+            }*/
             else if (isGroundPlatform)
             {
                 _nextXPos = _objectWidth + currentRightX;
