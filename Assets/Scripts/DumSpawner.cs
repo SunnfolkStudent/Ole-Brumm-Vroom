@@ -76,13 +76,31 @@ public class DumSpawner : MonoBehaviour
         Debug.DrawLine(_layoutInstancesNoObstacles[x].transform.position, _transform.position, Color.yellow,2f);
 
 
+        int[] lane1 = new int[] { 0, 1, 2 };
+        var random1 = new Random();
+        var randomResult1 = lane1[random1.Next(0, 2)];
+        SpawnObstacle(obstacleSpawnAreas[randomResult1]);
         
-        for (int z = 1; z <= 5; z++)
-        {
-            Random r1 = new Random();
-            int y1 = r1.Next(1, obstacleSpawnAreas.Length);
-            SpawnObstacle(obstacleSpawnAreas[y1-1]);
-        }
+        int[] lane2 = new int[] { 3, 4, 5};
+        var random2 = new Random();
+        var randomResult2 = lane2[random1.Next(0, 2)];
+        SpawnObstacle(obstacleSpawnAreas[randomResult2]);
+
+        int[] lane3 = new int[] { 6, 7, 8 };
+        var random3 = new Random();
+        var randomResult3 = lane3[random1.Next(0, 2)];
+        SpawnObstacle(obstacleSpawnAreas[randomResult3]);
+
+
+        
+        
+        // for (int z = 1; z <= 3; z++)
+        // {
+        //     Random r1 = new Random();
+        //     int y1 = r1.Next(1, obstacleSpawnAreas.Length);
+        //     SpawnObstacle(obstacleSpawnAreas[y1-1]);
+        // }
+        
         
         
     }
