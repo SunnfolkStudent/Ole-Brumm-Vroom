@@ -57,15 +57,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _layoutNumber: 1
-  initialVelocity: 10
-  initialAcceleration: 0.05
+  initialVelocity: 3
+  initialAcceleration: 0.2
   multiplierPhase2: 1.5
   multiplierPhase3: 3
   multiplierPhase4: 5
   isAirPlatform: 1
   isGroundPlatform: 0
   isObstacle: 0
-  debugViewPos: 1
+  debugViewPos: 0
   objectStopped: 0
   widthFromSpriteRenderer: 0
 --- !u!114 &4879306119077160973

@@ -1,6 +1,5 @@
 using System;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 [RequireComponent(typeof(GameEventListener))]
 public class Parallax : MonoBehaviour
@@ -38,7 +37,7 @@ public class Parallax : MonoBehaviour
 
     [SerializeField] private bool debugViewPos;
     [SerializeField] private bool objectStopped;
-    [SerializeField] private bool widthFromSpriteRenderer;
+    // [SerializeField] private bool widthFromSpriteRenderer;
     
     // Use this for initialization
     private void Start() 
@@ -51,12 +50,12 @@ public class Parallax : MonoBehaviour
         if (_objectTransform.TryGetComponent(out Renderer _))
         {
             _objectWidth = _objectTransform.GetComponent<Renderer>().bounds.size.x;
-            widthFromSpriteRenderer = true;
+            // widthFromSpriteRenderer = true;
         }
         else
         {
             _objectWidth = _objectTransform.GetComponent<BoxCollider2D>().bounds.size.x;
-            widthFromSpriteRenderer = false;
+            // widthFromSpriteRenderer = false;
         }
         ChangeCurrentSpeed();
     }

@@ -10,8 +10,8 @@ public class ShaderManager : MonoBehaviour
     private static readonly int ColorStrength = Shader.PropertyToID("ColorStrength");
     
     [SerializeField] private float honeyAmountPhase1 = 0f;
-    [SerializeField] private float honeyAmountPhase2 = 1f;
-    [SerializeField] private float honeyAmountPhase3 = 2f;
+    [SerializeField] private float honeyAmountPhase2 = 0.5f;
+    [SerializeField] private float honeyAmountPhase3 = 1.5f;
     [SerializeField] private float honeyAmountPhase4 = 3f;
     private int _currentPhase;
     private float _currentHoneyAmount;
@@ -20,11 +20,11 @@ public class ShaderManager : MonoBehaviour
     private float _nextColorStrength;
     private float _timeUntilNextPhase;
 
-    private float _startTime;
+    // private float _startTime;
 
-    [SerializeField] private float colourStrengthPhase1 = 0.25f;
-    [SerializeField] private float colourStrengthPhase2 = 0.5f;
-    [SerializeField] private float colourStrengthPhase3 = 0.75f;
+    [SerializeField] private float colourStrengthPhase1 = 0f;
+    [SerializeField] private float colourStrengthPhase2 = 0.1f;
+    [SerializeField] private float colourStrengthPhase3 = 0.6f;
     [SerializeField] private float colourStrengthPhase4 = 1f;
     
     // Start is called before the first frame update
@@ -35,7 +35,7 @@ public class ShaderManager : MonoBehaviour
         _spriteRenderer.material = new Material(_spriteRenderer.material);
         PhaseChange();
 
-        _startTime = Time.time;
+        // _startTime = Time.time;
     }
 
     private void Update()

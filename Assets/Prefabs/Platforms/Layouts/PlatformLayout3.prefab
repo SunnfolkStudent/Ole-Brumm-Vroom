@@ -54,7 +54,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _layoutNumber: 3
-  initialVelocity: 10
+  initialVelocity: 3
   initialAcceleration: 0.05
   multiplierPhase2: 1.5
   multiplierPhase3: 3

@@ -1,7 +1,6 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 using Random = System.Random;
 
 public class DumSpawner : MonoBehaviour
@@ -10,15 +9,15 @@ public class DumSpawner : MonoBehaviour
     [SerializeField] private GameObject[] layoutPrefabs;
     private List<GameObject> _layoutInstances;
 
-    [SerializeField] private Camera _cam;
-    private float camRightEdge;
+    [SerializeField] private Camera cam;
+    private float _camRightEdge;
     
     // Start is called before the first frame update
     void Start()
     {
-        _cam = Camera.main;
-        BoxCollider2D camBoundaries = _cam.GetComponent<BoxCollider2D>();
-        camRightEdge = camBoundaries.transform.position.x + (camBoundaries.bounds.size.x / 2);
+        cam = Camera.main;
+        BoxCollider2D camBoundaries = cam.GetComponent<BoxCollider2D>();
+        _camRightEdge = camBoundaries.transform.position.x + (camBoundaries.bounds.size.x / 2);
         
         
         Parallax.OnRightEdgeView += EdgeReachView;
@@ -32,14 +31,13 @@ public class DumSpawner : MonoBehaviour
             _layoutInstances.Add(Instantiate(layoutPrefabs[x], _transform.position, Quaternion.identity));
             _layoutInstances[x].SetActive(false);
         }
-
         _layoutInstances[0].SetActive(true);
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        Debug.DrawLine(new Vector3(camRightEdge, _transform.position.y), _transform.position, Color.black);
+        // Debug.DrawLine(new Vector3(_camRightEdge, _transform.position.y), _transform.position, Color.black);
     }
 
     void InstantiateLayout(int indexOfLayout)
@@ -62,7 +60,7 @@ public class DumSpawner : MonoBehaviour
         _layoutInstances[x].SetActive(true);
 
         float layoutWidth = _layoutInstances[x].GetComponent<BoxCollider2D>().bounds.size.x;
-        float positionX = camRightEdge + (layoutWidth / 2);
+        float positionX = _camRightEdge + (layoutWidth / 2);
         float positionY = this.transform.position.y;
         _layoutInstances[x].transform.position = new Vector3(positionX, positionY);
         
@@ -75,6 +73,4 @@ public class DumSpawner : MonoBehaviour
         Debug.Log("Layout"+indexOfLayout+" has reached the end.");
         _layoutInstances[indexOfLayout-1].SetActive(false);
     }
-    
-    
 }

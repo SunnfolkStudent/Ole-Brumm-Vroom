@@ -50,7 +50,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75cec1dfda58eb9449f05638461877c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialVelocity: 4
+  _layoutNumber: 0
+  initialVelocity: 3
   initialAcceleration: 0.05
   multiplierPhase2: 1.5
   multiplierPhase3: 3
