@@ -8,14 +8,7 @@ public class GameEvent : ScriptableObject
 
     public void TriggerNewPhaseEvent()
     {
-        for (int i = _listeners.Count -1; i >= 0; i--)
-        {
-            _listeners[i].ChangePhase();
-        }
-    }
-    public void SpawnObject()
-    {
-        for (int i = _listeners.Count -1; i >= 0; i--)
+        for (int i = _listeners.Count - 1; i >= 0; i--)
         {
             _listeners[i].ChangePhase();
         }

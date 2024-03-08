@@ -1,15 +1,12 @@
 using System.Collections.Generic;
-using Unity.Mathematics;
 using UnityEngine;
-using UnityEngine.Serialization;
-using VHierarchy.Libs;
 using Random = System.Random;
 
 public class DumSpawner : MonoBehaviour
 {
     [SerializeField] private Vector3[] obstacleSpawnAreas;
     [SerializeField] private GameObject obstaclePrefab;
-    private List<GameObject> obstacleInstances;
+    private List<GameObject> _obstacleInstances;
     
     private Transform _transform;
     [SerializeField] private GameObject[] layoutPrefabs;
@@ -17,37 +14,29 @@ public class DumSpawner : MonoBehaviour
 
     [SerializeField] private Camera cam;
     private float _camRightEdge;
-    
-    // Start is called before the first frame update
-    void Start()
-    {
-        cam = Camera.main;
-        BoxCollider2D camBoundaries = cam.GetComponent<BoxCollider2D>();
-        _camRightEdge = camBoundaries.transform.position.x + (camBoundaries.bounds.size.x / 2);
 
-        obstacleInstances = new List<GameObject>();
+    private void Start()
+    {
+        cam = GameObject.FindWithTag("MainCamera").GetComponent<Camera>();
+        BoxCollider2D camBoundaries = cam.GetComponent<BoxCollider2D>();
+        _camRightEdge = camBoundaries.transform.position.x + camBoundaries.bounds.size.x / 2;
+        
+        _obstacleInstances = new List<GameObject>();
         
         Parallax.OnRightEdgeView += EdgeReachView;
         Parallax.ReachEnd += EndReached;
         Parallax.ObstacleReachEnd += DestroyObstacle;
-        
-        _transform = this.transform;
+                        
+        _transform = transform;
         _layoutInstancesNoObstacles = new List<GameObject>();
-
-        for (int x = 0; x < layoutPrefabs.Length; x++)
-        {
-            _layoutInstancesNoObstacles.Add(Instantiate(layoutPrefabs[x], _transform.position, Quaternion.identity));
+                
+        for (int x = 0; x < layoutPrefabs.Length; x++) 
+        { 
+            _layoutInstancesNoObstacles.Add(Instantiate(layoutPrefabs[x], _transform.position, Quaternion.identity)); 
             _layoutInstancesNoObstacles[x].SetActive(false);
         }
         _layoutInstancesNoObstacles[0].SetActive(true);
     }
-
-    // Update is called once per frame
-    void FixedUpdate()
-    {
-        // Debug.DrawLine(new Vector3(_camRightEdge, _transform.position.y), _transform.position, Color.black);
-    }
-
     void InstantiateLayout(int indexOfLayout)
     {
         _layoutInstancesNoObstacles.Add(Instantiate(layoutPrefabs[indexOfLayout], _transform.position, Quaternion.identity));
@@ -72,9 +61,7 @@ public class DumSpawner : MonoBehaviour
         float positionY = this.transform.position.y;
         _layoutInstancesNoObstacles[x].transform.position = new Vector3(positionX, positionY);
         
-        
         Debug.DrawLine(_layoutInstancesNoObstacles[x].transform.position, _transform.position, Color.yellow,2f);
-
 
         int[] lane1 = new int[] { 0, 1, 2 };
         var random1 = new Random();
@@ -113,13 +100,12 @@ public class DumSpawner : MonoBehaviour
 
     void SpawnObstacle(Vector3 spawnArea)
     {
-        obstacleInstances.Add(Instantiate(obstaclePrefab, spawnArea, Quaternion.identity));
-
+        _obstacleInstances.Add(Instantiate(obstaclePrefab, spawnArea, Quaternion.identity));
     }
     
     void DestroyObstacle(GameObject obj)
     {
-        obj.Destroy();
-        obstacleInstances.Remove(obj);
+        _obstacleInstances.Remove(obj);
+        Destroy(obj);
     }
 }

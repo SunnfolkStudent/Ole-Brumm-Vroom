@@ -125,7 +125,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _layoutNumber: 0
-  initialVelocity: 2
+  initialVelocity: 4
   initialAcceleration: 0.3
   multiplierPhase2: 1.5
   multiplierPhase3: 3
@@ -133,7 +133,7 @@ MonoBehaviour:
   isAirPlatform: 0
   isGroundPlatform: 0
   isObstacle: 1
-  debugViewPos: 1
+  debugViewPos: 0
 --- !u!70 &3844522465451079105
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

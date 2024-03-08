@@ -1,7 +1,4 @@
-using System;
-using System.Collections;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 public class ShaderManager : MonoBehaviour
 {
@@ -13,6 +10,8 @@ public class ShaderManager : MonoBehaviour
     [SerializeField] private float honeyAmountPhase2 = 0.5f;
     [SerializeField] private float honeyAmountPhase3 = 1.5f;
     [SerializeField] private float honeyAmountPhase4 = 3f;
+    private float currentIncrementHoney;
+    private float currentIncrementColor;
     private int _currentPhase;
     private float _currentHoneyAmount;
     private float _nextHoneyAmount;
@@ -40,8 +39,10 @@ public class ShaderManager : MonoBehaviour
 
     private void Update()
     {
-        _currentHoneyAmount = Mathf.Lerp(_currentHoneyAmount, _nextHoneyAmount, Time.time/_timeUntilNextPhase);
-        _currentColorStrength = Mathf.Lerp(_currentColorStrength, _nextColorStrength, Time.time/_timeUntilNextPhase);
+        _currentHoneyAmount += currentIncrementHoney;
+        _currentColorStrength += currentIncrementColor;
+        // _currentHoneyAmount += Mathf.Lerp(_currentHoneyAmount, _nextHoneyAmount, Time.time/_timeUntilNextPhase);
+        // _currentColorStrength += Mathf.Lerp(_currentColorStrength, _nextColorStrength, Time.time/_timeUntilNextPhase);
         _spriteRenderer.material.SetFloat(HoneyAmount, _currentHoneyAmount);
         _spriteRenderer.material.SetFloat(ColorStrength, _currentColorStrength);
     }
@@ -51,38 +52,46 @@ public class ShaderManager : MonoBehaviour
         switch (phase)
         {
             case 1:
-                _currentHoneyAmount = honeyAmountPhase1;
-                _nextHoneyAmount = honeyAmountPhase2;
-                _currentColorStrength = colourStrengthPhase1;
+                currentIncrementHoney = 0.00008f;
+                currentIncrementColor = 0.00008f;
+                // _currentHoneyAmount = honeyAmountPhase1;
+                // _nextHoneyAmount = honeyAmountPhase2;
+                // _currentColorStrength = colourStrengthPhase1;
                 _nextColorStrength = colourStrengthPhase2;
                 _timeUntilNextPhase = 20f-1;
                 break;
             case 2:
-                _currentHoneyAmount = honeyAmountPhase2;
-                _nextHoneyAmount = honeyAmountPhase3;
-                _currentColorStrength = colourStrengthPhase2;
+                currentIncrementHoney = 0.00015f;
+                currentIncrementColor = 0.00015f;
+                // _currentHoneyAmount = honeyAmountPhase2;
+                // _nextHoneyAmount = honeyAmountPhase3;
+                // _currentColorStrength = colourStrengthPhase2;
                 _nextColorStrength = colourStrengthPhase3;
                 _timeUntilNextPhase = 20f+36f-1;
                 break;
             case 3:
-                _currentHoneyAmount = honeyAmountPhase3;
-                _nextHoneyAmount = honeyAmountPhase4;
-                _currentColorStrength = colourStrengthPhase3;
+                currentIncrementHoney = 0.00030f;
+                currentIncrementColor = 0.00030f;
+                //_currentHoneyAmount = honeyAmountPhase3;
+                // _nextHoneyAmount = honeyAmountPhase4;
+                // _currentColorStrength = colourStrengthPhase3;
                 _nextColorStrength = colourStrengthPhase4;
                 _timeUntilNextPhase = 20f+36f+36f-1;
                 break;
             case 4:
-                _currentHoneyAmount = honeyAmountPhase4;
-                _nextHoneyAmount = honeyAmountPhase4;
-                _currentColorStrength = colourStrengthPhase4;
+                currentIncrementHoney = 0.00040f;
+                currentIncrementColor = 0.00040f;
+                //_currentHoneyAmount = honeyAmountPhase4;
+                // _nextHoneyAmount = honeyAmountPhase4;
+                // _currentColorStrength = colourStrengthPhase4;
                 _nextColorStrength = colourStrengthPhase4;
                 _timeUntilNextPhase = 20f+36f+36f+40f-1;
                 break;
             case 5:
-                _currentHoneyAmount = honeyAmountPhase1;
-                _nextHoneyAmount = honeyAmountPhase2;
-                _currentColorStrength = colourStrengthPhase1;
-                _nextColorStrength = colourStrengthPhase2;
+                //_currentHoneyAmount = honeyAmountPhase1;
+                //_nextHoneyAmount = honeyAmountPhase2;
+                // _currentColorStrength = colourStrengthPhase1;
+                // _nextColorStrength = colourStrengthPhase2;
                 _timeUntilNextPhase = 1;
                 break;
         }

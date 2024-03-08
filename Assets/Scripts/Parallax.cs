@@ -161,7 +161,7 @@ public class Parallax : MonoBehaviour
             }
             else if (isObstacle)
             { 
-               ObstacleReachEnd?.Invoke(gameObject);
+                ObstacleReachEnd?.Invoke(gameObject);
             }
             else // Backgrounds
             {

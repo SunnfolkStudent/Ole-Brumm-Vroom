@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 4019400182565559080}
   m_Layer: 6
   m_Name: Enemy FlyingHoneypot
-  m_TagString: Obstacle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -134,7 +134,6 @@ MonoBehaviour:
   isGroundPlatform: 0
   isObstacle: 1
   debugViewPos: 0
-  objectStopped: 0
 --- !u!70 &5949973038604072700
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

@@ -1,6 +1,4 @@
-using System;
 using System.Collections;
-using JetBrains.Annotations;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -26,25 +24,10 @@ public class GameManager : MonoBehaviour
     public static bool phase2Active { get; private set; }
     public static bool phase3Active { get; private set; }
     public static bool phase4Active { get; private set; }
-        
-    #region Singleton
-
-    public static GameManager Instance;
-    
-    private void Awake()
-    {
-        if (Instance == null)
-        {
-            Instance = this;
-        }
-
-        currentPhase = 1;
-    }
-
-    #endregion
     
     private void Start()
     {
+        currentPhase = 1;
         _playerInput = GameObject.FindWithTag("Player").GetComponent<PlayerInput>();
         _playerController = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
         distanceNumberText = GetComponentInChildren<TextMeshProUGUI>();
@@ -63,7 +46,6 @@ public class GameManager : MonoBehaviour
         if (IsPlaying)
         {
             Time.timeScale = 1;
-            if (PlayerController.PlayerHasCrashed) return;
             CurrentScore += (PhaseChange() * Time.deltaTime);
             distanceNumberText.text = PrettyScore();
         }
@@ -150,9 +132,11 @@ public class GameManager : MonoBehaviour
         public IEnumerator LoadNewRun()
         {
             AsyncOperation asyncOperation = SceneManager.UnloadSceneAsync("RunEnded");
+            yield return new WaitUntil(() => asyncOperation.isDone);
+            SceneManager.LoadScene("GameSceneDum");
+            var scene = SceneManager.GetSceneByName("GameSceneDum");
+            SceneManager.SetActiveScene(scene);
             PlayerController.PlayerHasCrashed = false;
-            yield return new WaitUntil(() => asyncOperation.isDone); 
-            SceneManager.LoadScene("GameScene");
             CurrentScore = 0;
             IsPlaying = true;
             _playerInput.ChangeToPlayer();

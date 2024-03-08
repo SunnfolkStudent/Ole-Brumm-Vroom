@@ -101,6 +101,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75cec1dfda58eb9449f05638461877c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _layoutNumber: 0
   initialVelocity: 1
   initialAcceleration: 0.05
   multiplierPhase2: 1.5
@@ -110,8 +111,6 @@ MonoBehaviour:
   isGroundPlatform: 0
   isObstacle: 0
   debugViewPos: 0
-  objectStopped: 0
-  widthFromSpriteRenderer: 0
 --- !u!114 &7366916225803745086
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -124,12 +123,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75549f68bd01ce84cb703f1d4b44abbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animationCurve:
-    serializedVersion: 2
-    m_Curve: []
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
   honeyAmountPhase1: 0
   honeyAmountPhase2: 0.5
   honeyAmountPhase3: 1.5
@@ -157,6 +150,18 @@ MonoBehaviour:
       - m_Target: {fileID: 6512230903227237173}
         m_TargetAssemblyTypeName: Parallax, Assembly-CSharp
         m_MethodName: ChangeCurrentSpeed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 7366916225803745086}
+        m_TargetAssemblyTypeName: ShaderManager, Assembly-CSharp
+        m_MethodName: PhaseChange
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
