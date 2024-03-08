@@ -7,6 +7,8 @@ public class Parallax : MonoBehaviour
     public static event Action<int> OnRightEdgeView;
     public static event Action<int> ReachEnd;
     private bool _rightEdgeReachedEnd = false;
+
+    public static event Action<GameObject> ObstacleReachEnd;
     
     [SerializeField] private int _layoutNumber;
     
@@ -131,7 +133,7 @@ public class Parallax : MonoBehaviour
             // if gameObject is offscreen, destroy it and re-instantiate it at new xPosition
             float currentRightX = _objectTransform.position.x + _objectWidth;
             
-            if (isAirPlatform || isObstacle)
+            if (isAirPlatform)
             {
                 _nextXPos = _objectWidth;
                 _objectTransform.position = new Vector3(_nextXPos, position.y, position.z);
@@ -151,6 +153,10 @@ public class Parallax : MonoBehaviour
                 _objectTransform.position = new Vector3(_nextXPos, position.y, position.z);
                 // TODO: Insert method that stops platform, until it receives new instructions.
                 // StopPlatform();
+            }
+            else if (isObstacle)
+            { 
+               ObstacleReachEnd?.Invoke(gameObject);
             }
             else // Backgrounds
             {

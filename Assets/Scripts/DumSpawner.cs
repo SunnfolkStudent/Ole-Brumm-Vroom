@@ -1,10 +1,16 @@
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Serialization;
+using VHierarchy.Libs;
 using Random = System.Random;
 
 public class DumSpawner : MonoBehaviour
 {
+    [SerializeField] private Vector3[] obstacleSpawnAreas;
+    [SerializeField] private GameObject obstaclePrefab;
+    private List<GameObject> obstacleInstances;
+    
     private Transform _transform;
     [SerializeField] private GameObject[] layoutPrefabs;
     private List<GameObject> _layoutInstancesNoObstacles;
@@ -18,10 +24,12 @@ public class DumSpawner : MonoBehaviour
         cam = Camera.main;
         BoxCollider2D camBoundaries = cam.GetComponent<BoxCollider2D>();
         _camRightEdge = camBoundaries.transform.position.x + (camBoundaries.bounds.size.x / 2);
-        
+
+        obstacleInstances = new List<GameObject>();
         
         Parallax.OnRightEdgeView += EdgeReachView;
         Parallax.ReachEnd += EndReached;
+        Parallax.ObstacleReachEnd += DestroyObstacle;
         
         _transform = this.transform;
         _layoutInstancesNoObstacles = new List<GameObject>();
@@ -66,11 +74,34 @@ public class DumSpawner : MonoBehaviour
         
         
         Debug.DrawLine(_layoutInstancesNoObstacles[x].transform.position, _transform.position, Color.yellow,2f);
+
+
+        for (int z = 1; z <= 5; z++)
+        {
+            
+            Random r1 = new Random();
+            int y1 = r1.Next(1, obstacleSpawnAreas.Length);
+            SpawnObstacle(obstacleSpawnAreas[y1-1]);
+        }
+        
+        
     }
 
     void EndReached(int indexOfLayout)
     {
         Debug.Log("Layout"+indexOfLayout+" has reached the end.");
         _layoutInstancesNoObstacles[indexOfLayout-1].SetActive(false);
+    }
+
+    void SpawnObstacle(Vector3 spawnArea)
+    {
+        obstacleInstances.Add(Instantiate(obstaclePrefab, spawnArea, Quaternion.identity));
+
+    }
+    
+    void DestroyObstacle(GameObject obj)
+    {
+        obj.Destroy();
+        obstacleInstances.Remove(obj);
     }
 }
