@@ -263,12 +263,14 @@ MonoBehaviour:
   - {fileID: 8300000, guid: ab364c545aac2da41bbfdc4574cf8561, type: 3}
   - {fileID: 8300000, guid: fc72161c2af765d4baf01d6555d152f0, type: 3}
   playerCrashed: {fileID: 8300000, guid: ec593cd4683d3124ea69e5f4d8eff16d, type: 3}
+  sadFailedRunToot: {fileID: 8300000, guid: 30edcff21f1773547b3e3d561f37ffb9, type: 3}
   groundLayer:
     serializedVersion: 2
     m_Bits: 640
   raycastDetectionRange: 0.13
   raycastStartingOffsetX: 0.1
-  runningVolume: 0
+  runningVolume: 0.1
+  otherVolume: 0.793
   jumpSpeed: 9
   headCollider: {fileID: 2530184598592417580}
   bodyCollider: {fileID: 2614796868521306297}
