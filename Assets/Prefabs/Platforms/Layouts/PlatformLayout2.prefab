@@ -59,7 +59,7 @@ MonoBehaviour:
   isAirPlatform: 1
   isGroundPlatform: 0
   isObstacle: 0
-  debugViewPos: 0
+  debugViewPos: 1
   objectStopped: 0
   widthFromSpriteRenderer: 0
 --- !u!114 &5673966617530134528

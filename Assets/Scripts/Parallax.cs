@@ -1,9 +1,13 @@
+using System;
 using UnityEngine;
 using UnityEngine.Serialization;
 
 [RequireComponent(typeof(GameEventListener))]
 public class Parallax : MonoBehaviour
 {
+    public static event Action<int> OnRightEdgeView;
+    private bool _rightEdgeReachedEnd = false;
+    
     private Transform _objectTransform; // For reference to the transform 
     private Camera _cam; // Reference to Main Camera
     
@@ -107,6 +111,16 @@ public class Parallax : MonoBehaviour
             Debug.DrawLine(objectRightPos, Vector3.up*10f, Color.blue);
             // Debug.DrawLine(position, Vector3.up*10f, Color.green);
         }
+
+        if (isAirPlatform)
+        {
+            if (viewPos.x <= 1 && !_rightEdgeReachedEnd)
+            {
+                _rightEdgeReachedEnd = true;
+                OnRightEdgeView?.Invoke(1);
+            }
+        }
+        
         
         //If the object tile is left of camera viewport
         if (viewPos.x < 0) 
