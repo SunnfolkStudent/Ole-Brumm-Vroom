@@ -76,9 +76,9 @@ public class DumSpawner : MonoBehaviour
         Debug.DrawLine(_layoutInstancesNoObstacles[x].transform.position, _transform.position, Color.yellow,2f);
 
 
+        
         for (int z = 1; z <= 5; z++)
         {
-            
             Random r1 = new Random();
             int y1 = r1.Next(1, obstacleSpawnAreas.Length);
             SpawnObstacle(obstacleSpawnAreas[y1-1]);
