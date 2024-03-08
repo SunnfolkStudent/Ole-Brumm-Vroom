@@ -102,7 +102,7 @@ public class Parallax : MonoBehaviour
             
         // Create new Vector3 to be used in WorldToViewportPoint so it doesn't use the middle of the object as reference
         var position = _objectTransform.position;
-        var positionWithOffset = position + new Vector3(0, 2f, 0);
+       // var positionWithOffset = position + new Vector3(0, 2f, 0);
         
         // TODO: Set up EstimatedCrashTime to use objectLeftPos & objectRightPos. : )
         Vector3 objectLeftPos = new Vector3(position.x - _objectWidth / 2, position.y, position.z);
@@ -138,7 +138,7 @@ public class Parallax : MonoBehaviour
             // if gameObject is offscreen, destroy it and re-instantiate it at new xPosition
             float currentRightX = _objectTransform.position.x + _objectWidth;
             
-            if (isAirPlatform || isObstacle)
+            if (isAirPlatform)
             {
                 _nextXPos = _objectWidth;
                 _objectTransform.position = new Vector3(_nextXPos, position.y, position.z);
@@ -152,10 +152,6 @@ public class Parallax : MonoBehaviour
                     ReachEnd?.Invoke(_layoutNumber);
                 }
             }
-            /*else if (isObstacle)
-            {
-                _objectTransform.position = new Vector3(_initialSpawnPosition.x, position.y, position.z);
-            }*/
             else if (isGroundPlatform)
             {
                 _nextXPos = _objectWidth + currentRightX;
