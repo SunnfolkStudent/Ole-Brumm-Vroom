@@ -5,7 +5,7 @@ using UnityEngine.Serialization;
 [RequireComponent(typeof(GameEventListener))]
 public class Parallax : MonoBehaviour
 {
-    public static event Action<GameObject> OnRightEdgeView;
+    public static event Action<int> OnRightEdgeView;
     public static event Action<int> ReachEnd;
     private bool _rightEdgeReachedEnd = false;
     
@@ -121,7 +121,7 @@ public class Parallax : MonoBehaviour
             if (viewPos.x <= 1 && !_rightEdgeReachedEnd)
             {
                 _rightEdgeReachedEnd = true;
-                OnRightEdgeView?.Invoke(gameObject);
+                OnRightEdgeView?.Invoke(_layoutNumber);
             }
         }
         

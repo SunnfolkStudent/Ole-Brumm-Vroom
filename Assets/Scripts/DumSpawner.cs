@@ -40,10 +40,17 @@ public class DumSpawner : MonoBehaviour
         _layoutInstances.Add(Instantiate(layoutPrefabs[indexOfLayout], _transform.position, Quaternion.identity));
     }
 
-    void EdgeReachView(GameObject g)
+    void EdgeReachView(int indexOfLayout)
     {
-        Random rnd = new Random();
-        int x = rnd.Next(1, layoutPrefabs.Length);
+        indexOfLayout--;
+        int x;
+        do
+        {
+            Random rnd = new Random();
+            x = rnd.Next(1, layoutPrefabs.Length);
+            
+        } while (x==indexOfLayout);
+       
         
         _layoutInstances[x].SetActive(true);
     }
