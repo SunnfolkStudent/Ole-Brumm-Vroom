@@ -38,7 +38,7 @@ public class Parallax : MonoBehaviour
     [SerializeField] private bool isObstacle;
 
     [SerializeField] private bool debugViewPos;
-    [SerializeField] private bool objectStopped;
+    // [SerializeField] private bool objectStopped;
     // [SerializeField] private bool widthFromSpriteRenderer;
     
     // Use this for initialization
@@ -88,7 +88,12 @@ public class Parallax : MonoBehaviour
         
     private void FixedUpdate()
     {
-        if (objectStopped) return;
+        if (PlayerController.PlayerHasCrashed)
+        {
+            _currentVelocity = 0;
+            _currentAcceleration = 0;
+            return;
+        }
         
         // TODO: Set up the right system for speed with objects : )
         
@@ -133,7 +138,7 @@ public class Parallax : MonoBehaviour
             // if gameObject is offscreen, destroy it and re-instantiate it at new xPosition
             float currentRightX = _objectTransform.position.x + _objectWidth;
             
-            if (isAirPlatform)
+            if (isAirPlatform || isObstacle)
             {
                 _nextXPos = _objectWidth;
                 _objectTransform.position = new Vector3(_nextXPos, position.y, position.z);
@@ -147,6 +152,10 @@ public class Parallax : MonoBehaviour
                     ReachEnd?.Invoke(_layoutNumber);
                 }
             }
+            /*else if (isObstacle)
+            {
+                _objectTransform.position = new Vector3(_initialSpawnPosition.x, position.y, position.z);
+            }*/
             else if (isGroundPlatform)
             {
                 _nextXPos = _objectWidth + currentRightX;
@@ -170,6 +179,6 @@ public class Parallax : MonoBehaviour
     {
         _currentVelocity = 0;
         _currentAcceleration = 0;
-        objectStopped = true;
+        // objectStopped = true;
     }
 }

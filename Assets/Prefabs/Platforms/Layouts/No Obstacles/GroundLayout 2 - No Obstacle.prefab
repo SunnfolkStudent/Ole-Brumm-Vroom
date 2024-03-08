@@ -61,7 +61,6 @@ MonoBehaviour:
   isObstacle: 0
   debugViewPos: 0
   objectStopped: 0
-  widthFromSpriteRenderer: 0
 --- !u!114 &300149448849888589
 MonoBehaviour:
   m_ObjectHideFlags: 0

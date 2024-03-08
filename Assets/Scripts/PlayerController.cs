@@ -1,8 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Serialization;
-using Random = UnityEngine.Random;
 
 [RequireComponent(typeof(PlayerInput))]
 public class PlayerController : MonoBehaviour
@@ -31,9 +29,12 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float raycastStartingOffsetX = 1f;
 
     [SerializeField] [Range(0,1)] private float runningVolume;
+    [SerializeField] [Range(0,1)] private float otherVolume;
     private float _defaultRunningVolume;
+    private float _defaultOtherVolume;
 
     private bool _isPlayerGrounded;
+    public static bool PlayerHasCrashed;
     private bool _isPlayerOnPlatform;
     private bool _currentlyInJumpOrFalling;
     private List<Collider2D> _platform = new();
@@ -66,6 +67,7 @@ public class PlayerController : MonoBehaviour
         _rigidbody2D = GetComponent<Rigidbody2D>();
         audioSourceRunning.Play();
         _defaultRunningVolume = audioSourceRunning.volume;
+        _defaultOtherVolume = audioSourceOther.volume;
 
         _input.ChangeToPlayer();
     }
@@ -80,7 +82,7 @@ public class PlayerController : MonoBehaviour
         
         if (PlayerInput.Jump)
         {
-            if (!_isPlayerGrounded || _currentlyInJumpOrFalling) return;
+            if (!_isPlayerGrounded || _currentlyInJumpOrFalling || PlayerHasCrashed) return;
             StartCoroutine(PlayerJumps());
         }
 
@@ -93,6 +95,7 @@ public class PlayerController : MonoBehaviour
 
         if (PlayerInput.ResetRun)
         {
+            PlayerHasCrashed = false;
             _input.ChangeToPlayer();
             StartCoroutine(_gameManager.LoadNewRun());
         }
@@ -136,6 +139,7 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (PlayerHasCrashed) return;
         _isPlayerGrounded = GroundedPlayer();
         if (_currentlyInJumpOrFalling) return;
         if (_isPlayerGrounded || _isPlayerOnPlatform)
@@ -214,7 +218,7 @@ public class PlayerController : MonoBehaviour
 
     private void RunningAnimations()
     {
-        if (_rigidbody2D.velocity.y != 0 && !_isPlayerGrounded) return;
+        if (_rigidbody2D.velocity.y != 0 && !_isPlayerGrounded || PlayerHasCrashed) return;
         if (GameManager.phase1Active)
         {
             _animator.Play("PlayerRunPhase1");
@@ -240,11 +244,16 @@ public class PlayerController : MonoBehaviour
     private IEnumerator PlayerCrashed()
     {
         // Start Event to Pause Everything.
+        PlayerHasCrashed = true;
+        yield return null;
+        _rigidbody2D.velocity = new Vector2(0, 0);
         _animator.Play("PlayerCrash");
+        audioSourceRunning.volume = _defaultRunningVolume;
         audioSourceRunning.PlayOneShot(playerCrashed);
+        yield return new WaitForSeconds(0.2f);
+        audioSourceOther.volume = _defaultOtherVolume;
         audioSourceOther.PlayOneShot(sadFailedRunToot);
-
-        yield return new WaitForSeconds(2.2f);
+        yield return new WaitForSeconds(2.5f);
         _gameManager.LoadRunEndedScene();
     }
 
@@ -291,6 +300,7 @@ public class PlayerController : MonoBehaviour
 
     public void PlayNewPhaseRunSound()
     {
+        Debug.Log("PlayNewPhaseRunSound called upon.");
         if (GameManager.phase1Active)
         {
             audioSourceOther.PlayOneShot(phaseShiftRunClips[0]);
@@ -310,10 +320,6 @@ public class PlayerController : MonoBehaviour
         {
             audioSourceOther.PlayOneShot(phaseShiftRunClips[3]);
             audioSourceRunning.clip = runClips[1];
-        }
-        else
-        {
-            audioSourceOther.PlayOneShot(phaseShiftRunClips[4]);
         }
     }
 }

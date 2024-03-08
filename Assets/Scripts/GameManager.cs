@@ -49,11 +49,13 @@ public class GameManager : MonoBehaviour
         _playerController = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
         distanceNumberText = GetComponentInChildren<TextMeshProUGUI>();
         phase1Active = true;
-        
-        Debug.Log("Phase 1 lasts for: " + 100/phase1Multiplier + " seconds.");
-        Debug.Log("Phase 2 lasts for: " + 900/phase2Multiplier + " seconds.");
-        Debug.Log("Phase 3 lasts for: " + 9000/phase3Multiplier + " seconds.");
-        Debug.Log("Phase 4 lasts for: " + 90000/phase4Multiplier + " seconds.");
+
+        StartCoroutine(CheckScore());
+
+        // Debug.Log("Phase 1 lasts for: " + 100/phase1Multiplier + " seconds.");
+        // Debug.Log("Phase 2 lasts for: " + 900/phase2Multiplier + " seconds.");
+        // Debug.Log("Phase 3 lasts for: " + 9000/phase3Multiplier + " seconds.");
+        // Debug.Log("Phase 4 lasts for: " + 90000/phase4Multiplier + " seconds.");
     }
 
     private void Update()
@@ -61,6 +63,7 @@ public class GameManager : MonoBehaviour
         if (IsPlaying)
         {
             Time.timeScale = 1;
+            if (PlayerController.PlayerHasCrashed) return;
             CurrentScore += (PhaseChange() * Time.deltaTime);
             distanceNumberText.text = PrettyScore();
         }
@@ -70,6 +73,18 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    private IEnumerator CheckScore()
+    {
+        gameEvent.TriggerNewPhaseEvent();
+        yield return new WaitUntil(() => CurrentScore > 99);
+        gameEvent.TriggerNewPhaseEvent();
+        yield return new WaitUntil(() => CurrentScore > 999);
+        gameEvent.TriggerNewPhaseEvent();
+        yield return new WaitUntil(() => CurrentScore > 9999);
+        gameEvent.TriggerNewPhaseEvent();
+        // yield return new WaitUntil(() => CurrentScore > 99999);
+    }
+
     #region ---ScoreManager---
 
         private float PhaseChange()
@@ -77,33 +92,34 @@ public class GameManager : MonoBehaviour
             if (CurrentScore is >= 0 and < 100)
             {
                 currentPhase = 1;
-                gameEvent.TriggerNewPhaseEvent();
+                // gameEvent.TriggerNewPhaseEvent();
                 // Debug.Log("Multiplier:" + phase1Multiplier);
-                Debug.Log("Phase 1 lasts for: " + 100/phase1Multiplier + " seconds.");
+                // Debug.Log("Phase 1 lasts for: " + 100/phase1Multiplier + " seconds.");
                 return phase1Multiplier;
             }
+            
             if (CurrentScore is >= 100 and < 1000)
             {
                 currentPhase = 2;
-                gameEvent.TriggerNewPhaseEvent();
+                // gameEvent.TriggerNewPhaseEvent();
                 // Debug.Log("Multiplier:" + phase2Multiplier);
-                Debug.Log("Phase 2 lasts for: " + 900/phase2Multiplier + " seconds.");
+                // Debug.Log("Phase 2 lasts for: " + 900/phase2Multiplier + " seconds.");
                 return phase2Multiplier;
             }
             if (CurrentScore is >= 1000 and < 10000)
             {
                 currentPhase = 3;
-                gameEvent.TriggerNewPhaseEvent();
+                // gameEvent.TriggerNewPhaseEvent();
                 // Debug.Log("Multiplier:" + phase3Multiplier);
-                Debug.Log("Phase 3 lasts for: " + 9000/phase3Multiplier + " seconds.");
+                // Debug.Log("Phase 3 lasts for: " + 9000/phase3Multiplier + " seconds.");
                 return phase3Multiplier;
             }
             if (CurrentScore is >= 10000 and < 100000)
             {
                 currentPhase = 4;
-                gameEvent.TriggerNewPhaseEvent();
+                // gameEvent.TriggerNewPhaseEvent();
                 // Debug.Log("Multiplier:" + phase4Multiplier);
-                Debug.Log("Phase 4 lasts for: " + 90000/phase4Multiplier + " seconds.");
+                // Debug.Log("Phase 4 lasts for: " + 90000/phase4Multiplier + " seconds.");
                 return phase4Multiplier;
             }
             if (CurrentScore >= 100000)
@@ -112,7 +128,6 @@ public class GameManager : MonoBehaviour
                 LoadVictoryScene();
                 return 0;
             }
-            Debug.Log("Multiplier: 1");
             return 1;
         }
     
@@ -135,8 +150,9 @@ public class GameManager : MonoBehaviour
         public IEnumerator LoadNewRun()
         {
             AsyncOperation asyncOperation = SceneManager.UnloadSceneAsync("RunEnded");
+            PlayerController.PlayerHasCrashed = false;
+            yield return new WaitUntil(() => asyncOperation.isDone); 
             SceneManager.LoadScene("GameScene");
-            yield return new WaitUntil(() => asyncOperation.isDone);
             CurrentScore = 0;
             IsPlaying = true;
             _playerInput.ChangeToPlayer();
