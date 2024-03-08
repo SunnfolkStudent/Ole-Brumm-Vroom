@@ -59,8 +59,9 @@ MonoBehaviour:
   isAirPlatform: 1
   isGroundPlatform: 0
   isObstacle: 0
-  debugViewPos: 1
+  debugViewPos: 0
   objectStopped: 0
+  widthFromSpriteRenderer: 0
 --- !u!114 &5673966617530134528
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -133,7 +134,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 51.316498, y: 4.56958}
+  m_Size: {x: 53.12372, y: 4.357873}
   m_EdgeRadius: 0
 --- !u!1001 &5525500768712263753
 PrefabInstance:
@@ -143,13 +144,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6671101733422421963}
     m_Modifications:
+    - target: {fileID: 308232389244676208, guid: 65f9b8c7801a5de438435ab856f018d3, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.261
+      objectReference: {fileID: 0}
     - target: {fileID: 2753090825685348481, guid: 65f9b8c7801a5de438435ab856f018d3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -14.992041
+      value: -17.642065
       objectReference: {fileID: 0}
     - target: {fileID: 2753090825685348481, guid: 65f9b8c7801a5de438435ab856f018d3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.8400011
+      value: 2.079999
       objectReference: {fileID: 0}
     - target: {fileID: 2753090825685348481, guid: 65f9b8c7801a5de438435ab856f018d3, type: 3}
       propertyPath: m_LocalPosition.z
@@ -211,11 +216,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6773449336843348558, guid: 0fbc68bc831281947bbcdbd2949d6f5a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -22.234226
+      value: -24.88425
       objectReference: {fileID: 0}
     - target: {fileID: 6773449336843348558, guid: 0fbc68bc831281947bbcdbd2949d6f5a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.6599989
+      value: -1.54
       objectReference: {fileID: 0}
     - target: {fileID: 6773449336843348558, guid: 0fbc68bc831281947bbcdbd2949d6f5a, type: 3}
       propertyPath: m_LocalPosition.z
@@ -269,11 +274,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 365476099380794094, guid: 1701ba521a247b843854f0aeaf602309, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 25.649994
+      value: 22.99997
       objectReference: {fileID: 0}
     - target: {fileID: 365476099380794094, guid: 1701ba521a247b843854f0aeaf602309, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.6599989
+      value: -1.54
       objectReference: {fileID: 0}
     - target: {fileID: 365476099380794094, guid: 1701ba521a247b843854f0aeaf602309, type: 3}
       propertyPath: m_LocalPosition.z
@@ -311,6 +316,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SmallThinPlatform
       objectReference: {fileID: 0}
+    - target: {fileID: 6911896643796957249, guid: 1701ba521a247b843854f0aeaf602309, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.261
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -345,17 +354,21 @@ PrefabInstance:
       propertyPath: initialAcceleration
       value: 0.2
       objectReference: {fileID: 0}
+    - target: {fileID: 8309816458260546854, guid: 7307b563ac0de8640845a04ad4ce91d1, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.261
+      objectReference: {fileID: 0}
     - target: {fileID: 8383945010849684131, guid: 7307b563ac0de8640845a04ad4ce91d1, type: 3}
       propertyPath: m_Name
       value: LargestThinPlatform
       objectReference: {fileID: 0}
     - target: {fileID: 8698234633665876939, guid: 7307b563ac0de8640845a04ad4ce91d1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.45
+      value: 2.8
       objectReference: {fileID: 0}
     - target: {fileID: 8698234633665876939, guid: 7307b563ac0de8640845a04ad4ce91d1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.66
+      value: -1.54
       objectReference: {fileID: 0}
     - target: {fileID: 8698234633665876939, guid: 7307b563ac0de8640845a04ad4ce91d1, type: 3}
       propertyPath: m_LocalPosition.z
@@ -409,13 +422,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6671101733422421963}
     m_Modifications:
+    - target: {fileID: 308232389244676208, guid: 65f9b8c7801a5de438435ab856f018d3, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.261
+      objectReference: {fileID: 0}
     - target: {fileID: 2753090825685348481, guid: 65f9b8c7801a5de438435ab856f018d3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 25.649994
+      value: 22.99997
       objectReference: {fileID: 0}
     - target: {fileID: 2753090825685348481, guid: 65f9b8c7801a5de438435ab856f018d3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.8400011
+      value: 2.079999
       objectReference: {fileID: 0}
     - target: {fileID: 2753090825685348481, guid: 65f9b8c7801a5de438435ab856f018d3, type: 3}
       propertyPath: m_LocalPosition.z

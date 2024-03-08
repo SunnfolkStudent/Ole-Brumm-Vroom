@@ -67,6 +67,12 @@ MonoBehaviour:
         - globalObjectIdString: GlobalObjectId_V1-2-8c9cfa26abfee488c85f1582747f6a02-3668337840814884781-1876420502
         - globalObjectIdString: GlobalObjectId_V1-2-8c9cfa26abfee488c85f1582747f6a02-8229646939614655964-7621924385334042755
         - globalObjectIdString: GlobalObjectId_V1-2-8c9cfa26abfee488c85f1582747f6a02-8229646939614655964-2065441971
+        - globalObjectIdString: GlobalObjectId_V1-2-8c9cfa26abfee488c85f1582747f6a02-7070483374475052297-2020757532844729531
+        - globalObjectIdString: GlobalObjectId_V1-2-8c9cfa26abfee488c85f1582747f6a02-7070483374475052297-285853808
+        - globalObjectIdString: GlobalObjectId_V1-2-8c9cfa26abfee488c85f1582747f6a02-6999501087774231083-8802578765516584378
+        - globalObjectIdString: GlobalObjectId_V1-2-8c9cfa26abfee488c85f1582747f6a02-6999501087774231083-496110312
+        - globalObjectIdString: GlobalObjectId_V1-2-8c9cfa26abfee488c85f1582747f6a02-5658128489737977322-4862540031522005896
+        - globalObjectIdString: GlobalObjectId_V1-2-8c9cfa26abfee488c85f1582747f6a02-5658128489737977322-1294577548
         values:
         - colorIndex: 0
           iconNameOrGuid: PreMatQuad
@@ -156,6 +162,18 @@ MonoBehaviour:
           iconNameOrGuid: SphereCollider Icon
         - colorIndex: 0
           iconNameOrGuid: SphereCollider Icon
+        - colorIndex: 0
+          iconNameOrGuid: DirectionalLight Icon
+        - colorIndex: 0
+          iconNameOrGuid: DirectionalLight Icon
+        - colorIndex: 0
+          iconNameOrGuid: DirectionalLight Icon
+        - colorIndex: 0
+          iconNameOrGuid: DirectionalLight Icon
+        - colorIndex: 0
+          iconNameOrGuid: DirectionalLight Icon
+        - colorIndex: 0
+          iconNameOrGuid: DirectionalLight Icon
         - colorIndex: 0
           iconNameOrGuid: DirectionalLight Icon
         - colorIndex: 0

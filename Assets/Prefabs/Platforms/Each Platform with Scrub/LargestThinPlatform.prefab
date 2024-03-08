@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8309816458260546854}
   - component: {fileID: 8217669330349124748}
+  - component: {fileID: 1713656393896069801}
   m_Layer: 7
   m_Name: PlatformVisual - LargestThin
   m_TagString: Untagged
@@ -26,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 8016494047983021286}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.1, z: 0}
+  m_LocalPosition: {x: 4.24, y: -0.25999984, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -86,6 +87,26 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1713656393896069801
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8016494047983021286}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75549f68bd01ce84cb703f1d4b44abbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  amountPhase1: 0
+  amountPhase2: 1
+  amountPhase3: 2
+  amountPhase4: 3
+  colourStrengthPhase1: 0.25
+  colourStrengthPhase2: 0.5
+  colourStrengthPhase3: 0.75
+  colourStrengthPhase4: 1
 --- !u!1 &8383945010849684131
 GameObject:
   m_ObjectHideFlags: 0
@@ -175,7 +196,7 @@ BoxCollider2D:
   m_UsedByEffector: 1
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -4.1625414, y: 0.14427638}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 1, y: 0.5}
@@ -221,7 +242,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -4.158572, y: 0.14427638}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}

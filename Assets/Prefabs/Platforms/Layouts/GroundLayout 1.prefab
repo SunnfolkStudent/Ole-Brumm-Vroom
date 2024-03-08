@@ -224,6 +224,10 @@ MonoBehaviour:
   amountPhase2: 1
   amountPhase3: 2
   amountPhase4: 3
+  colourStrengthPhase1: 0.25
+  colourStrengthPhase2: 0.5
+  colourStrengthPhase3: 0.75
+  colourStrengthPhase4: 1
 --- !u!4 &6933486939583315467 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7171803955923208909, guid: 153dade1cf3cafe458c066d7eff3f25e, type: 3}
@@ -247,7 +251,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3438587200850993003, guid: 6ec00fc1643f2c34ea076fffbdd10c86, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.81
+      value: -2.87
       objectReference: {fileID: 0}
     - target: {fileID: 3438587200850993003, guid: 6ec00fc1643f2c34ea076fffbdd10c86, type: 3}
       propertyPath: m_LocalPosition.y
@@ -384,6 +388,10 @@ MonoBehaviour:
   amountPhase2: 1
   amountPhase3: 2
   amountPhase4: 3
+  colourStrengthPhase1: 0.25
+  colourStrengthPhase2: 0.5
+  colourStrengthPhase3: 0.75
+  colourStrengthPhase4: 1
 --- !u!4 &7475218251553189464 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3180314171003513840, guid: bde2049fdb5f7aa47bf1f4e3b89262ff, type: 3}
@@ -478,6 +486,10 @@ MonoBehaviour:
   amountPhase2: 1
   amountPhase3: 2
   amountPhase4: 3
+  colourStrengthPhase1: 0
+  colourStrengthPhase2: 0.33
+  colourStrengthPhase3: 0.7
+  colourStrengthPhase4: 1
 --- !u!4 &1204606395255175782 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8878682073663028375, guid: aa8b0302de2088e43b42b789cbe1fe75, type: 3}

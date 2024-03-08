@@ -181,8 +181,8 @@ public class PlayerController : MonoBehaviour
         Debug.Log("Player attempts jumping");
         if (!isPlayerGrounded) return;
         Debug.Log("Player is jumping");
-        JumpingAnimation();
         _rigidbody2D.velocity = new Vector2(_rigidbody2D.velocity.x, jumpSpeed);
+        JumpingAnimation();
     }
         
     #region ---Animation---

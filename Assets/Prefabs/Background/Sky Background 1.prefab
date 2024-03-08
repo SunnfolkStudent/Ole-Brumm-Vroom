@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4632067618079854138}
   - component: {fileID: 7926979425183978829}
   - component: {fileID: 5217150840929177764}
+  - component: {fileID: 6797903240939503137}
   - component: {fileID: 2992245897285500426}
   m_Layer: 8
   m_Name: Sky Background 1
@@ -110,6 +111,27 @@ MonoBehaviour:
   isObstacle: 0
   debugViewPos: 0
   objectStopped: 0
+  widthFromSpriteRenderer: 0
+--- !u!114 &6797903240939503137
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7070483374475052297}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75549f68bd01ce84cb703f1d4b44abbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  amountPhase1: 0
+  amountPhase2: 1
+  amountPhase3: 2
+  amountPhase4: 3
+  colourStrengthPhase1: 0.25
+  colourStrengthPhase2: 0.5
+  colourStrengthPhase3: 0.75
+  colourStrengthPhase4: 1
 --- !u!114 &2992245897285500426
 MonoBehaviour:
   m_ObjectHideFlags: 0
