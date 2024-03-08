@@ -56,7 +56,6 @@ MonoBehaviour:
         - globalObjectIdString: GlobalObjectId_V1-2-8c9cfa26abfee488c85f1582747f6a02-1973960282-0
         - globalObjectIdString: GlobalObjectId_V1-2-8c9cfa26abfee488c85f1582747f6a02-3497688375920657953-0
         - globalObjectIdString: GlobalObjectId_V1-2-8c9cfa26abfee488c85f1582747f6a02-8108245071593434583-1765571525
-        - globalObjectIdString: GlobalObjectId_V1-2-8c9cfa26abfee488c85f1582747f6a02-6341339291783781798-5318595910097568939
         - globalObjectIdString: GlobalObjectId_V1-2-8c9cfa26abfee488c85f1582747f6a02-3679096693593843026-1862897949249489082
         - globalObjectIdString: GlobalObjectId_V1-2-8c9cfa26abfee488c85f1582747f6a02-3055786544391935803-3375624375856353157
         - globalObjectIdString: GlobalObjectId_V1-2-8c9cfa26abfee488c85f1582747f6a02-3055786544391935803-765732460
@@ -150,8 +149,6 @@ MonoBehaviour:
           iconNameOrGuid: WheelCollider Icon
         - colorIndex: 0
           iconNameOrGuid: SphereCollider Icon
-        - colorIndex: 0
-          iconNameOrGuid: WheelCollider Icon
         - colorIndex: 0
           iconNameOrGuid: WheelCollider Icon
         - colorIndex: 0
