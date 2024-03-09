@@ -138,10 +138,10 @@ public class DumSpawner : MonoBehaviour
         
         int[] obsPreset1 = new[] { 1, 4, 7 }; // preset of PlatformLayout1
         int[] obsPreset2 = new[] { 3, 6, 9 };
-        int[] obsPreset3 = new[] { 2, 5, 8 };
-        int[] obsPreset4 = new[] { 3, 6, 7 };
-        int[] obsPreset5 = new[] { 1, 4, 9 };
-        int[] obsPreset6 = new[] { 1, 4, 1 };
+        int[] obsPreset3 = new[] { 3, 6, 7 };
+        int[] obsPreset4 = new[] { 2, 5, 9 };
+        int[] obsPreset5 = new[] { 2, 5, 8 };
+        int[] obsPreset6 = new[] { 3, 4, 9 };
         int[][] obsPresets = new int[][] { obsPreset1, obsPreset2, obsPreset3, obsPreset4, obsPreset5, obsPreset6  };
         
         
