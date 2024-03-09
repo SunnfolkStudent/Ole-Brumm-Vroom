@@ -43,6 +43,9 @@ public class PlayerController : MonoBehaviour
 
     [Header("Player Movement (Vertical Only)")] 
     [SerializeField] private float jumpSpeed = 5f;
+    private float _doubleJumpTimer;
+
+    private bool _recentlyJumped;
     // [SerializeField] private float gravity = 9.18f;
 
     [Header("CoyoteTime")] 
@@ -78,12 +81,24 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        _doubleJumpTimer += Time.deltaTime;
+        if (_doubleJumpTimer > 3f)
+        {
+            _recentlyJumped = false;
+        }
         audioSourceRunning.volume = runningVolume;
         
         if (PlayerInput.Jump)
         {
-            if (!_isPlayerGrounded || _currentlyInJumpOrFalling || PlayerHasCrashed) return;
-            StartCoroutine(PlayerJumps());
+            if (PlayerHasCrashed) return;
+            if (_isPlayerGrounded && !_currentlyInJumpOrFalling)
+            {
+                StartCoroutine(PlayerJumps());
+            }
+            else
+            {
+                StartCoroutine(PlayerDoubleJumps());
+            }
         }
 
         if (PlayerInput.DropBelow)
@@ -186,8 +201,27 @@ public class PlayerController : MonoBehaviour
         _rigidbody2D.velocity = new Vector2(_rigidbody2D.velocity.x, jumpSpeed);
         _animator.Play("PlayerJump");
         yield return new WaitForSeconds(0.3f);
-        yield return new WaitUntil(() => _isPlayerGrounded);
-        _currentlyInJumpOrFalling = false;
+        yield return new WaitUntil(() => _isPlayerGrounded || PlayerInput.Jump);
+        if (PlayerInput.Jump)
+        {
+            StartCoroutine(PlayerDoubleJumps());
+            yield return new WaitUntil(() => _isPlayerGrounded);
+            StopCoroutine(PlayerDoubleJumps());
+            _currentlyInJumpOrFalling = false;
+        }
+        if (_isPlayerGrounded)
+        {
+            StopCoroutine(PlayerDoubleJumps());
+            _currentlyInJumpOrFalling = false;
+        }
+    }
+
+    private IEnumerator PlayerDoubleJumps()
+    {
+        if (_recentlyJumped || !_currentlyInJumpOrFalling) yield break;
+        _rigidbody2D.velocity = new Vector2(_rigidbody2D.velocity.x, jumpSpeed);
+        _animator.Play("PlayerJump");
+        _doubleJumpTimer = 0;
     }
 
     private IEnumerator PlayerDropsDown()
@@ -303,22 +337,26 @@ public class PlayerController : MonoBehaviour
         Debug.Log("PlayNewPhaseRunSound called upon.");
         if (GameManager.phase1Active)
         {
-            audioSourceOther.PlayOneShot(phaseShiftRunClips[0]);
+            audioSourceOther.clip = phaseShiftRunClips[0];
+            audioSourceOther.Play();
             audioSourceRunning.clip = runClips[0];
         }
         else if (GameManager.phase2Active)
         {
-            audioSourceOther.PlayOneShot(phaseShiftRunClips[1]);
+            audioSourceOther.clip = phaseShiftRunClips[1];
+            audioSourceOther.Play();
             audioSourceRunning.clip = runClips[0];
         }
         else if (GameManager.phase3Active)
         {
-            audioSourceOther.PlayOneShot(phaseShiftRunClips[2]);
+            audioSourceOther.clip = phaseShiftRunClips[2];
+            audioSourceOther.Play();
             audioSourceRunning.clip = runClips[1];
         }
         else if (GameManager.phase4Active)
         {
-            audioSourceOther.PlayOneShot(phaseShiftRunClips[3]);
+            audioSourceOther.clip = phaseShiftRunClips[3];
+            audioSourceOther.Play();
             audioSourceRunning.clip = runClips[1];
         }
     }

@@ -5168,6 +5168,26 @@ PrefabInstance:
       propertyPath: m_PropertySheet.m_Float.m_Array.Array.data[0].m_Value
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4008608904212106739, guid: 7a1f62b4118f44c47a3167e19a14f33c, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6252443948163152721, guid: 7a1f62b4118f44c47a3167e19a14f33c, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6740126764363138626, guid: 7a1f62b4118f44c47a3167e19a14f33c, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8173621629374800821, guid: 7a1f62b4118f44c47a3167e19a14f33c, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8616128314775217641, guid: 7a1f62b4118f44c47a3167e19a14f33c, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8845351176064965499, guid: 7a1f62b4118f44c47a3167e19a14f33c, type: 3}
       propertyPath: m_Name
       value: Visual Effects
@@ -5861,6 +5881,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5290764087635881321, guid: 37438fd1e5339e742bf7860ee1f254f0, type: 3}
+      propertyPath: 'phaseShiftRunClips.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8300000, guid: fc72161c2af765d4baf01d6555d152f0, type: 3}
+    - target: {fileID: 5290764087635881321, guid: 37438fd1e5339e742bf7860ee1f254f0, type: 3}
+      propertyPath: 'phaseShiftRunClips.Array.data[1]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 18a6508ab620cac48a16388fff4384bb, type: 3}
+    - target: {fileID: 5290764087635881321, guid: 37438fd1e5339e742bf7860ee1f254f0, type: 3}
+      propertyPath: 'phaseShiftRunClips.Array.data[2]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 4ddea924e39aac14d927756f6b4dbe9c, type: 3}
+    - target: {fileID: 5290764087635881321, guid: 37438fd1e5339e742bf7860ee1f254f0, type: 3}
+      propertyPath: 'phaseShiftRunClips.Array.data[3]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 02a8b411377c1f94e819ee763156ad20, type: 3}
+    - target: {fileID: 5290764087635881321, guid: 37438fd1e5339e742bf7860ee1f254f0, type: 3}
+      propertyPath: 'phaseShiftRunClips.Array.data[4]'
+      value: 
+      objectReference: {fileID: 8300000, guid: ab364c545aac2da41bbfdc4574cf8561, type: 3}
     - target: {fileID: 6253638489183762549, guid: 37438fd1e5339e742bf7860ee1f254f0, type: 3}
       propertyPath: m_Name
       value: Player
