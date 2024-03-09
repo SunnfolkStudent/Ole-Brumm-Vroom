@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 3844522465451079105}
   - component: {fileID: 727306376950523555}
   m_Layer: 6
-  m_Name: EHoneypot
+  m_Name: EHoneypot9
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -125,6 +125,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _layoutNumber: 0
+  _obstacleNumber: 9
   initialVelocity: 4
   initialAcceleration: 0.3
   multiplierPhase2: 1.5

@@ -8,9 +8,10 @@ public class Parallax : MonoBehaviour
     public static event Action<int> ReachEnd;
     private bool _rightEdgeReachedEnd = false;
 
-    public static event Action<GameObject> ObstacleReachEnd;
+    public static event Action<int> ObstacleReachEnd;
     
     [SerializeField] private int _layoutNumber;
+    [SerializeField] private int _obstacleNumber;
     
     private Transform _objectTransform; // For reference to the transform 
     private Camera _cam; // Reference to Main Camera
@@ -122,7 +123,7 @@ public class Parallax : MonoBehaviour
         }
 
         //Checks if it's a layout
-        if (_layoutNumber>=1)
+        if (_layoutNumber>=1 && isAirPlatform)
         {
             if (viewPos.x <= 1 && !_rightEdgeReachedEnd)
             {
@@ -161,7 +162,10 @@ public class Parallax : MonoBehaviour
             }
             else if (isObstacle)
             { 
-                ObstacleReachEnd?.Invoke(gameObject);
+                _nextXPos = _objectWidth;
+                _objectTransform.position = new Vector3(_nextXPos, position.y, position.z);
+                Debug.Log("Obstacle: " + gameObject + "| LayoutNumber: "+_layoutNumber);
+                ObstacleReachEnd?.Invoke(_obstacleNumber);
             }
             else // Backgrounds
             {
@@ -170,11 +174,5 @@ public class Parallax : MonoBehaviour
                 // Instantiate(gameObject, new Vector3(_nextXPos, position.y, position.z), _objectTransform.rotation); 
             }
         }
-    }
-    private void StopPlatform()
-    {
-        _currentVelocity = 0;
-        _currentAcceleration = 0;
-        // objectStopped = true;
     }
 }
