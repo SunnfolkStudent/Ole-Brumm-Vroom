@@ -44,7 +44,6 @@ public class DumSpawner : MonoBehaviour
         BoxCollider2D camBoundaries = cam.GetComponent<BoxCollider2D>();
         _camRightEdge = camBoundaries.transform.position.x + camBoundaries.bounds.size.x / 2;
         
-        
         Parallax.OnRightEdgeView += EdgeReachView;
         Parallax.ReachEnd += EndReached;
         Parallax.ObstacleReachEnd += DeactivateObstacle;
@@ -69,7 +68,6 @@ public class DumSpawner : MonoBehaviour
 
     void PopulateInstanceArrays()
     {
-        
         _layoutInstancesNoObstacles = new List<GameObject>();
         for (int x = 0; x < layoutPrefabs.Length; x++) 
         { 
@@ -80,7 +78,6 @@ public class DumSpawner : MonoBehaviour
             _layoutInstancesNoObstacles.Add(Instantiate(layoutPrefabs[x], _transform.position, Quaternion.identity)); 
             _layoutInstancesNoObstacles[x].SetActive(false);
         }
-        
         
         _obstacleInstances = new List<GameObject>();
         for (int x = 0; x < obstaclePrefab.Length; x++) 
